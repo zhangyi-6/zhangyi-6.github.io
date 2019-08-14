@@ -1741,7 +1741,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffd488;
+  background: #c345d4;
 }
 .feed-link,
 .chat {
@@ -2937,7 +2937,7 @@ ul.breadcrumb li+li:last-child {
   }
 }
 body {
-  background: url("/images/haizeiwang.jpg");
+  background: url("https://www.wallpapermaiden.com/image/2016/11/08/howl-s-moving-castle-hayao-miyazaki-studio-ghibli-landscape-anime-9018-resized.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
