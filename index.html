@@ -301,6 +301,171 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/15/SpringBoot/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张易">
+      <meta itemprop="description" content="张易 来自东北省">
+      <meta itemprop="image" content="/images/guwang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张易的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/15/SpringBoot/" class="post-title-link" itemprop="url">SpringBoot</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-15 10:46:07 / 修改时间：14:13:48" itemprop="dateCreated datePublished" datetime="2019-08-15T10:46:07+08:00">2019-08-15</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="配置文件注入"><a href="#配置文件注入" class="headerlink" title="配置文件注入"></a>配置文件注入</h2><p>配置文件:</p>
+<pre><code>persion:
+lastName: zhangyi
+age: 23
+boss: false
+birth: 2019/07/17
+maps: {k1: v1,k2: 12}
+lists:
+  - lisi
+  - zhaoliu
+dog:
+   name: 小狗
+   age: 2</code></pre><p>javaBean:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 将配置文件中配置的每生个属性的值，映射到这个组件中</span><br><span class="line"> * 的相关配置进行绑定;</span><br><span class="line"> */</span><br><span class="line">@Component</span><br><span class="line">@ConfigurationProperties(prefix=&quot;persion&quot;)</span><br><span class="line">public class Persion &#123;</span><br><span class="line"></span><br><span class="line">    private String  lastName;</span><br><span class="line">    private Integer age;</span><br><span class="line">    private Boolean boss;</span><br><span class="line">    private Date birth;</span><br><span class="line"></span><br><span class="line">    private Map&lt;String,Object&gt; maps;</span><br><span class="line">    private List&lt;Object&gt; lists;</span><br><span class="line">    private Dog dog;</span><br></pre></td></tr></table></figure>
+
+<p>我们可以导入配置文件处理器，以后编写配置就有提示了</p>
+<p>将此依赖导入到pom.xml下就可以了，不然上面的注解ConfigurationProperties会报错:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-boot-configuration-processor&lt;/artifactId&gt;</span><br><span class="line">            &lt;optional&gt;true&lt;/optional&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<p>运行application.properties配置文件也是可以的，不过会乱码，要在Settings下找到File Encodings (文件编码)<br><img src="https://i.loli.net/2019/08/15/KD4xqhnOgQBfmHU.png" alt></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/14/搭建博客/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -505,7 +670,7 @@ cnpm install -g hexo-cli  </code></pre><p> 像下面这样:</p>
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-count">2</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
