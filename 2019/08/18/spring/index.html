@@ -94,19 +94,22 @@
 
 
 
-  <meta name="description" content="配置文件注入配置文件:    persion:     lastName: zhangyi     age: 23     boss: false     birth: 2019/07/17     maps: {k1: v1,k2: 12}     lists:       - lisi      - zhaoliu dog:    name: 小狗   age: 2javaBean: 1234">
+  <meta name="description" content="Spring官网：https://spring.io/projects 环境搭建 #:spring4.3.9官方文档https://docs.spring.io/spring/docs/4.3.9.RELEASE/spring-framework-reference/htmlsingle/ ## 第一步 ##将这几个依赖导入pom.xml中:   像这样： &amp;lt;dependency&amp;gt;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SpringBoot">
-<meta property="og:url" content="http://yoursite.com/2019/08/15/SpringBoot/index.html">
+<meta property="og:title" content="Spring">
+<meta property="og:url" content="http://yoursite.com/2019/08/18/spring/index.html">
 <meta property="og:site_name" content="张易的博客">
-<meta property="og:description" content="配置文件注入配置文件:    persion:     lastName: zhangyi     age: 23     boss: false     birth: 2019/07/17     maps: {k1: v1,k2: 12}     lists:       - lisi      - zhaoliu dog:    name: 小狗   age: 2javaBean: 1234">
+<meta property="og:description" content="Spring官网：https://spring.io/projects 环境搭建 #:spring4.3.9官方文档https://docs.spring.io/spring/docs/4.3.9.RELEASE/spring-framework-reference/htmlsingle/ ## 第一步 ##将这几个依赖导入pom.xml中:   像这样： &amp;lt;dependency&amp;gt;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://i.loli.net/2019/08/15/KD4xqhnOgQBfmHU.png">
-<meta property="og:updated_time" content="2019-08-15T08:23:55.735Z">
+<meta property="og:image" content="https://i.loli.net/2019/08/18/bU14fmaDQZuzTtn.png">
+<meta property="og:image" content="https://i.loli.net/2019/08/18/EnSFMRJBHb7c5OY.png">
+<meta property="og:image" content="https://i.loli.net/2019/08/18/oy6IDwskT5CQdet.png">
+<meta property="og:image" content="https://i.loli.net/2019/08/18/IrFeVY1yguXkPzS.png">
+<meta property="og:updated_time" content="2019-08-18T08:04:50.481Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SpringBoot">
-<meta name="twitter:description" content="配置文件注入配置文件:    persion:     lastName: zhangyi     age: 23     boss: false     birth: 2019/07/17     maps: {k1: v1,k2: 12}     lists:       - lisi      - zhaoliu dog:    name: 小狗   age: 2javaBean: 1234">
-<meta name="twitter:image" content="https://i.loli.net/2019/08/15/KD4xqhnOgQBfmHU.png">
+<meta name="twitter:title" content="Spring">
+<meta name="twitter:description" content="Spring官网：https://spring.io/projects 环境搭建 #:spring4.3.9官方文档https://docs.spring.io/spring/docs/4.3.9.RELEASE/spring-framework-reference/htmlsingle/ ## 第一步 ##将这几个依赖导入pom.xml中:   像这样： &amp;lt;dependency&amp;gt;">
+<meta name="twitter:image" content="https://i.loli.net/2019/08/18/bU14fmaDQZuzTtn.png">
 
 
 
@@ -114,7 +117,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/08/15/SpringBoot/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/18/spring/">
 
 
 
@@ -124,7 +127,7 @@
   };
 </script>
 
-  <title>SpringBoot | 张易的博客</title>
+  <title>Spring | 张易的博客</title>
   
 
 
@@ -303,7 +306,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/15/SpringBoot/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/18/spring/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="张易">
@@ -320,7 +323,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">SpringBoot
+          <h1 class="post-title" itemprop="name headline">Spring
 
               
             
@@ -346,7 +349,7 @@
                 
               
 
-              <time title="创建时间：2019-08-15 10:46:07 / 修改时间：16:23:55" itemprop="dateCreated datePublished" datetime="2019-08-15T10:46:07+08:00">2019-08-15</time>
+              <time title="创建时间：2019-08-18 11:54:11 / 修改时间：16:04:50" itemprop="dateCreated datePublished" datetime="2019-08-18T11:54:11+08:00">2019-08-18</time>
             </span>
           
 
@@ -388,33 +391,92 @@
       
 
       
-        <h2 id="配置文件注入"><a href="#配置文件注入" class="headerlink" title="配置文件注入"></a>配置文件注入</h2><p>配置文件:</p>
-<pre><code>   persion:
-    lastName: zhangyi
-    age: 23
-    boss: false
-    birth: 2019/07/17
-    maps: {k1: v1,k2: 12}
-    lists:
-      - lisi
-     - zhaoliu
-dog:
-   name: 小狗
-  age: 2</code></pre><p>javaBean:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 将配置文件中配置的每生个属性的值，映射到这个组件中</span><br><span class="line"> * 的相关配置进行绑定;</span><br><span class="line"> */</span><br><span class="line">@Component</span><br><span class="line">@ConfigurationProperties(prefix=&quot;persion&quot;)</span><br><span class="line">public class Persion &#123;</span><br><span class="line"></span><br><span class="line">    private String  lastName;</span><br><span class="line">    private Integer age;</span><br><span class="line">    private Boolean boss;</span><br><span class="line">    private Date birth;</span><br><span class="line"></span><br><span class="line">    private Map&lt;String,Object&gt; maps;</span><br><span class="line">    private List&lt;Object&gt; lists;</span><br><span class="line">    private Dog dog;</span><br></pre></td></tr></table></figure>
+        <p>Spring官网：<a href="https://spring.io/projects" target="_blank" rel="noopener">https://spring.io/projects</a></p>
+<h1 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建 #:"></a>环境搭建 #:</h1><h2 id="spring4-3-9官方文档"><a href="#spring4-3-9官方文档" class="headerlink" title="spring4.3.9官方文档"></a>spring4.3.9官方文档</h2><p><a href="https://docs.spring.io/spring/docs/4.3.9.RELEASE/spring-framework-reference/htmlsingle/" target="_blank" rel="noopener">https://docs.spring.io/spring/docs/4.3.9.RELEASE/spring-framework-reference/htmlsingle/</a></p>
+<h1 id="第一步"><a href="#第一步" class="headerlink" title="## 第一步 ##"></a>## 第一步 ##</h1><p>将这几个依赖导入pom.xml中:<br><img src="https://i.loli.net/2019/08/18/bU14fmaDQZuzTtn.png" alt><br>   像这样：</p>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-context&lt;/artifactId&gt;
+    &lt;version&gt;5.1.5.RELEASE&lt;/version&gt;
+  &lt;/dependency&gt;</code></pre><p>这样：</p>
+<p><img src="https://i.loli.net/2019/08/18/EnSFMRJBHb7c5OY.png" alt="3.png"></p>
+<h2 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h2><p>新增recourses下的配置文件：</p>
+<p><img src="https://i.loli.net/2019/08/18/oy6IDwskT5CQdet.png" alt="1.png"></p>
+<h2 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h2><p>创建的类Girl：<br>        package top.mczhangyi;</p>
+<pre><code>/**
+ * @张易
+ * @date 2019/8/18 - 12:14
+ */
+public class Girl {
+    private String name;
+    private Integer aeg;
 
-<p>我们可以导入配置文件处理器，以后编写配置就有提示了</p>
-<p>将此依赖导入到pom.xml下就可以了，不然上面的注解ConfigurationProperties会报错:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-boot-configuration-processor&lt;/artifactId&gt;</span><br><span class="line">            &lt;optional&gt;true&lt;/optional&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+    public String getName() {
+        return name;
+    }
 
-<p>运行application.properties配置文件也是可以的，不过会乱码，要在Settings下找到File Encodings (文件编码)<br><img src="https://i.loli.net/2019/08/15/KD4xqhnOgQBfmHU.png" alt></p>
-<p>@ImportResource:导入Spring的配置文件，让配置文件里面的内容生效:<br>Spring Boot里面没有Spring的配置文件，我们自己编写的配置文件，也不能自动识别；<br>想让Spring的配置文件生效，加载进来;@ImportResource标注在一个配置类上</p>
-<pre><code>@ImportResource(locations = {&quot;classpath:beans.xml&quot;}}
-导入Spring的配置文件让其生效</code></pre><p>SprignBoot推荐给容器中添加组件的方式:推荐使用全注解的方式：</p>
-<ol>
-<li>配置类====Spring配置文件</li>
-<li>使用@Bean给容器中添加组件 </li>
-</ol>
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getAeg() {
+        return aeg;
+    }
+
+    public void setAeg(Integer aeg) {
+        this.aeg = aeg;
+    }
+
+    @Override
+    public String toString() {
+        return &quot;Girl{&quot; +
+                &quot;name=&apos;&quot; + name + &apos;\&apos;&apos; +
+                &quot;, aeg=&quot; + aeg +
+                &apos;}&apos;;
+    }
+}</code></pre><h2 id="第四步"><a href="#第四步" class="headerlink" title="第四步"></a>第四步</h2><p>创建TestSpring类</p>
+<pre><code>    package top.mczhangyi;
+
+import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+/**
+ * @张易
+ * @date 2019/8/18 - 12:19
+ */
+public class TextSpring {
+
+    @Test
+    public void m1(){
+        //1.获取上下文对象，spring里面声明对象都需要通过上下文对象获取
+        ApplicationContext ctx = new ClassPathXmlApplicationContext(&quot;applicationConText.xml&quot;);
+        //2.通过这个对象获取我们的girl
+        Girl g = (Girl) ctx.getBean(&quot;girl&quot;);
+        System.out.println(g);
+    }
+}</code></pre><h3 id="普通编写spring的方式"><a href="#普通编写spring的方式" class="headerlink" title="普通编写spring的方式"></a>普通编写spring的方式</h3><p>普通的获取对象的方式，所有的对象之间的依赖，类之间的依赖关系都是在java代码里面维护的，很难维护的，如果我们有替换方案，替换比较困难，对象的产生全是在配件文件里面的</p>
+<h3 id="核心内容："><a href="#核心内容：" class="headerlink" title="核心内容："></a>核心内容：</h3><p>IOC容器<br>AOP<br>IOC概念：<br>    控制反转，inverse of control 什么控制，谁反转什么<br>控制:<br>创建对象，彼此关系的权利<br>过去控制权是开发人员在程序代码中进行  new<br>夺取控制权<br>反馈给spring的容器</p>
+<ul>
+<li>声明要什么</li>
+<li>spring容器来进行具体的控制 </li>
+</ul>
+<p>改变了编程方式</p>
+<h4 id="依赖注入（DI）"><a href="#依赖注入（DI）" class="headerlink" title="依赖注入（DI）"></a>依赖注入（DI）</h4><p>依赖：<br><img src="https://i.loli.net/2019/08/18/IrFeVY1yguXkPzS.png" alt="1.png"></p>
+<ul>
+<li>pojos:自己定义的类</li>
+<li>metadate:在spring的配置文件里面写的这些就是元数据 </li>
+<li>实例化信息:classpath..将配置文件传入，实例化完毕</li>
+</ul>
+<h4 id="spring值的注入"><a href="#spring值的注入" class="headerlink" title="spring值的注入"></a>spring值的注入</h4><ul>
+<li><p>setter注入（最常用的） 必须其字段有对应setter方法才可以完成name setName()  ,通过property子节点完成的注入</p>
+</li>
+<li><p>我将上面说的setname注释掉了，结果就报错下面这行信息:</p>
+<p> <code>NotWritablePropertyException: Invalid property &#39;name&#39; of bean class [top.mczhangyi.Girl]: Bean property &#39;name&#39; is not writable or has an invalid setter method. Does the parameter type of the setter match the return type of the getter?</code></p>
+</li>
+</ul>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>spring默认是通过无参构造器完成对象的创建的<br>如果没有无参构造器,也会报错<br>大多数的框架都不要动里面的无参构造器，因为他们都是以无参构造器执行的</p>
+<p>‘’’ </p>
 
       
     </div>
@@ -445,8 +507,8 @@ dog:
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/14/搭建博客/" rel="next" title="关于用hexo搭建框架">
-                <i class="fa fa-chevron-left"></i> 关于用hexo搭建框架
+              <a href="/2019/08/16/idea使用日常/" rel="next" title="idea使用日常">
+                <i class="fa fa-chevron-left"></i> idea使用日常
               </a>
             
           </div>
@@ -454,10 +516,6 @@ dog:
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/15/关于ssm/" rel="prev" title="ssm">
-                ssm <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -570,7 +628,7 @@ dog:
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置文件注入"><span class="nav-number">1.</span> <span class="nav-text">配置文件注入</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#环境搭建"><span class="nav-number">1.</span> <span class="nav-text">环境搭建 #:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#spring4-3-9官方文档"><span class="nav-number">1.1.</span> <span class="nav-text">spring4.3.9官方文档</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第一步"><span class="nav-number">2.</span> <span class="nav-text">## 第一步 ##</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第二步"><span class="nav-number">2.1.</span> <span class="nav-text">第二步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三步"><span class="nav-number">2.2.</span> <span class="nav-text">第三步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第四步"><span class="nav-number">2.3.</span> <span class="nav-text">第四步</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#普通编写spring的方式"><span class="nav-number">2.3.1.</span> <span class="nav-text">普通编写spring的方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#核心内容："><span class="nav-number">2.3.2.</span> <span class="nav-text">核心内容：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#依赖注入（DI）"><span class="nav-number">2.3.2.1.</span> <span class="nav-text">依赖注入（DI）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#spring值的注入"><span class="nav-number">2.3.2.2.</span> <span class="nav-text">spring值的注入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注意"><span class="nav-number">2.3.2.3.</span> <span class="nav-text">注意</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
