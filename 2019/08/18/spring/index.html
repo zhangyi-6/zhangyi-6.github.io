@@ -105,7 +105,7 @@
 <meta property="og:image" content="https://i.loli.net/2019/08/18/EnSFMRJBHb7c5OY.png">
 <meta property="og:image" content="https://i.loli.net/2019/08/18/oy6IDwskT5CQdet.png">
 <meta property="og:image" content="https://i.loli.net/2019/08/18/IrFeVY1yguXkPzS.png">
-<meta property="og:updated_time" content="2019-08-18T08:04:50.481Z">
+<meta property="og:updated_time" content="2019-08-19T02:40:19.009Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring">
 <meta name="twitter:description" content="Spring官网：https://spring.io/projects 环境搭建 #:spring4.3.9官方文档https://docs.spring.io/spring/docs/4.3.9.RELEASE/spring-framework-reference/htmlsingle/ ## 第一步 ##将这几个依赖导入pom.xml中:   像这样： &amp;lt;dependency&amp;gt;">
@@ -349,13 +349,23 @@
                 
               
 
-              <time title="创建时间：2019-08-18 11:54:11 / 修改时间：16:04:50" itemprop="dateCreated datePublished" datetime="2019-08-18T11:54:11+08:00">2019-08-18</time>
+              <time title="创建时间：2019-08-18 11:54:11" itemprop="dateCreated datePublished" datetime="2019-08-18T11:54:11+08:00">2019-08-18</time>
             </span>
           
 
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-19 10:40:19" itemprop="dateModified" datetime="2019-08-19T10:40:19+08:00">2019-08-19</time>
+              </span>
             
           
 
@@ -476,7 +486,12 @@ public class TextSpring {
 </li>
 </ul>
 <h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>spring默认是通过无参构造器完成对象的创建的<br>如果没有无参构造器,也会报错<br>大多数的框架都不要动里面的无参构造器，因为他们都是以无参构造器执行的</p>
-<p>‘’’ </p>
+<p>bean元素探讨</p>
+<ul>
+<li>abstract:该bean将无法被实例化</li>
+<li>parent:指定它的父bean是谁，将会继承父bean的所有内容，通过id进行</li>
+<li>destroy-method：指定这个bean最后销毁的时候一定执行的方法，适合于清理型工作</li>
+</ul>
 
       
     </div>
