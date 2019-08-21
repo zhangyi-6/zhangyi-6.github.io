@@ -105,7 +105,11 @@
 <meta property="og:image" content="https://i.loli.net/2019/08/18/EnSFMRJBHb7c5OY.png">
 <meta property="og:image" content="https://i.loli.net/2019/08/18/oy6IDwskT5CQdet.png">
 <meta property="og:image" content="https://i.loli.net/2019/08/18/IrFeVY1yguXkPzS.png">
-<meta property="og:updated_time" content="2019-08-19T02:40:19.009Z">
+<meta property="og:image" content="https://i.loli.net/2019/08/21/7ylCYixWTjDBbOZ.png">
+<meta property="og:image" content="https://i.loli.net/2019/08/21/SER25aGgC9D3Zpq.png">
+<meta property="og:image" content="https://i.loli.net/2019/08/21/alBrn3gfJS2VxLH.png">
+<meta property="og:image" content="https://i.loli.net/2019/08/21/Bvwe3yAgUprYh2c.png">
+<meta property="og:updated_time" content="2019-08-21T15:00:50.070Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring">
 <meta name="twitter:description" content="Spring官网：https://spring.io/projects 环境搭建 #:spring4.3.9官方文档https://docs.spring.io/spring/docs/4.3.9.RELEASE/spring-framework-reference/htmlsingle/ ## 第一步 ##将这几个依赖导入pom.xml中:   像这样： &amp;lt;dependency&amp;gt;">
@@ -364,7 +368,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-19 10:40:19" itemprop="dateModified" datetime="2019-08-19T10:40:19+08:00">2019-08-19</time>
+                <time title="修改时间：2019-08-21 23:00:50" itemprop="dateModified" datetime="2019-08-21T23:00:50+08:00">2019-08-21</time>
               </span>
             
           
@@ -491,7 +495,28 @@ public class TextSpring {
 <li>abstract:该bean将无法被实例化</li>
 <li>parent:指定它的父bean是谁，将会继承父bean的所有内容，通过id进行</li>
 <li>destroy-method：指定这个bean最后销毁的时候一定执行的方法，适合于清理型工作</li>
+<li>name：别名，可以通过它一样获取，可以写多个，彼此分割可以使用多种分隔符的方式空格<h3 id="Spring各种值的注入"><a href="#Spring各种值的注入" class="headerlink" title="Spring各种值的注入"></a>Spring各种值的注入</h3></li>
+<li>数组</li>
+<li>List</li>
+<li>Set</li>
+<li>Map<br>如果其对应的值是简单的字面值，直接写就可以了，如果是一个其它的类，那么使用Bean的方式完成<h4 id="自动注入"><a href="#自动注入" class="headerlink" title="自动注入"></a>自动注入</h4></li>
 </ul>
+<ol>
+<li>byType：按照数据类型注入</li>
+<li>byName: 按照bean对应的pojo里面的属性的名字，</li>
+</ol>
+<ul>
+<li>像：privaet Pig p  ， 这个p就是名字,要在下面图中，将primary删除，改成id或name,再加上p，这样就可以了</li>
+</ul>
+<ol start="3">
+<li>constructor<br>   优先根据类型匹配，如果匹配到一个那么直接注入，都找不到，报错</li>
+<li>default</li>
+<li>no</li>
+</ol>
+<p><img src="https://i.loli.net/2019/08/21/7ylCYixWTjDBbOZ.png" alt="2.png"></p>
+<h4 id="注意-1"><a href="#注意-1" class="headerlink" title="注意"></a>注意</h4><p>只有设置了true的bean才可以通过编译，因为只能有一个是可编译的<br><img src="https://i.loli.net/2019/08/21/SER25aGgC9D3Zpq.png" alt="1.png"><br>不然会报错<br><img src="https://i.loli.net/2019/08/21/alBrn3gfJS2VxLH.png" alt="3.png"></p>
+<h2 id="SpringAOP"><a href="#SpringAOP" class="headerlink" title="SpringAOP"></a>SpringAOP</h2><p>面向切面编程，关注的是一个横切面<br>Aop<br>Aop是基于代理完成的，所以我们要激活我们自动代理:<br><a href="aop:aopectj-autoproxy/" target="_blank" rel="noopener">aop:aopectj-autoproxy/</a></p>
+<p><img src="https://i.loli.net/2019/08/21/Bvwe3yAgUprYh2c.png" alt="1.png"></p>
 
       
     </div>
@@ -605,7 +630,7 @@ public class TextSpring {
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -647,7 +672,7 @@ public class TextSpring {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#环境搭建"><span class="nav-number">1.</span> <span class="nav-text">环境搭建 #:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#spring4-3-9官方文档"><span class="nav-number">1.1.</span> <span class="nav-text">spring4.3.9官方文档</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第一步"><span class="nav-number">2.</span> <span class="nav-text">## 第一步 ##</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第二步"><span class="nav-number">2.1.</span> <span class="nav-text">第二步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三步"><span class="nav-number">2.2.</span> <span class="nav-text">第三步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第四步"><span class="nav-number">2.3.</span> <span class="nav-text">第四步</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#普通编写spring的方式"><span class="nav-number">2.3.1.</span> <span class="nav-text">普通编写spring的方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#核心内容："><span class="nav-number">2.3.2.</span> <span class="nav-text">核心内容：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#依赖注入（DI）"><span class="nav-number">2.3.2.1.</span> <span class="nav-text">依赖注入（DI）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#spring值的注入"><span class="nav-number">2.3.2.2.</span> <span class="nav-text">spring值的注入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注意"><span class="nav-number">2.3.2.3.</span> <span class="nav-text">注意</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#环境搭建"><span class="nav-number">1.</span> <span class="nav-text">环境搭建 #:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#spring4-3-9官方文档"><span class="nav-number">1.1.</span> <span class="nav-text">spring4.3.9官方文档</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第一步"><span class="nav-number">2.</span> <span class="nav-text">## 第一步 ##</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第二步"><span class="nav-number">2.1.</span> <span class="nav-text">第二步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三步"><span class="nav-number">2.2.</span> <span class="nav-text">第三步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第四步"><span class="nav-number">2.3.</span> <span class="nav-text">第四步</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#普通编写spring的方式"><span class="nav-number">2.3.1.</span> <span class="nav-text">普通编写spring的方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#核心内容："><span class="nav-number">2.3.2.</span> <span class="nav-text">核心内容：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#依赖注入（DI）"><span class="nav-number">2.3.2.1.</span> <span class="nav-text">依赖注入（DI）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#spring值的注入"><span class="nav-number">2.3.2.2.</span> <span class="nav-text">spring值的注入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注意"><span class="nav-number">2.3.2.3.</span> <span class="nav-text">注意</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring各种值的注入"><span class="nav-number">2.3.3.</span> <span class="nav-text">Spring各种值的注入</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#自动注入"><span class="nav-number">2.3.3.1.</span> <span class="nav-text">自动注入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注意-1"><span class="nav-number">2.3.3.2.</span> <span class="nav-text">注意</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringAOP"><span class="nav-number">2.4.</span> <span class="nav-text">SpringAOP</span></a></li></ol></li></ol></div>
             
 
           </div>
