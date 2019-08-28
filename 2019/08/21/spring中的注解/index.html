@@ -94,17 +94,17 @@
 
 
 
-  <meta name="description" content="@Component@Component:强调就是一个组件，不知道是属于哪个，一般用这个  @Repository@Repository :标记为一个组件 ,强调处理数据访问层 @Service@Service:标记为一个组件，强调处理业务层 Controller@Controller：标记为一个组件，强调控制层">
+  <meta name="description" content="@Component@Component:强调就是一个组件，不知道是属于哪个，一般用这个  @Repository@Repository :标记为一个组件 ,强调处理数据访问层 @Service@Service:标记为一个组件，强调处理业务层 Controller@Controller：标记为一个组件，强调控制层 Spring中的注解配置&amp;lt;?xml version=&amp;quot;1.0&amp;quo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="spring中的注解">
 <meta property="og:url" content="http://yoursite.com/2019/08/21/spring中的注解/index.html">
 <meta property="og:site_name" content="张易的博客">
-<meta property="og:description" content="@Component@Component:强调就是一个组件，不知道是属于哪个，一般用这个  @Repository@Repository :标记为一个组件 ,强调处理数据访问层 @Service@Service:标记为一个组件，强调处理业务层 Controller@Controller：标记为一个组件，强调控制层">
+<meta property="og:description" content="@Component@Component:强调就是一个组件，不知道是属于哪个，一般用这个  @Repository@Repository :标记为一个组件 ,强调处理数据访问层 @Service@Service:标记为一个组件，强调处理业务层 Controller@Controller：标记为一个组件，强调控制层 Spring中的注解配置&amp;lt;?xml version=&amp;quot;1.0&amp;quo">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-21T13:33:17.576Z">
+<meta property="og:updated_time" content="2019-08-22T02:59:11.265Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="spring中的注解">
-<meta name="twitter:description" content="@Component@Component:强调就是一个组件，不知道是属于哪个，一般用这个  @Repository@Repository :标记为一个组件 ,强调处理数据访问层 @Service@Service:标记为一个组件，强调处理业务层 Controller@Controller：标记为一个组件，强调控制层">
+<meta name="twitter:description" content="@Component@Component:强调就是一个组件，不知道是属于哪个，一般用这个  @Repository@Repository :标记为一个组件 ,强调处理数据访问层 @Service@Service:标记为一个组件，强调处理业务层 Controller@Controller：标记为一个组件，强调控制层 Spring中的注解配置&amp;lt;?xml version=&amp;quot;1.0&amp;quo">
 
 
 
@@ -344,13 +344,23 @@
                 
               
 
-              <time title="创建时间：2019-08-21 21:19:34 / 修改时间：21:33:17" itemprop="dateCreated datePublished" datetime="2019-08-21T21:19:34+08:00">2019-08-21</time>
+              <time title="创建时间：2019-08-21 21:19:34" itemprop="dateCreated datePublished" datetime="2019-08-21T21:19:34+08:00">2019-08-21</time>
             </span>
           
 
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-22 10:59:11" itemprop="dateModified" datetime="2019-08-22T10:59:11+08:00">2019-08-22</time>
+              </span>
             
           
 
@@ -390,7 +400,19 @@
 <h1 id="Repository"><a href="#Repository" class="headerlink" title="@Repository"></a>@Repository</h1><p>@Repository :标记为一个组件 ,强调处理数据访问层</p>
 <h1 id="Service"><a href="#Service" class="headerlink" title="@Service"></a>@Service</h1><p>@Service:标记为一个组件，强调处理业务层</p>
 <h1 id="Controller"><a href="#Controller" class="headerlink" title="Controller"></a>Controller</h1><p>@Controller：标记为一个组件，强调控制层</p>
-
+<h2 id="Spring中的注解配置"><a href="#Spring中的注解配置" class="headerlink" title="Spring中的注解配置"></a>Spring中的注解配置</h2><pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+       xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot;
+       xmlns:c=&quot;http://www.springframework.org/schema/c&quot;
+       xmlns:cache=&quot;http://www.springframework.org/schema/cache&quot;
+       xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+       xmlns:jee=&quot;http://www.springframework.org/schema/jee&quot;
+       xmlns:lang=&quot;http://www.springframework.org/schema/lang&quot;
+       xmlns:p=&quot;http://www.springframework.org/schema/p&quot;
+       xmlns:task=&quot;http://www.springframework.org/schema/task&quot;
+       xmlns:util=&quot;http://www.springframework.org/schema/util&quot;
+       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;</code></pre>
       
     </div>
 
@@ -429,6 +451,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/23/Springmvc/" rel="prev" title="Springmvc">
+                Springmvc <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -499,7 +525,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-count">19</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -541,7 +567,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Component"><span class="nav-number">1.</span> <span class="nav-text">@Component</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Repository"><span class="nav-number">2.</span> <span class="nav-text">@Repository</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Service"><span class="nav-number">3.</span> <span class="nav-text">@Service</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Controller"><span class="nav-number">4.</span> <span class="nav-text">Controller</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Component"><span class="nav-number">1.</span> <span class="nav-text">@Component</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Repository"><span class="nav-number">2.</span> <span class="nav-text">@Repository</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Service"><span class="nav-number">3.</span> <span class="nav-text">@Service</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Controller"><span class="nav-number">4.</span> <span class="nav-text">Controller</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring中的注解配置"><span class="nav-number">4.1.</span> <span class="nav-text">Spring中的注解配置</span></a></li></ol></li></ol></div>
             
 
           </div>
