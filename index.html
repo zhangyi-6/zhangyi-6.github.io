@@ -301,7 +301,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/27/数据结构和算法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/02/java基础/面向对象/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="张易">
@@ -321,7 +321,2086 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/08/27/数据结构和算法/" class="post-title-link" itemprop="url">数据结构和算法</a>
+                <a href="/2019/09/02/java基础/面向对象/" class="post-title-link" itemprop="url">面向对象</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-02 18:04:41" itemprop="dateCreated datePublished" datetime="2019-09-02T18:04:41+08:00">2019-09-02</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-09-03 22:56:58" itemprop="dateModified" datetime="2019-09-03T22:56:58+08:00">2019-09-03</time>
+              </span>
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li>面向对象是相对面向过而言</li>
+<li>面向对象和面积过程都是一种思想</li>
+<li>面向过程，强调的是功能行为</li>
+<li>面向对象：将功能封装进对象，强调具备了功能的对象</li>
+<li>面向对象是基于面向过程的</li>
+</ul>
+<p>对象：将功能放到了其中 ，不用找其它的单个功能，因为功能已收进对象中</p>
+<p><img src="https://i.loli.net/2019/09/02/VaBNqusnQrPbMhc.png" alt="2.png"></p>
+<h3 id="三个特征：封装，继承，多态"><a href="#三个特征：封装，继承，多态" class="headerlink" title="三个特征：封装，继承，多态"></a>三个特征：封装，继承，多态</h3><p>开发就是找对象用，没有对象，就创建一个对象</p>
+<h3 id="类和对象的关系"><a href="#类和对象的关系" class="headerlink" title="类和对象的关系"></a>类和对象的关系</h3><p>类就是对现实生活中事物的描述，对象就是这类事物实实在在的实体</p>
+<p><strong>类：</strong></p>
+<p>映射到java中，描述的是class定义的类</p>
+<p><strong>对象：</strong></p>
+<p>对象对应java在堆内存中用new建立实体储存</p>
+<h3 id="属性对应的是类中的变量，行为对应的是类中的方法"><a href="#属性对应的是类中的变量，行为对应的是类中的方法" class="headerlink" title="属性对应的是类中的变量，行为对应的是类中的方法"></a>属性对应的是类中的变量，行为对应的是类中的方法</h3><p>其实定义类，就是在描述事物，就是定义属性和行为，属性和行为成为类中成员变量和成员方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line">    String  color = <span class="string">"红色"</span>:<span class="comment">//color在堆中</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> mun =<span class="number">4</span>;</span><br><span class="line">    <span class="comment">//行为</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(color+<span class="string">".."</span>+mun);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span>  <span class="title">CarDemo</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//生产汽车，java中通过new操作完成</span></span><br><span class="line">        <span class="comment">//其实就是在堆内存产生个实体</span></span><br><span class="line">      Car c =  <span class="keyword">new</span> Car();<span class="comment">//通过什么new的，就有了什么东西</span></span><br><span class="line">        <span class="comment">//变量指向对象,c 就是一个类类型变量，类类型变量指向对象</span></span><br><span class="line">        <span class="comment">//c在栈中</span></span><br><span class="line">        <span class="comment">//需求：将已有的车的颜色改成蓝色，指挥该对象</span></span><br><span class="line">        <span class="comment">//做使用，在java指挥方式是：对象.对象成员</span></span><br><span class="line">        c.color=<span class="string">"blue"</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="成员变量和局部变量"><a href="#成员变量和局部变量" class="headerlink" title="成员变量和局部变量"></a>成员变量和局部变量</h3><p>作用范围：</p>
+<ol>
+<li>成员变量作用于整个类中</li>
+<li>局部变量作用于函数中，或语句中</li>
+</ol>
+<p>在内存中的位置</p>
+<p>成员变量：在堆内存中，因为对象的存在，才在内存中存在，与类同在</p>
+<p>局部变量：在栈内存中</p>
+<hr>
+<h3 id="匿名对象"><a href="#匿名对象" class="headerlink" title="匿名对象"></a>匿名对象</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Car c = <span class="keyword">new</span> Car();</span><br><span class="line">c.num=<span class="number">0</span>;</span><br><span class="line"><span class="comment">//可以简写为匿名对象</span></span><br><span class="line"><span class="keyword">new</span> Car().num=<span class="number">0</span>;</span><br><span class="line"><span class="comment">//匿名对象使用方式1：</span></span><br><span class="line">当对对象的方法只调用一次时，可以用匿名对象来完成，这样简化点</span><br><span class="line">如果对多个成员调用，必须起名</span><br><span class="line"><span class="comment">//匿名对象使用方式2：</span></span><br><span class="line">可以将匿名对象作为实际参数进行传递</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">ShowCar</span> <span class="params">(Car c )</span></span>&#123;</span><br><span class="line">	c.num=<span class="number">3</span>;</span><br><span class="line">    c.color=<span class="string">"black"</span>;</span><br><span class="line">    c.run();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p>指隐藏对象的属性各实现细节，仅对外提供公共访问方式 </p>
+<p>好处：</p>
+<ul>
+<li>将变化隔离</li>
+<li>便于使用</li>
+<li>提高重用性</li>
+<li>提高安全性</li>
+</ul>
+<p>封装原则：</p>
+<ul>
+<li>将不需要对外提供的内容都隐藏起来</li>
+<li>把属性都隐藏，提供公共方法对其访问</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> age;<span class="comment">//关键字是私有，权限</span></span><br><span class="line">    <span class="comment">//用于修饰类中的成员，（成员变量，成员函数）</span></span><br><span class="line">    <span class="comment">//私有只在本类中有效</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">       <span class="keyword">private</span> <span class="keyword">int</span> age;<span class="comment">//关键字是私有，权限</span></span><br><span class="line">    <span class="comment">//用于修饰类中的成员，（成员变量，成员函数）</span></span><br><span class="line">    <span class="comment">//私有只在本类中有效</span></span><br><span class="line"></span><br><span class="line">     <span class="comment">/*</span></span><br><span class="line"><span class="comment">     将age私有化以后，类以外即使建立了对象也不能直接访问</span></span><br><span class="line"><span class="comment">     但是人应该有年龄，就需要在person类中提供</span></span><br><span class="line"><span class="comment">    对应访问age的方式</span></span><br><span class="line"><span class="comment">      */</span></span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">haha</span><span class="params">(<span class="keyword">int</span> a )</span></span>&#123;</span><br><span class="line">         age  = a ;</span><br><span class="line">     &#125;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">speak</span><span class="params">()</span></span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"age="</span>+age);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span>  <span class="title">PersonDemo</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Person p = <span class="keyword">new</span> Person();</span><br><span class="line">        p.haha(<span class="number">20</span>);</span><br><span class="line">        p.speak();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> a)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">if</span>(a&gt;<span class="number">0</span>&amp;&amp;a&lt;<span class="number">190</span>)&#123;</span><br><span class="line">           age=a;</span><br><span class="line">          speak();</span><br><span class="line">       &#125;<span class="keyword">else</span></span><br><span class="line">           System.out.println(<span class="string">"错了"</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">speak</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"age="</span>+age);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PersonDemo</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      Person person = <span class="keyword">new</span> Person();</span><br><span class="line">        person.setAge(<span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>每当有一个私有的属性，都有set和get</p>
+<h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><p>特点：</p>
+<ol>
+<li>函数名与类名相同</li>
+<li>不用定义返回值类型</li>
+<li>不可以定return语句</li>
+</ol>
+<p>作用：<br>给对象进行初始化</p>
+<ul>
+<li>默认构造函数的特点</li>
+<li>多个构造函数是以重载的形式存在的</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    Person()&#123;</span><br><span class="line">        System.out.println(<span class="string">"person run"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PersonDemo2</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Person p = <span class="keyword">new</span> Person()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>构造函数是与类名一致的，一建立就会自动调用</p>
+<p><strong>构造函数的作用，可以用于给对象进行初始化</strong></p>
+<p>当自定义了构造函数，系统就不给分配了</p>
+<p>构造函数和一般函数在写法上有不同</p>
+<p>在运行上也有不同 </p>
+<p>构造函数在对象一建立就运行，给对象初始化的一般方法是对象调用才执行，是给对象添加具备的功能</p>
+<p>一个对象建立，构造函数只运行一次</p>
+<p>而一般方法可以被对象调用</p>
+<h3 id="构造代码块"><a href="#构造代码块" class="headerlink" title="构造代码块"></a>构造代码块</h3><p>作用：给对象进行初始化</p>
+<p>对象一建立就运行，而且优于构造函数执行</p>
+<p>和构造函数的区别：</p>
+<p>构造代码块是给所有对象进行统一初始化</p>
+<p>构造函数是给对应对象初始化</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="this关键字"><a href="#this关键字" class="headerlink" title="this关键字"></a>this关键字</h3><p><strong>this代表本类的对象</strong></p>
+<p><strong>this代表它所在函数所属对象的引用</strong></p>
+<p><strong>哪个对象在调用this所在的方法，this就代表哪个对象</strong></p>
+<p>this是用于区分局部变量和成员变量同名情况 </p>
+<p>但凡本类功能内部使用了本类对象，都用this</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Person(String name,<span class="keyword">int</span> age)&#123;</span><br><span class="line"><span class="comment">//初始化构造器的两个局部变量</span></span><br><span class="line">    <span class="keyword">this</span>(name);</span><br><span class="line">    <span class="keyword">this</span>.age =age;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span>  <span class="title">PersonDemo</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//初始化一个Person</span></span><br><span class="line">        Person p = <span class="keyword">new</span> Person(<span class="string">"x"</span>,<span class="number">30</span>);</span><br><span class="line">        <span class="comment">//x,30传给上面的Person构造器，使构造器为new Person(name)再变为this(name);</span></span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>this只能放在构造方法的第一行，因为初始化要先执行</strong>，<strong>this只能在构造方法间</strong></p>
+<h3 id="Static"><a href="#Static" class="headerlink" title="Static"></a>Static</h3><p>static是一个修饰符，用于修饰成员(成员变量，成员函数)，</p>
+<ul>
+<li><p>使堆内存中重复的变量，变为公有的，</p>
+</li>
+<li><p>除了可以被对象调用外，还可以直接被类名调用，形式是：</p>
+<p>类名.静态成员。</p>
+</li>
+</ul>
+<p>static特点：</p>
+<ol>
+<li>随着类的加载而加载</li>
+<li>优先于对象的存在</li>
+<li>被所有对象所共享</li>
+<li>可以直接被类名调用 </li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String name;<span class="comment">//成员变量，实例变量</span></span><br><span class="line"><span class="keyword">static</span> String  country=<span class="string">"张三"</span>;<span class="comment">//静态的成员变量，类变量</span></span><br></pre></td></tr></table></figure>
+
+<p>实例变量和类变量的区别 ：</p>
+<ol>
+<li><p>存放位置：</p>
+<ul>
+<li>类变量随着类的加载而存在于方法区中，随着类的消失而消失</li>
+<li>实例变量随着对象的建立而存在于堆内存中</li>
+</ul>
+</li>
+<li><p>生命周期 ：</p>
+<ul>
+<li>类变量生命周期最长，随着类的消失而消失</li>
+<li>实例变量生命周期随着对象的消失而消失</li>
+</ul>
+<p><img src="https://i.loli.net/2019/09/03/OIjh8Qk2vZaCwVK.png" alt="2.png"></p>
+</li>
+</ol>
+<p>静态的使用注意事项：</p>
+<ol>
+<li><p>静态方法只能访问静态成员</p>
+<p>非静态方法既可以访问静态也可以访问非静态,因为静态是先出来的，</p>
+<p>它后面的可以访问它</p>
+</li>
+<li><p>静态方法中不可以定义this，super关键字</p>
+<p>因为静态优先于对象存在，所以静态方法中不可以出现this </p>
+</li>
+</ol>
+<p><strong>静态有利有弊</strong></p>
+<p>利：</p>
+<ul>
+<li>对对象的共享数据进行单独空间的存储，节省空间，没必要一个对象存储一份</li>
+<li>可以直接被类名调用 </li>
+</ul>
+<p>弊：</p>
+<ul>
+<li>生命周期过长，访问出现局限性，只能访问静态</li>
+<li>主函数是静态的</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/02/开/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张易">
+      <meta itemprop="description" content="张易 来自东北省">
+      <meta itemprop="image" content="/images/guwang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张易的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/09/02/开/" class="post-title-link" itemprop="url">未命名</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-02 15:01:42" itemprop="dateCreated datePublished" datetime="2019-09-02T15:01:42+08:00">2019-09-02</time>
+            </span>
+          
+
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/01/Mysql/Mysql/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张易">
+      <meta itemprop="description" content="张易 来自东北省">
+      <meta itemprop="image" content="/images/guwang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张易的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/09/01/Mysql/Mysql/" class="post-title-link" itemprop="url">Mysql</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-01 21:34:37 / 修改时间：22:15:24" itemprop="dateCreated datePublished" datetime="2019-09-01T21:34:37+08:00">2019-09-01</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>保存数据的容器：</p>
+<p>数组，集合，都是放在内存上，文件来说以不好查找</p>
+<h3 id="1数据库的好处："><a href="#1数据库的好处：" class="headerlink" title="1数据库的好处："></a>1数据库的好处：</h3><ol>
+<li><p>实现数据持久化</p>
+</li>
+<li><p>使用完事的管理系统统一管理，易于查询</p>
+<p><strong>DB:</strong></p>
+<p>数据库：database:存储数据的仓库 ，保存了一系列有组织的数据</p>
+<p><strong>DBMS</strong></p>
+<p>数据库管理系统databasm management system    数据库是通过DBMS创建和操作的容器</p>
+<p><strong>SQL</strong></p>
+<p>结构化查询语言structure query language  ，专门用来与数据库通信的语言</p>
+</li>
+</ol>
+<p>SQL的优点：</p>
+<ol>
+<li>不是某个特定数据库供应商专有的语言，几乎所有DBMS都支持SQL</li>
+<li>简单</li>
+<li>表具有一定特性，类似java的类</li>
+<li>表由列组成，我们也称为字段，所有表都是由一个或多个列组成的，每一列类似java中的属性</li>
+<li>表中的数据是按行存储的，每一行类似于Javak 中的对象 </li>
+</ol>
+<h3 id="MYSQL产品的特点"><a href="#MYSQL产品的特点" class="headerlink" title="MYSQL产品的特点"></a>MYSQL产品的特点</h3><p>MYSQL数据库隶属于MYSQLAB公司，总部在瑞典，被oracle收购</p>
+<p>优点：成本低，开放源代码</p>
+<p>性能高：执行很快</p>
+<p>简单：易安装使用</p>
+<p><strong>DBMS</strong>分为 </p>
+<ul>
+<li><p>基于共享文件系统  DBMS(Access)</p>
+</li>
+<li><p>基于客户机 —-服务器的DBMS（mysql,oracle,sqlserver）c/s架构的</p>
+</li>
+<li><p>下载地址</p>
+</li>
+<li><p><a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="noopener">https://dev.mysql.com/downloads/mysql/</a></p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/31/java基础/java报错提示/java报错提示/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张易">
+      <meta itemprop="description" content="张易 来自东北省">
+      <meta itemprop="image" content="/images/guwang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张易的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/31/java基础/java报错提示/java报错提示/" class="post-title-link" itemprop="url">java报错提示</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-31 16:23:48 / 修改时间：16:27:53" itemprop="dateCreated datePublished" datetime="2019-08-31T16:23:48+08:00">2019-08-31</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ArrayIndexOutOfBoundsException<span class="comment">//译为角标越界</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NullPointerException <span class="comment">//空指针异常，当引用没有任何指定值为空的情况，该引用还在用于操作实体</span></span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/31/张易的健身日志/健身日志/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张易">
+      <meta itemprop="description" content="张易 来自东北省">
+      <meta itemprop="image" content="/images/guwang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张易的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/31/张易的健身日志/健身日志/" class="post-title-link" itemprop="url">未命名</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-31 15:13:15 / 修改时间：15:17:36" itemprop="dateCreated datePublished" datetime="2019-08-31T15:13:15+08:00">2019-08-31</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<h2 id="title：健身日志"><a href="#title：健身日志" class="headerlink" title="title：健身日志"></a>title：健身日志</h2><p>2019.08.31日</p>
+<p>最近坐凳子感觉很不舒服，想想也该锻炼了，便又将keep下了回来，还花了9个大洋买了1个月会员，只是为了能看到教练的详细讲解。</p>
+<p>做了一组初级腹肌撕裂者，感觉不错</p>
+<p>加油。</p>
+<hr>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/30/java基础/java方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张易">
+      <meta itemprop="description" content="张易 来自东北省">
+      <meta itemprop="image" content="/images/guwang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张易的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/30/java基础/java方法/" class="post-title-link" itemprop="url">java方法</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-30 15:20:17" itemprop="dateCreated datePublished" datetime="2019-08-30T15:20:17+08:00">2019-08-30</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-09-02 18:04:30" itemprop="dateModified" datetime="2019-09-02T18:04:30+08:00">2019-09-02</time>
+              </span>
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>方法也是函数，是具有特定功能的一段独立小程序</p>
+<p> 格式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">修饰符 返回值类型 函数名（参数类型  形式类型 参数类型 形式参数<span class="number">2</span>）</span><br><span class="line">(形参即是变量)</span><br><span class="line">｛		执行语句;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> 返回值；</span><br><span class="line">		<span class="keyword">int</span> x = getResult(<span class="number">4</span>);<span class="comment">//通过定义一个变量来接收这么一个变量</span></span><br><span class="line">		System.out.println(<span class="string">"x="</span>+x);</span><br><span class="line">｝</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">getResult</span><span class="params">(<span class="keyword">int</span> num)</span></span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span>  num * <span class="number">3</span> =<span class="number">3</span>+<span class="number">5</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">如果不写返回值，自然也没有返回值类型了，</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="title">getResult</span><span class="params">(<span class="keyword">int</span> num)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">System.out.println(num * <span class="number">3</span>+<span class="number">5</span>);</span><br><span class="line"><span class="comment">//这样就不行，没有返回值</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//没有返回值可以在此前用void来表示</span></span><br><span class="line"><span class="comment">//当函数的返回值类型是void时，没有函数中的return语句可以省略不写</span></span><br></pre></td></tr></table></figure>
+
+<p>返回值类型：函数运行后的结果的数据类型</p>
+<p>参数类型：形参</p>
+<p>实际参数：传递给形式参数的个体数值</p>
+<p>return ：用于结束函数</p>
+<p>返回值：该值会返回给调用者</p>
+<p><strong>注意</strong></p>
+<p>函数之间是只可以调用的，不可以在主函数里，定义别的函数，但可以调用</p>
+<hr>
+<h5 id="如果定义一个函数"><a href="#如果定义一个函数" class="headerlink" title="如果定义一个函数"></a>如果定义一个函数</h5><ol>
+<li><strong>函数是独立的功能，那么运算结果是什么（函数的返回值类型）</strong></li>
+<li><strong>明确在定义该功能的过程中，是否需要未知的内容参与运算（函数的参数列表（参数的类型和参数的个数））</strong></li>
+<li>需求：</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*1.定义一个功能，完成3+4的运算。并将结果返回给调用者</span></span><br><span class="line"><span class="comment">		功能结果：是一个整数的和</span></span><br><span class="line"><span class="comment">   2.在实现该功能的过程中是否有未知内容参与运算</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public class App </span><br><span class="line">&#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">	int sum = getSum(3,4);</span><br><span class="line">	System.out.println(&quot;sum=&quot;+sum);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//方法</span><br><span class="line"></span><br><span class="line">public static int getSum(int x ,int y)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">return x+y;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>定义一个布尔型</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">App</span> </span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">boolean</span> b =getSum(<span class="number">2</span>,<span class="number">2</span>);</span><br><span class="line">        System.out.println(b);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">getSum</span><span class="params">( <span class="keyword">int</span> a,<span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (a==b)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">else</span>  <span class="comment">//else可以不写，有返回值就行</span></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> 上面的</span><br><span class="line">       <span class="keyword">if</span> (a==b)</span><br><span class="line">           <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">           <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line"> 可以改为:</span><br><span class="line"> <span class="keyword">return</span>  (a==b)?<span class="keyword">true</span>:<span class="keyword">false</span>;</span><br><span class="line"> </span><br><span class="line">想更简化的话：</span><br><span class="line"><span class="keyword">return</span> (a==b);<span class="comment">//只是在布尔下这样才可以</span></span><br></pre></td></tr></table></figure>
+
+<p>比较两个数的大小，返回较大的数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return (a&gt;b)?a:b;</span><br></pre></td></tr></table></figure>
+
+<h5 id="定义个矩形方法"><a href="#定义个矩形方法" class="headerlink" title="定义个矩形方法"></a>定义个矩形方法</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      getJunXing(<span class="number">3</span>,<span class="number">3</span>);</span><br><span class="line">  &#125;</span><br><span class="line">          <span class="function"><span class="keyword">public</span> <span class="keyword">static</span>  <span class="keyword">void</span>                        <span class="title">getJunXing</span><span class="params">(<span class="keyword">int</span> x ,<span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">              </span><br><span class="line">         <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; x; i++) &#123;</span><br><span class="line">           <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; y; j++) &#123;</span><br><span class="line">            System.out.print(<span class="string">"*"</span>);</span><br><span class="line">                 &#125;</span><br><span class="line">           System.out.println();</span><br><span class="line">              &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">***</span><br><span class="line">***</span><br><span class="line">***</span><br></pre></td></tr></table></figure>
+
+<h6 id="8以内的乘法口诀"><a href="#8以内的乘法口诀" class="headerlink" title="8以内的乘法口诀"></a>8以内的乘法口诀</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        getJunXing(<span class="number">8</span>,<span class="number">8</span>);</span><br><span class="line">    &#125;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">static</span>  <span class="keyword">void</span> <span class="title">getJunXing</span><span class="params">(<span class="keyword">int</span> x ,<span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= x; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= i; j++) &#123;</span><br><span class="line">                System.out.print(i+<span class="string">"*"</span>+j+<span class="string">"="</span>+i*j+<span class="string">" "</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="方法的重载"><a href="#方法的重载" class="headerlink" title="方法的重载"></a>方法的重载</h4><p>概念：<strong>在同一个类中，允许存在一个以上的同名函数，只要它们的参数个数或者参数类型不同即可</strong></p>
+<ul>
+<li>加法功能与方法的重载</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a =   getJunxing(<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>);<span class="comment">//它可以自己找参数为3个的方法，根据参数而定</span></span><br><span class="line">       System.out.println(a);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">getJunXing</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> x+y;</span><br><span class="line"></span><br><span class="line">   &#125;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>  <span class="title">getJunxing</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y,<span class="keyword">int</span> z)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">return</span> x+y+z;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>什么时候用重载：当定义的功能相同，但参与运算的未知内容不同，这时就定义同一个方法名称以表示功能，而通过参数列表的不同来区分多个同名方法</strong></p>
+<h5 id="数组的定义"><a href="#数组的定义" class="headerlink" title="数组的定义"></a>数组的定义</h5><p>同一个类型数据的集合，其实数组就是一个容器</p>
+<ul>
+<li>好处：可以自动给数组中的元素从0开始编号，方便操作这些元素</li>
+</ul>
+<h4 id="内存结构"><a href="#内存结构" class="headerlink" title="内存结构"></a>内存结构</h4><p>java程序在运行时，需要在内存中的分配空间，为了提高运算效率，有对空间进行了不同区域的划分，因为每一片区域都有特定的处理数据方式和内存管理方式</p>
+<p>五在结构</p>
+<ul>
+<li><p>栈内存</p>
+<p>用于存储局部变量，当数据使用完，所占空间会释放</p>
+</li>
+<li><p>堆内存</p>
+<ul>
+<li>数组和对象，通过new建立的实例都存放在堆内存</li>
+<li>每一个实体都有内存地址值</li>
+<li>实体中的变量都有默认初始化值</li>
+<li>实体不被使用，会在不确定的时间内被回收器回收</li>
+</ul>
+</li>
+<li><p>方法区</p>
+</li>
+<li><p>本地方法区</p>
+</li>
+<li><p>寄存器</p>
+</li>
+</ul>
+<p>普通栈内存图</p>
+<p><img src="https://i.loli.net/2019/08/31/9jPCOMGtvDL1zHh.png" alt="2.png"></p>
+<hr>
+<p>数组内存图</p>
+<p><img src="https://i.loli.net/2019/08/31/QuxnbGPV46Ss1IM.png" alt="2.png"></p>
+<p>不赋值也可以默认初始化，int默认为0，double为0.0，flout为0.0f，boolean为false</p>
+<p><img src="https://i.loli.net/2019/08/31/lCFmuDZINiQx42w.png" alt="2.png"></p>
+<p>两个数组的调用 </p>
+<p><img src="https://i.loli.net/2019/08/31/BvnmqDw3PWjOVAJ.png" alt="2.png"></p>
+<p>普通变量内存</p>
+<p><img src="https://i.loli.net/2019/08/31/ywgWiNrq6SpeM3d.png" alt="2.png"></p>
+<p><strong>注意，当数组是new的时候 ，就是开辟了两个地址空间</strong></p>
+<hr>
+<h4 id="数组的定义2"><a href="#数组的定义2" class="headerlink" title="数组的定义2"></a>数组的定义2</h4><p>概念：</p>
+<p>同一种类型数据的集合，其实数组就是一个容器</p>
+<p>数组的好处：</p>
+<p>可以自动给数组中的元素从0开始编号，方便操作这元素。</p>
+<p>格式 1：</p>
+<p>元素类型 [ ]        数组名=      new   元素类型      [元素个数或者数组长度]；</p>
+<p>示例: <strong>int [ ] arr =new int [5];</strong></p>
+<p>​        <strong>int arr[ ] = new int  [5];</strong></p>
+<p>格式：</p>
+<p>元素类型 [ ] 数组名 = new 元素类型[ ]  {元素，元素，…};</p>
+<p><strong>int [ ] arr= new  int [ ] { 3,5,2};</strong></p>
+<p><strong>int [ ] arr = new int [3];</strong></p>
+<p><strong>arr [ 0 ] =60;</strong></p>
+<p><strong>arr [ 1 ]=22;</strong></p>
+<p>定义一个数组并打印</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] x = &#123;<span class="number">3</span>,<span class="number">5</span>,<span class="number">56</span>&#125;;</span><br><span class="line">       System.out.println(x[<span class="number">0</span>]);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> [] arr = <span class="keyword">new</span> <span class="keyword">int</span> [<span class="number">3</span>];</span><br><span class="line">System.out.println(arr[<span class="number">2</span>]);</span><br></pre></td></tr></table></figure>
+
+<h5 id="数组的操作，遍历"><a href="#数组的操作，遍历" class="headerlink" title="数组的操作，遍历"></a>数组的操作，遍历</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">            <span class="comment">//获取数组中的元素，要用遍历</span></span><br><span class="line">        <span class="keyword">int</span>[] arr = &#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">2</span>&#125;;</span><br><span class="line">        <span class="comment">//数组中有一个属性可以直接获取到数组元素个数，length.</span></span><br><span class="line">        <span class="comment">//使用方式，数组名称.length =</span></span><br><span class="line">       <span class="keyword">int</span> sum =<span class="number">0</span>;<span class="comment">//数组之和</span></span><br><span class="line"></span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;arr.length;i++)&#123;</span><br><span class="line"></span><br><span class="line">          sum+=arr [i];</span><br><span class="line"><span class="comment">//          System.out.println("arr["+i+"]"+"="+arr[i]);</span></span><br><span class="line">       &#125;</span><br><span class="line">        System.out.println(sum);<span class="comment">//在外面打印，不然每次循环都打印，就不是累加了</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="定义数组的方法也要记住"><a href="#定义数组的方法也要记住" class="headerlink" title="定义数组的方法也要记住"></a>定义数组的方法也要记住</h6><ol>
+<li>确定有无返回值</li>
+<li>确定有无未知变量</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//打出中间带","的数组</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">输出结果为：1,2,3</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> [] arr = <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line">        printArray(arr);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printArray</span><span class="params">(<span class="keyword">int</span> [] arr)</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i!=arr.length - <span class="number">1</span>)</span><br><span class="line">            System.out.print(arr[i]+<span class="string">","</span>);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            System.out.print(arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意当只这样输出时</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> [] arr = <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;System.out.println(arr);<span class="comment">//这是直接打印了引用，数组的地址</span></span><br></pre></td></tr></table></figure>
+
+<p>控制台会显示这个：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[I@<span class="number">4554617</span>c</span><br></pre></td></tr></table></figure>
+
+<p>[ 代表数组， I译为int，代表元素类型，后面的是数组的内存存放地址，为16进制。</p>
+<h3 id="获取数组中的最值"><a href="#获取数组中的最值" class="headerlink" title="获取数组中的最值"></a>获取数组中的最值</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">例题：获取数组中的最值</span><br><span class="line">｛<span class="number">5</span>,<span class="number">1</span>,<span class="number">6</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">8</span>,<span class="number">9</span>｝</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">思路：</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 思路：</span></span><br><span class="line"><span class="comment">         * 1.获取最值需要比较，每一次要比较出一个最大的值，通过变量进行</span></span><br><span class="line"><span class="comment">         * 临时储存</span></span><br><span class="line"><span class="comment">         * 2.让数组中的每个元素都和这个数比较，如果</span></span><br><span class="line"><span class="comment">         * 大于了变量中的值，就让该变量记录较大的值</span></span><br><span class="line"><span class="comment">         * 3.当所有的元素都比较完成，那么该变量中存储的</span></span><br><span class="line"><span class="comment">         * 就是数组中的最大值了</span></span><br><span class="line"><span class="comment">         *</span></span><br><span class="line"><span class="comment">         * 步骤：</span></span><br><span class="line"><span class="comment">         * 1.定义变量，初始化为数组中做任意一个元素即可</span></span><br><span class="line"><span class="comment">         * 2.通过循环语句对数组进行遍历</span></span><br><span class="line"><span class="comment">         * 3.在变量过程中定义判断条件，如果遍历到的元素</span></span><br><span class="line"><span class="comment">         * 比变量中的元素大，就赋值给该变量</span></span><br><span class="line"><span class="comment">         *</span></span><br><span class="line"><span class="comment">         * 需要定义一个功能来完成，以便提高利用性</span></span><br><span class="line"><span class="comment">         * 1.明确结果，数组中的最大元素int</span></span><br><span class="line"><span class="comment">         * 2.未知内容，一个数组 ,int[]</span></span><br><span class="line"><span class="comment">         */</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> [] arr = <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">5</span>,<span class="number">1</span>,<span class="number">6</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">8</span>,<span class="number">9</span>&#125;;</span><br><span class="line"></span><br><span class="line">     <span class="keyword">int</span> max =  getMax(arr);</span><br><span class="line">       System.out.println(<span class="string">"max="</span>+max);</span><br><span class="line"></span><br><span class="line">   &#125;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>  <span class="title">getMax</span><span class="params">(<span class="keyword">int</span> [] arr)</span></span>&#123;</span><br><span class="line">       <span class="keyword">int</span> max =arr[<span class="number">0</span>];</span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">           <span class="keyword">if</span> (arr [i]&gt;max)</span><br><span class="line">               max = arr [i];</span><br><span class="line"></span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> max;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="选择排序，将乱序的排序"><a href="#选择排序，将乱序的排序" class="headerlink" title="选择排序，将乱序的排序"></a>选择排序，将乱序的排序</h3><p>从第0角标开始，一个一个和其它数比</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">App</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> arr[] =&#123;<span class="number">1</span>,<span class="number">99</span>,<span class="number">23</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</span><br><span class="line"><span class="comment">//在排序前打印：</span></span><br><span class="line">  printArray(arr);</span><br><span class="line">selectSort(arr);</span><br><span class="line"><span class="comment">//排序后</span></span><br><span class="line">printArray(arr);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printArray</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">       System.out.print(<span class="string">"["</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(i!=arr.length-<span class="number">1</span>)</span><br><span class="line">                System.out.print(arr[i]+<span class="string">","</span>);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                System.out.print(arr[i]+<span class="string">"]"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">selectSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length-<span class="number">1</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j =i+<span class="number">1</span>; j &lt; arr.length; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr [i]&gt;arr [j])</span><br><span class="line">            &#123;</span><br><span class="line">               <span class="keyword">int</span> temp=arr [i];</span><br><span class="line">                arr [i] =arr [j];</span><br><span class="line">                arr [j] =temp;</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><p>相邻的两个元素进行比较，如果符合条件换位</p>
+<p>通过比较，小的值往前跑，大的值往后跑，就像鱼吐泡一样</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> arr[] =&#123;<span class="number">12</span>,<span class="number">996</span>,<span class="number">23</span>,<span class="number">44</span>,<span class="number">55</span>&#125;;</span><br><span class="line"><span class="comment">//在排序前打印：</span></span><br><span class="line">  printArray(arr);</span><br><span class="line"><span class="comment">//selectSort(arr);</span></span><br><span class="line"><span class="comment">//排序后</span></span><br><span class="line">        maopao(arr);</span><br><span class="line">printArray(arr);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">maopao</span><span class="params">(<span class="keyword">int</span>[] arr)</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;arr.length-<span class="number">1</span>;i++)</span><br><span class="line">            <span class="comment">//-i让每一次比较的元素减少，-1避免角标越界</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span> ; j &lt; arr.length-i-<span class="number">1</span>; j++) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (arr[j]&gt;arr [j+<span class="number">1</span>])&#123;</span><br><span class="line">                <span class="keyword">int</span> temp=arr [j];</span><br><span class="line">                arr[j] = arr [j+<span class="number">1</span>];</span><br><span class="line">                arr [j+<span class="number">1</span>]=temp;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>不过真实开发一般用</p>
+<p>Arrays.sort(arr);</p>
+<h3 id="第二数组"><a href="#第二数组" class="headerlink" title="第二数组"></a>第二数组</h3><p>格式 ：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> [][] arr = <span class="keyword">new</span> <span class="keyword">int</span> [<span class="number">3</span>][<span class="number">2</span>];</span><br><span class="line"><span class="comment">//定义了名称为arr的二维数组，二维数组中有3个一维数组</span></span><br><span class="line"><span class="comment">//每一个一维数组中有二个元素</span></span><br><span class="line">   <span class="keyword">int</span>[][]arr =&#123;&#123;<span class="number">3</span>,<span class="number">5</span>,<span class="number">1</span>,<span class="number">7</span>&#125;,&#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">8</span>&#125;,&#123;<span class="number">6</span>,<span class="number">1</span>,<span class="number">8</span>,<span class="number">2</span>&#125;&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//一维数组可以表现为：int [] x ;  int x []</span></span><br><span class="line"><span class="comment">//二维数组可以表现为： int [][] y;  int y[][];   int[] y[];</span></span><br></pre></td></tr></table></figure>
+
+<p>‘’</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/29/Mybatis/Mybatis框架/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张易">
+      <meta itemprop="description" content="张易 来自东北省">
+      <meta itemprop="image" content="/images/guwang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张易的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/29/Mybatis/Mybatis框架/" class="post-title-link" itemprop="url">Mybatis框架</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-29 19:42:52 / 修改时间：19:51:49" itemprop="dateCreated datePublished" datetime="2019-08-29T19:42:52+08:00">2019-08-29</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>持久层</p>
+<p>mybatis开发dao方法</p>
+<p>原始dao开发方法(程序需要编写dao接口和dao实现类)</p>
+<p>mybatis的mapper接口(相当dao接口)代理开发方法</p>
+<ul>
+<li>mybatis配置文件SqlMapConfig.xml</li>
+<li>mybatis核心<ul>
+<li>mybatis输入映射 </li>
+<li>mybatis输出映射 </li>
+</ul>
+</li>
+<li>mybatis的动态sql</li>
+</ul>
+<p>斗之气，高级:</p>
+<p>高级结果集映射（1对1，1对多，多对多）</p>
+<p>mybatis延迟加载</p>
+<p>mybatis 查询缓存 (一级缓存、二级缓存)</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/28/redis/redis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张易">
+      <meta itemprop="description" content="张易 来自东北省">
+      <meta itemprop="image" content="/images/guwang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张易的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/28/redis/redis/" class="post-title-link" itemprop="url">Redis</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-28 21:53:02" itemprop="dateCreated datePublished" datetime="2019-08-28T21:53:02+08:00">2019-08-28</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-08-31 20:44:58" itemprop="dateModified" datetime="2019-08-31T20:44:58+08:00">2019-08-31</time>
+              </span>
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Redis是一个高性能nosql的key-value数据库，C语言编写的</p>
+<p>SQL:关系型数据库:表与表之间建立关联关系</p>
+<p>NOSQL：非关系数据库：数据与数据之间没有关系</p>
+<p>NOSQL优点：</p>
+<ol>
+<li>数据模型比较简单</li>
+<li>需要灵活性更强的IT系统 </li>
+<li>对数据库性能要求较高</li>
+<li>不需要高度的数据一致性</li>
+<li>对于给定key，比较容易映射复杂值的环境。</li>
+</ol>
+<p>Redi优点:</p>
+<ol>
+<li>Redis运行数据的持久化。可以将内存中的数据保存在磁盘中，重启的时候可以再次加载进行使用。</li>
+<li>Redis不仅运行简单的key-value类型的数据，同时还提供list,set,zset,hash等数据结构的存储</li>
+<li>Redis运行数据的备份，集群等高可用功能。</li>
+</ol>
+<p>redis 单个key存入512M大小</p>
+<p>redis运行多种类型的数据结构(String,list,hash,set,zset)</p>
+<p>redis是单线程   原子性</p>
+<p>redis可以持久化  因为使用了RDB和AOP机制</p>
+<p>redis支持集群，而且redis支持库(0-15)16个库</p>
+<p>redis还可以做消息队列，比如聊天室，IM</p>
+<ul>
+<li>丰富的数据结构</li>
+<li>高速读写，redis使用自己实现的分离器，代码量很短，没有使用lock锁</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>耗内存</li>
+<li>持久化时，要不断快照</li>
+</ul>
+<p><strong>Redis官网</strong></p>
+<p><a href="https://redis.io/" target="_blank" rel="noopener">https://redis.io</a></p>
+<p>下载将redis放到服务器的指定位置后</p>
+<p>打开xshell，输入</p>
+<p>tar zxvf redis-4.0.1.tar.gz</p>
+<p>编译：</p>
+<p>make MALLOC=libc  </p>
+<p>之后输入，安装redis</p>
+<p> make PREFIX=/usr/local/redis install</p>
+<p>之后会在redis的bin下面看到</p>
+<p>![2.png](<a href="https://i.loli.net/2019/08/28/g1jq6QmBifOdDrp.pn" target="_blank" rel="noopener">https://i.loli.net/2019/08/28/g1jq6QmBifOdDrp.pn</a></p>
+<table>
+<thead>
+<tr>
+<th align="center">redis-server</th>
+<th align="center">redis服务器端</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">redis-cli</td>
+<td align="center">redis客户端</td>
+</tr>
+</tbody></table>
+<h5 id="启动redis服务"><a href="#启动redis服务" class="headerlink" title="启动redis服务"></a>启动redis服务</h5><p>进入/usr/local/redis</p>
+<p>执行命令:   ./bin/redis-server如果已经在bin下面，直接./redis-server好了</p>
+<h6 id="redis端口号为-6379"><a href="#redis端口号为-6379" class="headerlink" title="redis端口号为:6379"></a>redis端口号为:6379</h6><p>之后还要启动客户端</p>
+<p>复制个xshell窗口后，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/redis</span><br><span class="line"></span><br><span class="line">ll</span><br><span class="line"></span><br><span class="line">./bin/redis-cli</span><br></pre></td></tr></table></figure>
+
+<p>可以PING检查一下是否成功</p>
+<p><img src="https://i.loli.net/2019/08/28/Ln7eKz42WjYBm3t.png" alt="2.png"></p>
+<h5 id="Linux配置Redis"><a href="#Linux配置Redis" class="headerlink" title="Linux配置Redis"></a>Linux配置Redis</h5><p>Redis的配置文件在redis.conf</p>
+<p>将redis复制到:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp redis.conf /usr/local/redis</span><br></pre></td></tr></table></figure>
+
+<p>查看下redis.conf</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">less -mN redis.conf</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2019/08/29/Xs62LJ1aZnKBz5q.png" alt="2.png"></p>
+<h5 id="redis-conf配置"><a href="#redis-conf配置" class="headerlink" title="redis.conf配置"></a>redis.conf配置</h5><ol>
+<li><p>Redis默认不是以守护进程的方式运行，可以通过该配置修改，使用yes启用守护进程</p>
+<ul>
+<li>先在linux下输入/daemonize，查找这个词，之后找到daemonize no  //no改成yes</li>
+</ul>
+</li>
+<li><p>当Redis以守护进程方式进行时，Redis默认会把pid写入 /var/run/redis_6379.pid文件，可以通过pidfile指定</p>
+<ul>
+<li>pidfile /var/run/redis_6379.pid</li>
+</ul>
+<p><img src="https://i.loli.net/2019/08/29/dYGEMey8pw7saDZ.png" alt="2.png"></p>
+</li>
+<li><p>指定Redis监听端口，默认端口为6379,因为6379在手机按键上是MERZ对应的号码,MERZ取意为意大利歌女AJessia  Mera的名字</p>
+<ul>
+<li>port 6379</li>
+</ul>
+</li>
+</ol>
+<p><img src="https://i.loli.net/2019/08/29/D5hQSLfAdeP31zo.png" alt="2.png"></p>
+<p>ctrl+z退出 </p>
+<p>输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim redis.conf</span><br></pre></td></tr></table></figure>
+
+<p>/daemonize   在vim下查找,输入i进入插入模式，no改为yes</p>
+<p><img src="https://i.loli.net/2019/08/29/YriBujZd8wbUhpx.png" alt="2.png"></p>
+<p>之后可以按Esc键退出插入模式，/port 6379 查找端口</p>
+<p>4.绑定的主机地址</p>
+<ul>
+<li>bind 127.0.0.1</li>
+<li><img src="https://i.loli.net/2019/08/29/1yeSBgLAYXhi5Ik.png" alt="2.png"></li>
+</ul>
+<p>5.当客户端闲置多长时间后关闭连接，如果指定为0，表示关闭该功能。这里可以设置为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">timeout 300</span><br></pre></td></tr></table></figure>
+
+<p>6.指定日志记录级别，Redis总共支持四个级别：debug,verbose,notice,warning,默认为verbose</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">loglevel verbose</span><br></pre></td></tr></table></figure>
+
+<p>7.日志记录方式，默认为标准输出，如果配置Redis为守护进程方式运行，而这里以配置为日志记录方式为标准输出，则日志将会发送给/dev/null</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">logfile stdout</span><br></pre></td></tr></table></figure>
+
+<p>8.设置数据的数量，默认数据库为0，可以使用SELECR<dbid>命令在连接上指定数据库id</dbid></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">databases 16</span><br></pre></td></tr></table></figure>
+
+<p>9.指定在多长时间内，有多少次更新操作，就将数据同步到数据文件，可以多个条件配合</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">save &lt;seconds&gt; &lt;changes&gt;</span><br></pre></td></tr></table></figure>
+
+<p>Redis默认配置文件中提供了三个条件（持久化条件）</p>
+<ul>
+<li>save 900 1   900秒，15分钟内有一个更改</li>
+<li>save 300  10  300秒，5分钟内有10个更改</li>
+<li>save 60 10000           60秒内有10000个更改</li>
+</ul>
+<p>10.指定存储至本地数据库时是否压缩数据，默认为yes,Redis采用LZF压缩，如果为了节省CPU时间，可以关闭这个选项，但会导致数据库谁的变的巨大</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rdbcompression yes</span><br></pre></td></tr></table></figure>
+
+<p>11.指定本地数据库文件名，默认值为dump.rdb</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dbfilename dump.rdb</span><br></pre></td></tr></table></figure>
+
+<p>12.指定本地数据库存放目录，目前没有找到 “dump.rdb”</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dir ./</span><br></pre></td></tr></table></figure>
+
+<p>13.设置当本机为siave服务时，设置master服务的IP地址及端口，在Redis启动时，它会自动从master 进行同步（主从复制功能）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">siaveof &lt;masterip&gt; &lt;masterport&gt;</span><br></pre></td></tr></table></figure>
+
+<p>14.当master服务设置了密码保护时，siave服务连接master的密码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">masterauth  &lt;master-password&gt;</span><br></pre></td></tr></table></figure>
+
+<p>15.设置Redis连接密码，如果配置了连接密码，客户端在连接Redis时需要通过AUTH<password>命令密码，默认关闭</password></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">requirepass   foobared</span><br></pre></td></tr></table></figure>
+
+<p>16.(并发线程)设置同时间最大客户端连接数，默认无限制，Redis可以同时打开的客户端连接数为Redis进程可以打开的最大文件描述符数，如果设置maxclients 0,表示不作限制 ，当客户端连接数到达限制时，Redis会关闭新的连接并向客户端返回 max number of dients reached 错误信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">maxclients 128</span><br></pre></td></tr></table></figure>
+
+<p>17.指定Redis最大内存限制，Redis在启动时会把数据加载到内存中，达到最大内存后，Redis会先尝试清除已到期或即将到期的key,当此方法处理后，仍然到达最大最大内存设置，将无法再进行写入操作，但仍然可以进行读取操作，Redis新的vim机制，会把key存放内存，Value会存放在swap区</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">maxmemory &lt;bytes&gt;</span><br></pre></td></tr></table></figure>
+
+<p>服务器内存1G的话，256M就够了，因为它要的是bytes格式</p>
+<p>18.指定是否在每次更新操作后进行日志记录，Redis在默认情况下是异步的把数据写入磁盘，如果不开启，可能会在新断电时导致一段时间内的数据丢失，因为redis本身同步数据文件是按上面save条件来同步的，所以有的数据会在一段时间内只存在于内存中，默认为no</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">appendonly no</span><br></pre></td></tr></table></figure>
+
+<p>19.指定更新日志文件名，默认为appendonly.aof</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">appendfilename   appendonly.aof</span><br></pre></td></tr></table></figure>
+
+<p>20.指定更新日志条件，共有3个可选值:</p>
+<p>no :表示等操作系统 进行数据缓存 同步到磁盘(快)</p>
+<p>always:表示每次更新操作后手动调用fsync()将数据写到磁盘(慢，安全)</p>
+<p>everysec: 表示每秒同步一次（折中，默认值 ）</p>
+<p>appendfsync everysec</p>
+<p>21.指定是否启用虚拟机内存机制，默认值为no，简单的介绍一下，VM机制将数据分页存放，由Redis将访问量较少的面即冷数据swap到磁盘上，访问多的页面由磁盘自动换出到内存中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vm-enabled no</span><br></pre></td></tr></table></figure>
+
+<p>22.虚拟内存文件路径，默认值为/tmp/redis.swap，不可多个Redis实例共享</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vm-swap-file /tmp/redis.swap</span><br></pre></td></tr></table></figure>
+
+<p>23.redis的8个内存机制</p>
+<p>采用LRU算法动态将不用的数据删除，内存管理的一种页面转换算法，对于在内存中但又不用的数据块（内存块）叫做LRU,操作系统会根据哪些数据属于LRU而将其移出内存而腾出空间来加载另外的数据。</p>
+<p><img src="https://i.loli.net/2019/08/29/lN8MOfxRcnIL6X5.png" alt="2.png"></p>
+<ol>
+<li><p>volatile-lru：设定超时时间的数据中， 删除最不常用的数据</p>
+</li>
+<li><p>allkeys-lru：查询所有的key中最近最不常用的数据进行删除，这是应用最广泛的策略</p>
+</li>
+<li><p><strong>volatile-lfu</strong>：从所有配置了过期时间的键中驱逐使得频率最少的键</p>
+</li>
+<li><p><strong>allkeys-lfu</strong>：从所有的键中驱逐使用频率最少的键</p>
+</li>
+<li><p>volatile-random：在已经设定了超时的数据中随机删除</p>
+</li>
+<li><p>allkeys-random：查询所有的key之后随机删除</p>
+</li>
+<li><p>volatile-ttl:查询全部设定超时的数据之后排序，将马上将过期的数据进行删除</p>
+</li>
+<li><p>noeviction:如果设置为该属性，则不会进行删除操作，如果内存溢出则报错返回</p>
+<h6 id="redis默认数据库"><a href="#redis默认数据库" class="headerlink" title="redis默认数据库"></a>redis默认数据库</h6><p>是0-15，共16个，select 0 就是在第一个数据库</p>
+</li>
+</ol>
+<h4 id="总结自定义配置Redis"><a href="#总结自定义配置Redis" class="headerlink" title="总结自定义配置Redis"></a>总结自定义配置Redis</h4><ol>
+<li>进入对应的安装目录 /usr/local/redis 修改redis.conf配置文件     vim redis.conf   （进入命令模式，通过 “/“ 查找内容）</li>
+<li>Redis必改</li>
+</ol>
+<p>daemonize no 修改  daemonize yes </p>
+<p>bind 127.0.0.1   加个注释</p>
+<p>requirepass 设置个密码</p>
+<p><img src="https://i.loli.net/2019/08/29/YbAquO8et1Zm9J7.png" alt="2.png"></p>
+<p>这时输入:wq!就可以了</p>
+<h5 id="服务端启动"><a href="#服务端启动" class="headerlink" title="服务端启动"></a>服务端启动</h5><p>./bin/redis-server ./redis.conf</p>
+<p>因为是守护进程启动的，所以出现这样:</p>
+<p><img src="https://i.loli.net/2019/08/29/gCVeha5u8HKMv9X.png" alt="2.png"></p>
+<p>之后输入:</p>
+<p>ps -ef |  grep -i redis  </p>
+<p><img src="https://i.loli.net/2019/08/29/V1xbe3nwfPRqMTD.png" alt="2.png"></p>
+<h4 id="客户端启动"><a href="#客户端启动" class="headerlink" title="客户端启动"></a>客户端启动</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-cli -h  host -p  port -a password</span><br></pre></td></tr></table></figure>
+
+<p>//redis-cli  工程参数  IP地址     -p   端口   -a    密码</p>
+<p>如果是本机，只写redis-cli 和 -a密码就可以，</p>
+<p>之后新建个key</p>
+<p><img src="https://i.loli.net/2019/08/29/xngzDyA8GIFiSOJ.png" alt="2.png"></p>
+<p>像上面那样，set加key</p>
+<p>get找value</p>
+<h5 id="Redis关闭"><a href="#Redis关闭" class="headerlink" title="Redis关闭"></a>Redis关闭</h5><p>./bin/redis-cli shutdown  </p>
+<p>通过客户端进行shutdown，再看服务器</p>
+<p><img src="https://i.loli.net/2019/08/29/PrfvquxWGj17TBH.png" alt="2.png"></p>
+<h5 id="再开服务端"><a href="#再开服务端" class="headerlink" title="再开服务端"></a>再开服务端</h5><p>./bin/redis-server ./redis.conf   在redis下</p>
+<p>再开客户端</p>
+<p>./bin/redis-cli -a 123456            在redis下</p>
+<h3 id="Reids命令描述"><a href="#Reids命令描述" class="headerlink" title="Reids命令描述"></a>Reids命令描述</h3><p><strong>Redis</strong>  命令用于在redis服务让执行操作</p>
+<p>要在redis服务上执行命令需要一个redis客户端</p>
+<p><strong>del key</strong>    </p>
+<p>该命令用于在key存在时删除key  删除成功会控返回(integer) 1（看删除了几个）</p>
+<p><strong>dump key</strong>   </p>
+<p>序列化指定key,并返回被序列化的值 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; dump a</span><br><span class="line">&quot;\x00\xc0&#123;\b\x00\xf1\xcf\xbf^\xa9c\xed\x81&quot;</span><br></pre></td></tr></table></figure>
+
+<p><strong>exists key</strong>  判断key是否存在</p>
+<p><strong>ttl key</strong>     以秒为单位，返回给定key的剩余生存时间(ttl  ,time to live)       返回-1代表无限时间</p>
+<p><strong>expire  （key）  （时间）</strong>  给key设置过期时间</p>
+<p><img src="https://i.loli.net/2019/08/29/9btuGkJ47Rx2p36.png" alt="2.png"></p>
+<p>-2代表无效，-1代表永久</p>
+<p><strong>persist key</strong>    移除key的过期时间，key将持久保持</p>
+<p><strong>keys pattem</strong>  查找所有符合给定模式pattem 的key </p>
+<p>keys   通配符  获取所有与pattem匹配的key</p>
+<p>通配符：*代表所有   ？代表一个字符 </p>
+<p><img src="https://i.loli.net/2019/08/29/BA7MTSpgyORrKnE.png" alt="2.png"></p>
+<p><strong>rename key newkey</strong>   修改key的名称</p>
+<p><strong>move  key  db</strong>     将当前数据库的key移动到给定的数据库db中</p>
+<p>*<em>type  key *</em>  返回key储存的值的类型</p>
+<p><strong>type   key</strong>显示key的格式</p>
+<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><p>expire  key seconds</p>
+<p>​    0.限时的优惠活动信息</p>
+<p><img src="https://i.loli.net/2019/08/29/QdecHGX4f5Rjgt7.png" alt="2.png"></p>
+<ol>
+<li><p>网站数据缓存(对于一些需要定时更新的数据，例如:积分排行榜)</p>
+</li>
+<li><p>手机验证码</p>
+</li>
+<li><p>限制网站访问频率（1分钟最多访问多少次)</p>
+<h5 id="命名规范"><a href="#命名规范" class="headerlink" title="命名规范"></a>命名规范</h5><p>users:1:name 磊</p>
+<p>users:2:name 克格勃</p>
+<p>Users     对应User表</p>
+<p>name age  uname等相关信息如：<br>users_1_name  张易(一般不用下划线，用:代替)</p>
+<p>users:2:name  张易</p>
+<ol>
+<li>key不要太长，尽量不要超过1024字节</li>
+<li>key不要太短，key可读性低</li>
+<li>在一个项目中，key最好使用统一命名模式，如user:123:password;</li>
+</ol>
+<hr>
+<h4 id="Redis支持的五种类型"><a href="#Redis支持的五种类型" class="headerlink" title="Redis支持的五种类型"></a>Redis支持的五种类型</h4><p>string字符串    hash哈希     list列表    set集合   zset(sorted set:有序集合等)</p>
+<ul>
+<li>String </li>
+</ul>
+<p>string是redis最基本的类型，一个key对应一个value</p>
+<p>string类型是二进制安全的，redis的string可以包含任何数据，比如jpg图片或者序列化的对象</p>
+<p>string类型是redis最基本的类型，一个键最大能存储512MB</p>
+<p>​    <strong>二进制安全是指，在传输数据时，保证二进制数据的信息安全，也就是不被篡改、破译等，如果被攻击，能够及时检测出来</strong></p>
+<p>二进制安全特点：</p>
+<ol>
+<li>编码、解码发生在客户端完成，执行效率高</li>
+<li>不需要频繁编解码，不会出现乱码</li>
+</ol>
+<p><img src="https://i.loli.net/2019/08/31/cn1C74WGazOreFM.png" alt="2.png"></p>
+</li>
+</ol>
+<h5 id="2-1-2-String命令"><a href="#2-1-2-String命令" class="headerlink" title="2.1.2.String命令"></a>2.1.2.String命令</h5><p><strong>赋值语法：</strong></p>
+<p><strong>set key_name value</strong></p>
+<p>Redis 的 set 命令用于设置给定key的值，如果key已经存储值，set就覆写旧值，且无视类型</p>
+<p><strong>setnx key value</strong> （解决分布式锁方案之一）</p>
+<p>只有在key不存在时设置key的值，setnx(SET if Not eXists)命令在指定 的key不存在时，为key设置指定的值  </p>
+<p><strong>取值语法</strong></p>
+<p><strong>get key_Name</strong></p>
+<p>Redis的get命令用于获取指定key的值，如果key不存在，返回nil,如果key储存的值不是字符串类型，返回一个错误，nil就是java中的null</p>
+<p><strong>getrange  key start end</strong>  </p>
+<p>range指的是范围 </p>
+<p>用于获取存储在指定key中字符串的子字符串，字符串的截取范围由start和end两个偏移量决定(包括start和end在内)</p>
+<p><img src="https://i.loli.net/2019/08/31/VLZNaCBzF9WI6Yy.png" alt="2.png"></p>
+<hr>
+<p><strong>getset 语法 ：getset key_name value</strong></p>
+<p>getset命令用于设置指定key的值，并返回key的旧值，当key不存在时，返回nil，意思是先取再赋，查询的是nil,第二次查询就有值了</p>
+<p><strong>strlen key</strong></p>
+<p>返回key所储存的字符串值的长度</p>
+<hr>
+<p><strong>删除语法</strong></p>
+<p><strong>del key_name</strong></p>
+<p>删除指定的key,如果存在，返回值数字类型。</p>
+<hr>
+<p><strong>自增/自减语法</strong></p>
+<p><strong>incr key_name</strong></p>
+<p>incr命令将key中储存的数字值增1，如果key不存在，那么 key的值会被初始化为0,然后再执行incr操作</p>
+<p><strong>自增：incrby key_name  增量值</strong></p>
+<p>Incrby 命令将key中储存的数字加上指定的增量值</p>
+<p><strong>自减：decr key_name或  decrby key_name</strong></p>
+<p>decr 命令将key中储存的数字减1</p>
+<p><img src="https://i.loli.net/2019/08/31/M3kKOyopZaWjTb6.png" alt="2.png"></p>
+<p>同样可以输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">incrby  key_name 增量值(10)//就是自增10</span><br><span class="line">decrby  key_name 减少值(10)//就是减少10</span><br></pre></td></tr></table></figure>
+
+<p><strong>字符串拼接：append key_name value</strong></p>
+<p>Append 命令用于为指定的key追加至末尾，如果不存在，为其赋值</p>
+<hr>
+<p>应用场景：</p>
+<ol>
+<li><p>String通常用于保存单个字符串或JSON字符串数据</p>
+</li>
+<li><p>因String是二进制安全的，所以完全可以把一个图片文件的内容作为字符串来存储</p>
+</li>
+<li><p>计数器（常规key-value缓存应用，常规计数：微博计数，粉丝计数）</p>
+<p>incr等指令本身就具有原子操作的特性，所以完全可以利用redis的incr,incrby,decr,decrby等指令来实现原子计数的效果。假如，在某种场景下有3个客户端同时读取了mynuym的值（值为2），然后对其同时进行了加1操作，那么，最后mynum的值一定是5,不少网站都利用redis的这个特性来实现业务上的统计计数</p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/28/HTML/HTML/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张易">
+      <meta itemprop="description" content="张易 来自东北省">
+      <meta itemprop="image" content="/images/guwang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张易的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/28/HTML/HTML/" class="post-title-link" itemprop="url">HTML</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-28 21:12:16" itemprop="dateCreated datePublished" datetime="2019-08-28T21:12:16+08:00">2019-08-28</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-09-01 09:23:34" itemprop="dateModified" datetime="2019-09-01T09:23:34+08:00">2019-09-01</time>
+              </span>
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>网页主要分为：</p>
+<p>​    W3C标准</p>
+<ol>
+<li>结构  HTML</li>
+<li>表现，样式 CSS</li>
+<li>行为，响应用户操作  JavaScript</li>
+</ol>
+<p>HTML是超文本标记语言，纯文本是只有文字，不可以加图片，视频等格式的不可以</p>
+<p>&lt;标签名&gt;&lt;/标签名&gt;</p>
+<ul>
+<li><html></html> 根标签</li>
+<li>&lt;，head&gt;头，帮助解析网页</li>
+</ul>
+<ol>
+<li>&lt;，title&gt;标题</li>
+</ol>
+<ul>
+<li><body></body>身体
+
+<p>属性</p>
+</li>
+<li><p>可以为HTML标签设置属性</p>
+</li>
+<li><p>通过属性为HTML元素提供附加信息</p>
+</li>
+<li><p>属性需要设置在开始标签或自结束标签中</p>
+</li>
+<li><p>属性总是以名称/值对的形式出现 </p>
+</li>
+<li><p>比如：name=”value”</p>
+</li>
+<li><p>有些属性可以是任意值，有些则必须是指定值</p>
+</li>
+</ul>
+<p>//</p><h1 title="我是一个标题">标题</h1><p></p>
+<p>//<img xrc alt=" "></p>
+<hr>
+<p>编码：依据一定的规则，将字符转换为二进制编码的过程</p>
+<p>解码：依据一定的规则，将二进制编码转换为字符的过程</p>
+<p>字符集：编码和解码所采用的规则，我们称为字符集</p>
+<p>常见字符集：</p>
+<ol>
+<li>ASCII  7位，128个字符集   美国人    发明的</li>
+<li>ISO-8859  8位 256字符集    欧洲发明</li>
+<li>GBK        GB意为国标   中国发明</li>
+<li>GB2312    中文系统的默认编码 </li>
+<li>UTF-8       万国友，支持所有的文字</li>
+<li>ANSI 自动以系统的默认编码保存文件，记事本就是这么保存html页面的，系统是什么解码，它就以什么编码</li>
+</ol>
+<p><strong>产生乱码的根本原因是，编码和解码采用的字符集不同</strong></p>
+<p>在中文系统的浏览器中，默认都是GB2312</p>
+<p>这时，就需要告诉网页我们的编码字符集：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span>//meta是用来设置网页的一些元数据，比如网页的字符集，关键字，简介  </span><br><span class="line">charset意思是字符集</span><br><span class="line">meta是一个自结束标签</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="1-常用的标签"><a href="#1-常用的标签" class="headerlink" title="1.常用的标签"></a>1.常用的标签</h2><h3 id="1-1标题标签"><a href="#1-1标题标签" class="headerlink" title="1.1标题标签"></a>1.1标题标签</h3><p>//</p><h1>到<h6>都是<p></p>
+<p>使用HTML标签时，关心的是标签的语义，使用的标签都是语义化标签</p>
+<p>//</p><h1>标签非常重要，会影响到页面在搜索引擎中的排名，页面只能写一个<p></p>
+<p>一般页面标签只使用h1,h2,h3之后不用，因为意义不大</p>
+<h3 id="1-2段落标签"><a href="#1-2段落标签" class="headerlink" title="1.2段落标签"></a>1.2段落标签</h3><p>//</p><p>这样表示   p标签中的文字，默认会独占1行，并且段与段之间会有一个间距</p>
+<p>HTML中的空格是没有用的，再多也算1个空格</p>
+<h3 id="1-3换行"><a href="#1-3换行" class="headerlink" title="1.3换行"></a>1.3换行</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">br</span>/&gt;</span>表示一个换行</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-4分隔线"><a href="#1-4分隔线" class="headerlink" title="1.4分隔线"></a>1.4分隔线</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+</h1></h6></h1>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/27/数据结构和算法/数据结构和算法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张易">
+      <meta itemprop="description" content="张易 来自东北省">
+      <meta itemprop="image" content="/images/guwang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张易的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/27/数据结构和算法/数据结构和算法/" class="post-title-link" itemprop="url">数据结构和算法</a>
               
             
           </h1>
@@ -467,1868 +2546,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/26/电脑操作基础/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="张易">
-      <meta itemprop="description" content="张易 来自东北省">
-      <meta itemprop="image" content="/images/guwang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="张易的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/08/26/电脑操作基础/" class="post-title-link" itemprop="url">电脑操作基础</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-08-26 22:15:50" itemprop="dateCreated datePublished" datetime="2019-08-26T22:15:50+08:00">2019-08-26</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-08-28 18:36:43" itemprop="dateModified" datetime="2019-08-28T18:36:43+08:00">2019-08-28</time>
-              </span>
-            
-          
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>mspaint 画图工具</p>
-<p>calc    计算器</p>
-<p>appwiz.cpl 卸载程序 </p>
-<p>certmgr.msc 证书管理</p>
-<p>cliconfg：SQL SERVER 客户端网络实用工具</p>
-<p>shutdown -s -t 60：表示60秒后自动关机</p>
-<p> shutdown -a ：可取消定时关机</p>
-<p> shutdown -r -t 60：表示60秒后自动重启</p>
-<p>CompMgmtLauncher 计算机管理</p>
-<p>control：控制面版</p>
-<p>devmgmt.msc ：设备管理器</p>
-<p>desk.cpl  设置</p>
-<p>Firewall.cpl  防火墙</p>
-<p>main.cpl   鼠标属性</p>
-<p>mmsys.cpl  声音</p>
-<p>magnify  放大镜实用</p>
-<p>msinfo32  系统信息</p>
-<p>Msra  windows远程</p>
-<p>regedit.exe：注册表</p>
-<p>regedt32：注册表编辑器</p>
-<p>sdclt：备份状态与配置，就是查看系统是否已备份</p>
-<p>soundrecorder 录音机</p>
-<p>snippingtool：截图工具，支持无规则截图</p>
-<p>sysdm.cpl：系统属性</p>
-<p>syskey：系统加密，一旦加密就不能解开，保护系统的双重密码</p>
-<p>taskmgr：任务管理器(旧版)</p>
-<p>timedate.cpl 日期和时间</p>
-<p>wf.msc  高级安全Windows防火墙</p>
-<p>write：写字板</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/26/java常用单词/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="张易">
-      <meta itemprop="description" content="张易 来自东北省">
-      <meta itemprop="image" content="/images/guwang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="张易的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/08/26/java常用单词/" class="post-title-link" itemprop="url">java常用单词</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-08-26 17:36:45" itemprop="dateCreated datePublished" datetime="2019-08-26T17:36:45+08:00">2019-08-26</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-08-28 18:34:18" itemprop="dateModified" datetime="2019-08-28T18:34:18+08:00">2019-08-28</time>
-              </span>
-            
-          
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>version:版本</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/26/java基础2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="张易">
-      <meta itemprop="description" content="张易 来自东北省">
-      <meta itemprop="image" content="/images/guwang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="张易的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/08/26/java基础2/" class="post-title-link" itemprop="url">java基础2</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-08-26 12:21:16" itemprop="dateCreated datePublished" datetime="2019-08-26T12:21:16+08:00">2019-08-26</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-08-28 18:12:57" itemprop="dateModified" datetime="2019-08-28T18:12:57+08:00">2019-08-28</time>
-              </span>
-            
-          
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ul>
-<li>1995年，由SUN公司推出的高级编程语言</li>
-<li>是web应用程序的首先开发语言</li>
-<li>面向对象，与平台无关<h2 id="java的三种技术架构"><a href="#java的三种技术架构" class="headerlink" title="java的三种技术架构"></a>java的三种技术架构</h2></li>
-</ul>
-<ol>
-<li><p>J2EE企业版 :Servlet Jsp等，web应用开发</p>
-</li>
-<li><p>J2SE标准版:桌面程序的开发</p>
-</li>
-<li><p>J2ME小型版:电子消费产品和嵌入式设备提供的解决方案，手机应用程序 </p>
-<hr>
-<h2 id="java语言的特性"><a href="#java语言的特性" class="headerlink" title="java语言的特性"></a>java语言的特性</h2></li>
-</ol>
-<h3 id="跨平台性"><a href="#跨平台性" class="headerlink" title="跨平台性"></a>跨平台性</h3><p>通过java语言编写的应用程序在不同的系统平台上都可以运行</p>
-<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>JVM虚拟机，JVM是要下载对应的版本的，比如从windows上下载的东西要放到linux上，需要在linux上下载对应的jdk</p>
-<h3 id="搭建环境"><a href="#搭建环境" class="headerlink" title="搭建环境"></a>搭建环境</h3><ul>
-<li><p>JRE(java运行环境)  包括JVM和java程序所需的核心类库，想运行java程序，需要安装</p>
-</li>
-<li><p>JDK(java开发工具包) 供java开发人员使用，里面包括JRE，编译工具(javac.exe)打包工具(jar.exe)等</p>
-<h3 id="JDK下载地址-https-www-oracle-com-technetwork-java-javaee-downloads-index-html"><a href="#JDK下载地址-https-www-oracle-com-technetwork-java-javaee-downloads-index-html" class="headerlink" title="JDK下载地址:https://www.oracle.com/technetwork/java/javaee/downloads/index.html"></a>JDK下载地址:<a href="https://www.oracle.com/technetwork/java/javaee/downloads/index.html" target="_blank" rel="noopener">https://www.oracle.com/technetwork/java/javaee/downloads/index.html</a></h3><p><img src="https://i.loli.net/2019/08/26/XY7DWcHGv4gQ3mt.png" alt="2.png"></p>
-<h3 id="jdk8API文档地址-https-javaee-github-io-javaee-spec-javadocs"><a href="#jdk8API文档地址-https-javaee-github-io-javaee-spec-javadocs" class="headerlink" title="jdk8API文档地址:https://javaee.github.io/javaee-spec/javadocs/"></a>jdk8API文档地址:<a href="https://javaee.github.io/javaee-spec/javadocs/" target="_blank" rel="noopener">https://javaee.github.io/javaee-spec/javadocs/</a></h3><h4 id="修改环境变量"><a href="#修改环境变量" class="headerlink" title="修改环境变量"></a>修改环境变量</h4><p>首先创建个JAVA_HOME目录，在里面设置下jdk目录</p>
-<p><img src="https://i.loli.net/2019/08/26/6YN9XuBdjJg3eyw.png" alt></p>
-<p>接着配置path变量，添加如下 :</p>
-<p><img src="https://i.loli.net/2019/08/26/SHeCLRQXymf9KEV.png" alt="1.png"></p>
-<p>%JAVA_HOME%\bin 是指刚才创建的JAVA_HOME下的bin目录，这是动态获取，之后每次如有变动，改JAVA_HOME就可以了</p>
-<h4 id="java结尾的是源文件"><a href="#java结尾的是源文件" class="headerlink" title=".java结尾的是源文件"></a>.java结尾的是源文件</h4><h4 id="class结尾的是编译的文件，只有虚拟机可以看懂"><a href="#class结尾的是编译的文件，只有虚拟机可以看懂" class="headerlink" title=".class结尾的是编译的文件，只有虚拟机可以看懂"></a>.class结尾的是编译的文件，只有虚拟机可以看懂</h4></li>
-</ul>
-<h5 id="javac-是编译的命令"><a href="#javac-是编译的命令" class="headerlink" title="javac 是编译的命令"></a>javac 是编译的命令</h5><h4 id="设置CLASSPATH-虚拟机会先找它"><a href="#设置CLASSPATH-虚拟机会先找它" class="headerlink" title="设置CLASSPATH:  虚拟机会先找它"></a>设置CLASSPATH:  虚拟机会先找它</h4><p><code>.;%JAVA_HOME\lib\dt.jar;%JAVA_HOME\lib\tools.jar;%M2_HOME%\bin;%CATALINA_HOME%\lib\servlet-api.jar</code></p>
-<h3 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123;</span><br><span class="line"><span class="comment">//class为关键字 Demo为类名 类如果由多个单词组成，每个单词首字母要大写</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	System.out.println(<span class="string">"Hello World"</span>);</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>main函数可以保证程方法的独立运行，是程序的入口，会被JVM调用</strong></p>
-<h4 id="这个是文档注释，javadoc-exe这个执行文件会提取出这个文档注释生成一个网页"><a href="#这个是文档注释，javadoc-exe这个执行文件会提取出这个文档注释生成一个网页" class="headerlink" title="/**  */这个是文档注释，javadoc.exe这个执行文件会提取出这个文档注释生成一个网页"></a>/**  */这个是文档注释，javadoc.exe这个执行文件会提取出这个文档注释生成一个网页</h4><p><strong>/*  */多行注解释</strong></p>
-<h1 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h1><p>关键字定义和特点：<br>定义：被java赋予了特殊含义的单词</p>
-<p> 特点：关键字中所有字母为小写</p>
-<table>
-<thead>
-<tr>
-<th align="center"></th>
-<th align="center"></th>
-<th align="center">用于定义数据类型的关键字</th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">class</td>
-<td align="center">interface</td>
-<td align="center">byte</td>
-<td>short</td>
-<td>init</td>
-</tr>
-<tr>
-<td align="center">long</td>
-<td align="center">float</td>
-<td align="center">double</td>
-<td>char</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td align="center">void</td>
-<td align="center"></td>
-<td align="center"></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<table>
-<thead>
-<tr>
-<th></th>
-<th align="center">用于定义数据类型值的关键字</th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>true</td>
-<td align="center">false</td>
-<td>null</td>
-<td></td>
-</tr>
-</tbody></table>
-<table>
-<thead>
-<tr>
-<th></th>
-<th align="center">用于定义流程控制的关键字</th>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>if</td>
-<td align="center">else</td>
-<td>switch</td>
-<td>case</td>
-<td>default</td>
-</tr>
-<tr>
-<td>while</td>
-<td align="center">do</td>
-<td>for</td>
-<td>break</td>
-<td>continue</td>
-</tr>
-<tr>
-<td>return</td>
-<td align="center"></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>用于定义访问权限修饰符的关键字</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>private</td>
-<td>protected              private</td>
-<td>public</td>
-</tr>
-</tbody></table>
-<table>
-<thead>
-<tr>
-<th align="center">用于定义类，函数，变量修饰符的关键字</th>
-<th></th>
-<th align="center"></th>
-<th align="center"></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">abstract</td>
-<td>final</td>
-<td align="center">static</td>
-<td align="center">synchronized</td>
-</tr>
-</tbody></table>
-<table>
-<thead>
-<tr>
-<th align="center">用于定义类与类之间关系的关键字</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">extends</td>
-<td>implements</td>
-</tr>
-</tbody></table>
-<table>
-<thead>
-<tr>
-<th align="center">用于定义建立实例及引用实例，判断实例的关键字</th>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">new</td>
-<td>this</td>
-<td>super</td>
-<td>instanceof</td>
-</tr>
-</tbody></table>
-<table>
-<thead>
-<tr>
-<th align="center">用于异常处理的关键字</th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">try</td>
-<td>catch</td>
-<td>finally</td>
-<td>throw</td>
-<td>throws</td>
-</tr>
-</tbody></table>
-<table>
-<thead>
-<tr>
-<th align="center">用于包的关键字</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">package</td>
-<td>import</td>
-</tr>
-</tbody></table>
-<table>
-<thead>
-<tr>
-<th align="left">其它修饰符关键字</th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">nalive</td>
-<td>striclfp</td>
-<td>transient</td>
-<td>volatile</td>
-<td>assert</td>
-</tr>
-</tbody></table>
-<h2 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h2><ul>
-<li><p>在程序中自定义的一些名称。</p>
-</li>
-<li><p>由26个英文字母大小写，数字：0-9符号：_$组成</p>
-</li>
-<li><p>定义合法标识符规则：</p>
-<ol>
-<li>数字不可以开头</li>
-<li>不可以使用关键字</li>
-</ol>
-</li>
-<li><p>Java中严格区分大小写</p>
-</li>
-</ul>
-<h5 id="java中的名称规范："><a href="#java中的名称规范：" class="headerlink" title="java中的名称规范："></a>java中的名称规范：</h5><ul>
-<li><p>包名：多单词组成时所有字母都小写: xxxxxxyyyyyzzz</p>
-</li>
-<li><p>类名接口名：多单词组成时，所有的单词的首字母大写：XxxYyyZzz</p>
-</li>
-<li><p>变量名和函数名：多单词组成时，第一单词首字母小写，第二个单词开始每个单词首字母大写。</p>
-<p>xxxYyyZzz</p>
-</li>
-<li><p>常量名：所有字母都大写，多单词时每个单词用下划线连接。</p>
-<p>XXX_YYYX_ZZZ</p>
-</li>
-</ul>
-<h3 id="常量与变量"><a href="#常量与变量" class="headerlink" title="常量与变量"></a>常量与变量</h3><p>java中常量的分类：</p>
-<ol>
-<li>整数常量，所有整数</li>
-<li>小数，所有小数</li>
-<li>布尔常量，true,false</li>
-<li>字符常量，’   ‘单引号表示 </li>
-<li>字符串常量，” “ 双引号表示  </li>
-<li>null常量，只有一个null</li>
-</ol>
-<ul>
-<li>对于整数，java有三种表现形式：</li>
-<li>十进制：0-9  满10进1</li>
-<li>八进制:   0-7  满8进1 用0开头  3位代表1位</li>
-<li>十六进制:  0-9，A-F，满16进1，用0x开头  4位代表1位</li>
-</ul>
-<p>进制越大表现形式越短</p>
-<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>变量，就是将不确定的数据进行存储，也就是需要在内存中开辟一个空间</p>
-<p> <img src="https://i.loli.net/2019/08/27/tKcNb67xAkjsI4Y.png" alt="2.png"></p>
-<h5 id="常量与变量-1"><a href="#常量与变量-1" class="headerlink" title="常量与变量"></a>常量与变量</h5><p>java是强类型语言</p>
-<p>数据类型分为基本数据类型和引用数据类型：</p>
-<p>基本数据类型：数值型，整数类型：byte(-128到+127) short (-32768到32767）int   lang       </p>
-<p>​                           数值型,小数类型:float(4个8位，为32)   double   （8个8位，64位）</p>
-<p>​                           布尔型：boolean     (true ,false)</p>
-<p>​                           字符型： char </p>
-<p>定义变量的格式:<br>数据类型    变量名  = 初始化值 </p>
-<p>int  x = 4</p>
-<p>byte b = 2</p>
-<p>short a =30000</p>
-<p>long l = 4l</p>
-<p>float  f = 2.3f; //不写f会报错，因为默认是double类型的</p>
-<p>double   d = 34.56</p>
-<p>char ch = ‘4’    一个汉字两个字节，可以装中文</p>
-<p>char ch2=”  “</p>
-<p>boolean b = true</p>
-<p>boolean b1= false</p>
-<p>当数据不确定的时候，需要对数据进行存储时，就定义一个变量来完成存储动作</p>
-<hr>
-<p>引用数据类型： </p>
-<ul>
-<li>class  类</li>
-<li>interface  接口</li>
-<li>[  ]  数组</li>
-</ul>
-<h4 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h4><ul>
-<li>算数运算符</li>
-</ul>
-<p>int x = 4720</p>
-<p>x = x / 1000 * 1000</p>
-<p>System.out.println(x)</p>
-<p>x /1000后为4.72,便因为都是int类型，要变为4,所以输出结果为4000</p>
-<h5 id="取模-取余数"><a href="#取模-取余数" class="headerlink" title="%  取模    取余数"></a>%  取模    取余数</h5><p>-1%6  为-1</p>
-<ul>
-<li>左边小于右边，结果是左边</li>
-<li>左边等于右边，结果是0</li>
-<li>右边为1结果为0</li>
-</ul>
-<h4 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h4><p>通过 \ 来转变后面字母或者符号的含义,转义字符要写在被转义字符的前面 </p>
-<p>\n代表换行</p>
-<p>\b退格 相当backpace</p>
-<p>\r按下回车键 windows系统,回车是由两个字符来表示\r\n</p>
-<p>\t制表符  相当于 tab</p>
-<h6 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h6><table>
-<thead>
-<tr>
-<th align="center">&amp; 与</th>
-<th>false&amp;true</th>
-<th>false</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">|   或                                         ^   异或</td>
-<td>false|true   true^false</td>
-<td>true true</td>
-</tr>
-<tr>
-<td align="center">！非                                                      &amp;&amp;短路</td>
-<td>！true   false&amp;&amp;true</td>
-<td>false  false</td>
-</tr>
-<tr>
-<td align="center">||短路</td>
-<td>false||true</td>
-<td>true</td>
-</tr>
-</tbody></table>
-<p>&amp;:只要两边的boolean表达式一个是false，那么结果就是false,只有两边都是true，结果为true</p>
-<p>| 两边只要有一个true，结果为true，只有两边都有false，结果为false</p>
-<p>^ 异或 true^ true =false;  两边结果相同结果是false</p>
-<p>​                                            两边不同结果是true</p>
-<h3 id="if-else"><a href="#if-else" class="headerlink" title="if else"></a>if else</h3><p>if else的月份</p>
-<p>第一种</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">int</span> month =<span class="number">7</span></span><br><span class="line"><span class="keyword">if</span> (month &gt;= <span class="number">3</span> &amp;&amp; month &lt;= <span class="number">5</span>) &#123;    System.out.println(month+<span class="string">"春"</span>);&#125; </span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (month &gt;= <span class="number">6</span>&amp;&amp; month &lt;= <span class="number">8</span>) &#123;    System.out.println(<span class="string">"夏"</span>);&#125; </span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (month &gt;= <span class="number">9</span> &amp;&amp; month &lt;= <span class="number">11</span>) &#123;    System.out.println(<span class="string">"秋"</span>);&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(month&lt;=<span class="number">2</span>&amp;&amp;month&lt;=<span class="number">12</span>)&#123;    System.out.println(<span class="string">"冬"</span>);&#125;</span><br></pre></td></tr></table></figure>
-
-<p>第二种方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(month==<span class="number">3</span>||month==<span class="number">4</span>||month==<span class="number">5</span>)&#123;    System.out.println(<span class="string">"春"</span>);&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (month== <span class="number">6</span>||month ==<span class="number">7</span>||month==<span class="number">8</span>)&#123;    System.out.println(<span class="string">"夏"</span>);&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (month==<span class="number">9</span>||month == <span class="number">10</span> || month == <span class="number">11</span>)&#123;    System.out.println(<span class="string">"秋"</span>);&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (month == <span class="number">12</span>|| month == <span class="number">1</span> || month == <span class="number">2</span>) &#123;    System.out.println(<span class="string">"冬"</span>);&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>(表达式)</span><br><span class="line">	&#123;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">	执行语句;</span><br><span class="line">	<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">	执行语句;</span><br><span class="line">	<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">default</span>:</span><br><span class="line">	执行语句;</span><br><span class="line">	<span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-
-<p>实例</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x =<span class="number">1</span>;<span class="keyword">switch</span> (x)&#123;   </span><br><span class="line"><span class="keyword">case</span> <span class="number">1</span>:        System.out.println(<span class="string">"百草枯"</span>);       <span class="keyword">break</span>; </span><br><span class="line"><span class="keyword">case</span> <span class="number">2</span>:        System.out.println(<span class="string">"厅"</span>);        <span class="keyword">break</span>;    <span class="keyword">case</span> <span class="number">3</span>:        System.out.println(<span class="string">"3"</span>);        <span class="keyword">break</span>;        <span class="keyword">default</span>:            System.out.println(<span class="string">"不行"</span>);          &#125;</span><br></pre></td></tr></table></figure>
-
-<p>x的值为1，与case的值相同，所以控制台输出:”百草枯”</p>
-<p>x 的值只可以为4种类型byte short int char</p>
-<p>当switch的case对应同一内容时，可以这样写</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x =<span class="number">1</span>;</span><br><span class="line"><span class="keyword">switch</span>(x）&#123;</span><br><span class="line">    case1:</span><br><span class="line">    case2:</span><br><span class="line">    System.out.println(x+<span class="string">"都一样"</span>);</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>if和switch语句：</p>
-<p>如果判断的数值不多，符合byte  short  int  char类型，用switch好些</p>
-<p>对区间判断，对结果为boolean类型判断，使用if好</p>
-<h3 id="while"><a href="#while" class="headerlink" title="while"></a>while</h3><p>while（条件表达式）{</p>
-<p>}{    执行语句</p>
-<p>}</p>
-<p><img src="https://i.loli.net/2019/08/28/z6c97vXWfZUtKSR.png" alt="2.png"></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/26/jquery/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="张易">
-      <meta itemprop="description" content="张易 来自东北省">
-      <meta itemprop="image" content="/images/guwang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="张易的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/08/26/jquery/" class="post-title-link" itemprop="url">jquery</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-08-26 11:58:42 / 修改时间：12:21:02" itemprop="dateCreated datePublished" datetime="2019-08-26T11:58:42+08:00">2019-08-26</time>
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>jquery是javaScript库，jQuery=js+Query</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/24/tomcat使用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="张易">
-      <meta itemprop="description" content="张易 来自东北省">
-      <meta itemprop="image" content="/images/guwang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="张易的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/08/24/tomcat使用/" class="post-title-link" itemprop="url">tomcat使用日常</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-08-24 10:45:42 / 修改时间：10:47:02" itemprop="dateCreated datePublished" datetime="2019-08-24T10:45:42+08:00">2019-08-24</time>
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><img src="https://i.loli.net/2019/08/24/etjTnqlidgOoM1J.png" alt="2.png"></p>
-<p><img src="https://i.loli.net/2019/08/24/19v54zsewLHVkbS.png" alt="3.png"></p>
-<p><img src="https://i.loli.net/2019/08/24/tx1uCHlV4UhLm3A.png" alt="4.png"></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/23/Springmvc/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="张易">
-      <meta itemprop="description" content="张易 来自东北省">
-      <meta itemprop="image" content="/images/guwang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="张易的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/08/23/Springmvc/" class="post-title-link" itemprop="url">Springmvc</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-08-23 21:12:12 / 修改时间：22:17:40" itemprop="dateCreated datePublished" datetime="2019-08-23T21:12:12+08:00">2019-08-23</time>
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>搭建web项目<br>编写web.xml ，在其中注释一个特殊的servlet，前端控制器<br>编写一个sprignmvc的配置文件</p>
-<ul>
-<li><p>注册一个视图解析器<br>编写给控制器<br>编写一个结果页面<br>springmvc.xml  pom文件：</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
-&lt;web-app xmlns=&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;
- xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
- xsi:schemaLocation=&quot;http://xmlns.jcp.org/xml/ns/javaee
-                                        http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd&quot;
- version=&quot;3.1&quot;&gt;</code></pre>  <!--前端控制器-->
-  <!--  DispatcherDervice-->
-<pre><code>&lt;servlet&gt;</code></pre>  <!--    不去修改这个名字是有讲究的，-->
-  <!--    那么springmvc，它会去web下，找一个叫springmvc-servlet.xml的配置文件-->
-<pre><code>  &lt;servlet-name&gt;springmvc&lt;/servlet-name&gt;
-  &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;
-
-&lt;/servlet&gt;
-&lt;!--    servlet的配置--&gt;
-&lt;servlet-mapping&gt;
-  &lt;servlet-name&gt;springmvc&lt;/servlet-name&gt;
-  &lt;url-pattern&gt;/&lt;/url-pattern&gt;
-&lt;/servlet-mapping&gt;</code></pre>  
-
-
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/21/spring中的注解/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="张易">
-      <meta itemprop="description" content="张易 来自东北省">
-      <meta itemprop="image" content="/images/guwang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="张易的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/08/21/spring中的注解/" class="post-title-link" itemprop="url">spring中的注解</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-08-21 21:19:34" itemprop="dateCreated datePublished" datetime="2019-08-21T21:19:34+08:00">2019-08-21</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-08-22 10:59:11" itemprop="dateModified" datetime="2019-08-22T10:59:11+08:00">2019-08-22</time>
-              </span>
-            
-          
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Component"><a href="#Component" class="headerlink" title="@Component"></a>@Component</h1><p>@Component:强调就是一个组件，不知道是属于哪个，一般用这个 </p>
-<h1 id="Repository"><a href="#Repository" class="headerlink" title="@Repository"></a>@Repository</h1><p>@Repository :标记为一个组件 ,强调处理数据访问层</p>
-<h1 id="Service"><a href="#Service" class="headerlink" title="@Service"></a>@Service</h1><p>@Service:标记为一个组件，强调处理业务层</p>
-<h1 id="Controller"><a href="#Controller" class="headerlink" title="Controller"></a>Controller</h1><p>@Controller：标记为一个组件，强调控制层</p>
-<h2 id="Spring中的注解配置"><a href="#Spring中的注解配置" class="headerlink" title="Spring中的注解配置"></a>Spring中的注解配置</h2><pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
-       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-       xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot;
-       xmlns:c=&quot;http://www.springframework.org/schema/c&quot;
-       xmlns:cache=&quot;http://www.springframework.org/schema/cache&quot;
-       xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
-       xmlns:jee=&quot;http://www.springframework.org/schema/jee&quot;
-       xmlns:lang=&quot;http://www.springframework.org/schema/lang&quot;
-       xmlns:p=&quot;http://www.springframework.org/schema/p&quot;
-       xmlns:task=&quot;http://www.springframework.org/schema/task&quot;
-       xmlns:util=&quot;http://www.springframework.org/schema/util&quot;
-       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;</code></pre>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/21/linux常用命令2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="张易">
-      <meta itemprop="description" content="张易 来自东北省">
-      <meta itemprop="image" content="/images/guwang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="张易的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/08/21/linux常用命令2/" class="post-title-link" itemprop="url">linux常用命令2</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-08-21 11:30:30 / 修改时间：15:47:41" itemprop="dateCreated datePublished" datetime="2019-08-21T11:30:30+08:00">2019-08-21</time>
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="文件处理命令-touch"><a href="#文件处理命令-touch" class="headerlink" title="文件处理命令:touch"></a>文件处理命令:touch</h3><p>命令名称:touch<br>命令所在路径: /bin/touch<br>执行权限:所有用户<br>语法：touch[文件名]<br>功能：创建空文件<br>范例: 在当前文件夹下创建：<br>touch Japanlovestory.list<br>在别的文件夹下创建:<br>touch /root/Japanlovestory.list<br>创建多个文件中间用空格隔开:<br>touch a b c<br>创建带空格的文件<br>touch “program firles” ，用来表示是个整体</p>
-<h3 id="文件处理命令-cat"><a href="#文件处理命令-cat" class="headerlink" title="文件处理命令:cat"></a>文件处理命令:cat</h3><p>命令名称:cat<br>命令所在路径: /bin/cat<br>执行权限:所有用户<br>语法：cat[文件名]<br>功能：显示文件内容<br>    -n 显示行号<br>范例: cat /etc/issue<br>          cat -n /etc/services</p>
-<p><img src="https://i.loli.net/2019/08/21/UZVM5QruHDSoAhg.png" alt="3.png"></p>
-<p>值得一提的是将cat倒着写成tac，可以倒着显示文件内容<br>tac /etc/issue</p>
-<h3 id="文件处理命令-more"><a href="#文件处理命令-more" class="headerlink" title="文件处理命令:more"></a>文件处理命令:more</h3><p>命令名称: more<br>命令所在路径： /bin/more<br>执行权限 :所有用户<br>语法： more [文件名]</p>
-<pre><code>  ( 空格）或者 f 翻页
-（Enter)      换行
-  q或Q         退出 </code></pre><p>能：分布显示文件内容<br>范例: more /etc/services</p>
-<h3 id="less也是翻页的命令"><a href="#less也是翻页的命令" class="headerlink" title="less也是翻页的命令"></a>less也是翻页的命令</h3><p>less /etc/services<br>比more更好的是less可以通过PgUp向上翻页，通过向上的箭头，往上面的行查找 </p>
-<p>值得一提的是：<br>可以通过/（查询的名字）的方式查找<br>像我这里查找时输入/service  ，会有高亮显示 ，按n键查找下一个service\</p>
-<p><img src="https://i.loli.net/2019/08/21/a7V4U3txXWP5viq.png" alt="1.png"></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/20/linux常用命令/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="张易">
-      <meta itemprop="description" content="张易 来自东北省">
-      <meta itemprop="image" content="/images/guwang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="张易的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/08/20/linux常用命令/" class="post-title-link" itemprop="url">linux常用命令</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-08-20 20:08:36" itemprop="dateCreated datePublished" datetime="2019-08-20T20:08:36+08:00">2019-08-20</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-08-21 10:42:40" itemprop="dateModified" datetime="2019-08-21T10:42:40+08:00">2019-08-21</time>
-              </span>
-            
-          
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="clear清除屏幕"><a href="#clear清除屏幕" class="headerlink" title="clear清除屏幕"></a>clear清除屏幕</h3><h1 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h1><p>命令 [-选项] [参数]<br>例: ls    -la     etc </p>
-<ol>
-<li>个别命令使用不遵循此格式</li>
-<li>当夺多个选项时，可以写在一起</li>
-<li>简化选项与完整选项  ls  -a等于ls - all （查看所有）</li>
-</ol>
-<p>#ls#<br>英文原意:list<br>命令所在路径: /bin/ls<br>执行权限：所有用户<br>功能描述:用户目录文件<br>语法 ：ls 选项[-ald] [文件或目录]</p>
-<ul>
-<li>显示所有文件，包括隐藏文件</li>
-<li>详细信息显示</li>
-<li>查看目录属性</li>
-</ul>
-<h3 id="ls-l命令"><a href="#ls-l命令" class="headerlink" title="ls -l命令"></a>ls -l命令</h3><p>ls -l (长格式显示)</p>
-<p><img src="https://i.loli.net/2019/08/20/Y6pvbhqdriR5TDm.png" alt="2.png"></p>
-<h2 id="说一下上面的倒数第二行的语句"><a href="#说一下上面的倒数第二行的语句" class="headerlink" title="说一下上面的倒数第二行的语句"></a>说一下上面的倒数第二行的语句</h2><p>-rw——-  .1 root  root 1438  8月 20 13:24   anaconda-ks.cfg<br>-rw-r–r–<br>-r读 w写 x执行</p>
-<ul>
-<li>u  g   o</li>
-<li>u所有者   g所属组  o其他人</li>
-<li>r读  w写  x执行</li>
-<li>1代表引用计数</li>
-<li>root代表所有者，所有者只能有一个</li>
-<li>第二个root代表所属组，定义了一组同类型的用户，也是只能有一个</li>
-<li>1438代理文件大小，下面有给出人性化查看文件大小的方法，ls -lh</li>
-<li>下面是文件最后修改时间</li>
-<li>最后是文件名</li>
-</ul>
-<hr>
-<h2 id="最常见的3种文件类型"><a href="#最常见的3种文件类型" class="headerlink" title="最常见的3种文件类型"></a>最常见的3种文件类型</h2><ul>
-<li>前面是-表示这是个文件</li>
-<li>前面是d表示这是个目录</li>
-<li>前面是l表示这是个软链接<br><img src="https://i.loli.net/2019/08/20/TV9SkD4RCJh36BN.png" alt="1.png"></li>
-</ul>
-<hr>
-<h3 id="ls-lh"><a href="#ls-lh" class="headerlink" title="ls -lh"></a>ls -lh</h3><p>ls -lh(人性化显示human)</p>
-<p><img src="https://i.loli.net/2019/08/20/HVpmFlA2SbdCkGT.png" alt="3.png"></p>
-<hr>
-<h4 id="当我们想查看某个文件夹的本身属性时"><a href="#当我们想查看某个文件夹的本身属性时" class="headerlink" title="当我们想查看某个文件夹的本身属性时"></a>当我们想查看某个文件夹的本身属性时</h4><p>ls -ld /（某个文件夹）</p>
-<h4 id="ls-i"><a href="#ls-i" class="headerlink" title="ls -i"></a>ls -i</h4><p>ls -i 可以查看当前文件夹的节点</p>
-<h2 id="目录处理命令-mkdir"><a href="#目录处理命令-mkdir" class="headerlink" title="目录处理命令:mkdir"></a>目录处理命令:mkdir</h2><ul>
-<li>英文原意：make directories</li>
-<li>/命令所在路径：/bin/mkdir</li>
-<li>执行权限:所有用户</li>
-<li>语法:mkdir -p 目录名</li>
-<li>功能:</li>
-</ul>
-<p>1.创建新目录<br> 2.-p 递归创建<br>mkdir后加上-p,可以在本身不存在的文件夹下创建文件<br>mkdir -p /tmp/Japan/boduo</p>
-<p>同时创建多个文件:<br>mkdir /tmp/Japan/longze /tmp/Japan/cangjing</p>
-<h3 id="目录处理命令-pwd"><a href="#目录处理命令-pwd" class="headerlink" title="目录处理命令 pwd"></a>目录处理命令 pwd</h3><p>命令名称:pwd<br>命令英文原意:print working directory<br>执行权限:所有用户<br>语法:pwd<br>功能描述：显示当前目录<br>范例:直接输入:<br>    pwd</p>
-<h4 id="文件处理命令"><a href="#文件处理命令" class="headerlink" title="文件处理命令"></a>文件处理命令</h4><p>命令名称:rmdir<br>命令英文原意:remove empty directories<br>命令所在路径 ：/bin/rmdir<br>执行权限:所有用户<br>语法 ：rmdir[目录名]<br>功能:  删除空目录<br>范例: rmdir /tmp/Japan/boduo</p>
-<h3 id="目录处理命令-cp"><a href="#目录处理命令-cp" class="headerlink" title="目录处理命令 cp"></a>目录处理命令 cp</h3><p>命令名称:cp<br>命令英文原意：copy<br>命令所在路径 :  /bin/cp<br>执行权限: 所有用户<br>语法 : cp -rp [原文件或目录][目标目录]<br>                -r 复制目录<br>                -p 保留文件属性<br>功能:<br>复制文件或目录</p>
-<h4 id="如果只是复制文件，就不用写-r或-rp了"><a href="#如果只是复制文件，就不用写-r或-rp了" class="headerlink" title="如果只是复制文件，就不用写 -r或-rp了"></a>如果只是复制文件，就不用写 -r或-rp了</h4><p>可以同时复制多个文件:<br>cp /root/install.log   /root/install.log.syslog  /tmp<br>下面是添加了-p后的命令，加了-p可以连文件的属性，比如原文件夹的创建时间<br>cp -p /root/install.log   /root/install.log.syslog  /tmp   </p>
-<p>还可以再复制文件夹时改名：<br>cp -r /tmp/Japan/longzeluola /root/xixi.133+<br><img src="https://i.loli.net/2019/08/21/gn73fX9xdkaBMG1.png" alt="2.png"></p>
-<hr>
-<h3 id="目录处理命令-mv"><a href="#目录处理命令-mv" class="headerlink" title="目录处理命令: mv"></a>目录处理命令: mv</h3><p>命令名称:mv<br>命令英文原意：move<br>命令所在路径 : /bin/mv<br>执行权限: mv [原文件或目录] [目标目录]<br>功能: 剪切文件、改名</p>
-<h3 id="改文件夹的名字-mv"><a href="#改文件夹的名字-mv" class="headerlink" title="改文件夹的名字 mv ()  ()"></a>改文件夹的名字 mv ()  ()</h3><p>mv cangjingkong canglaoshi</p>
-<h3 id="目录处理命令-rm"><a href="#目录处理命令-rm" class="headerlink" title="目录处理命令:rm"></a>目录处理命令:rm</h3><p>命令名称: rm<br>命令英文原意: remove<br>命令所在路径 ：/bin/rm<br>执行权限: 所有用户<br>语法: rm -rf [文件或目录]<br>                -r 删除目录<br>                -f 强制执行<br>功能: 删除文件</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2372,7 +2594,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-count">28</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
