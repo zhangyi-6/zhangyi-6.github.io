@@ -103,7 +103,11 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://i.loli.net/2019/08/21/UZVM5QruHDSoAhg.png">
 <meta property="og:image" content="https://i.loli.net/2019/08/21/a7V4U3txXWP5viq.png">
-<meta property="og:updated_time" content="2019-08-29T06:08:17.890Z">
+<meta property="og:image" content="https://i.loli.net/2019/09/18/IPf7w1QKpo5cmvM.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/18/JfMBhQD7Hno1TaE.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/20/h1tNeS8F9spRTz7.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/20/lsNCXuJ1BpAPfVx.png">
+<meta property="og:updated_time" content="2019-09-21T13:48:10.285Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux常用命令2">
 <meta name="twitter:description" content="文件处理命令:touch命令名称:touch命令所在路径: /bin/touch执行权限:所有用户语法：touch[文件名]功能：创建空文件范例: 在当前文件夹下创建：touch Japanlovestory.list在别的文件夹下创建:touch /root/Japanlovestory.list创建多个文件中间用空格隔开:touch a b c创建带空格的文件touch “program fi">
@@ -362,7 +366,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-29 14:08:17" itemprop="dateModified" datetime="2019-08-29T14:08:17+08:00">2019-08-29</time>
+                <time title="修改时间：2019-09-21 21:48:10" itemprop="dateModified" datetime="2019-09-21T21:48:10+08:00">2019-09-21</time>
               </span>
             
           
@@ -410,7 +414,543 @@
 <h3 id="less也是翻页的命令"><a href="#less也是翻页的命令" class="headerlink" title="less也是翻页的命令"></a>less也是翻页的命令</h3><p>less /etc/services<br>比more更好的是less可以通过PgUp向上翻页，通过向上的箭头，往上面的行查找 </p>
 <p>值得一提的是：<br>可以通过/（查询的名字）的方式查找<br>像我这里查找时输入/service  ，会有高亮显示 ，按n键查找下一个service\</p>
 <p><img src="https://i.loli.net/2019/08/21/a7V4U3txXWP5viq.png" alt="1.png"></p>
-<h4 id="linux的任务管理器："><a href="#linux的任务管理器：" class="headerlink" title="linux的任务管理器："></a>linux的任务管理器：</h4><p>命令：top</p>
+<h3 id="文件处理命令：head-显示文件前面几行"><a href="#文件处理命令：head-显示文件前面几行" class="headerlink" title="文件处理命令：head 显示文件前面几行"></a>文件处理命令：head 显示文件前面几行</h3><p>命令名称：head</p>
+<p>命令所在路径 ： /usr/bin/head</p>
+<p>执行权限：所有用户</p>
+<p>语法：head[文件名]</p>
+<p>功能描述:显示文件前面几行</p>
+<p>​            -n指定行数</p>
+<p>范例:head -n 20/etc/services</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@izueb165nx71hgz ~]# head -n 7 /etc/services</span><br><span class="line"># /etc/services:</span><br><span class="line"># $Id: services,v 1.55 2013/04/14 ovasik Exp $</span><br><span class="line">#</span><br><span class="line"># Network services, Internet style</span><br><span class="line"># IANA services version: last updated 2013-04-10</span><br><span class="line">#</span><br><span class="line"># Note that it is presently the policy of IANA to assign a single well-known</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="文件处理命令-tail-显示文件后面几行"><a href="#文件处理命令-tail-显示文件后面几行" class="headerlink" title="文件处理命令:tail 显示文件后面几行"></a>文件处理命令:tail 显示文件后面几行</h3><p>命令名称：tail</p>
+<p>命令所在路径 ：/usr/bin/tail</p>
+<p>执行权限:所有用户</p>
+<p>语法:tail [ 文件名]</p>
+<p>功能描述:显示文件后面几行</p>
+<p>​            -n + 指定行数  不指定，不写-n默认打印后10行</p>
+<p>​        或者，另有</p>
+<pre><code>-f动态显示文件末尾内容</code></pre><p>范例:tail -n  18 /etc/services</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[root@izueb165nx71hgz ~]# tail  /etc/services</span><br><span class="line">3gpp-cbsp       48049/tcp               # 3GPP Cell Broadcast Service Protocol</span><br><span class="line">isnetserv       48128/tcp               # Image Systems Network Services</span><br><span class="line">isnetserv       48128/udp               # Image Systems Network Services</span><br><span class="line">blp5            48129/tcp               # Bloomberg locator</span><br><span class="line">blp5            48129/udp               # Bloomberg locator</span><br><span class="line">com-bardac-dw   48556/tcp               # com-bardac-dw</span><br><span class="line">com-bardac-dw   48556/udp               # com-bardac-dw</span><br><span class="line">iqobject        48619/tcp               # iqobject</span><br><span class="line">iqobject        48619/udp               # iqobject</span><br><span class="line">matahari        49000/tcp               # Matahari Broker</span><br><span class="line">[root@izueb165nx71hgz ~]# tail -n 4 /etc/services</span><br><span class="line">com-bardac-dw   48556/udp               # com-bardac-dw</span><br><span class="line">iqobject        48619/tcp               # iqobject</span><br><span class="line">iqobject        48619/udp               # iqobject</span><br><span class="line">matahari        49000/tcp               # Matahari Broker</span><br></pre></td></tr></table></figure>
+
+<h3 id="文件处理命令：ln-创建软链接（类似window快捷方式）"><a href="#文件处理命令：ln-创建软链接（类似window快捷方式）" class="headerlink" title="文件处理命令：ln 创建软链接（类似window快捷方式）"></a>文件处理命令：ln 创建软链接（类似window快捷方式）</h3><p>命令名称 ：ln</p>
+<p>命令英文原意：link</p>
+<p>命令所在路径 :   /bin/ln</p>
+<p>执行权限: 所有用户</p>
+<p>语法: ln -s  [原文件]  [目标文件]</p>
+<pre><code>-s 创建软链接</code></pre><p>功能描述：生成链接文件 </p>
+<p>范例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> ln  -s /etc/issue   /tmp/issue.soft</span><br><span class="line"></span><br><span class="line">创建文件/etc/issue的软链接/tmp/issue.soft</span><br><span class="line"></span><br><span class="line">ln  /etc/issue   /tmp/issue.hard</span><br><span class="line"></span><br><span class="line">创建文件/tmp/issue的硬链接/tmp/issue.hard</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root@izueb165nx71hgz ~]# ln /etc/issue /tmp/issue1.hard</span><br><span class="line">[root@izueb165nx71hgz ~]# ls -l /etc/issue</span><br><span class="line">-rw-r--r--. 3 root root 23 Nov 30  2016 /etc/issue</span><br><span class="line">[root@izueb165nx71hgz ~]# ls -l /etc/issue1</span><br><span class="line">ls: cannot access /etc/issue1: No such file or directory</span><br><span class="line">[root@izueb165nx71hgz ~]# ls -l /tmp/issue1.soft</span><br><span class="line"></span><br><span class="line">lrwxrwxrwx 1 root root 10 Sep 18 20:06 /tmp/issue1.soft -&gt; /etc/issue</span><br><span class="line">//上面的l代表软链接，rwx代表读写执行权限，有3组代表权限全开  //  /tmp/issue1.soft -&gt; /etc/issue 表示指向的源文件是谁，类似快捷方式</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[root@izueb165nx71hgz ~]#</span><br></pre></td></tr></table></figure>
+
+<h4 id="软链接特征-类似windows快捷方式"><a href="#软链接特征-类似windows快捷方式" class="headerlink" title="软链接特征:类似windows快捷方式"></a>软链接特征:类似windows快捷方式</h4><p>1.lrwxrwxrwx  ,软链接文件权限都为rwxrwxrwx</p>
+<p>2.文件大小    只是符号链接</p>
+<p>3./tmp/issue.soft -&gt; /etc/issue 像这样，箭头指向源文件 </p>
+<h5 id="硬链接特征："><a href="#硬链接特征：" class="headerlink" title="硬链接特征："></a>硬链接特征：</h5><ol>
+<li><p>相当于拷贝”cp - p” + 同步更新,源文件丢失，硬链接还可以继续使用，查找</p>
+<ul>
+<li><p>ccho”<a href="http://www.lampbrother.net&quot;&gt;&gt;/etc/issue" target="_blank" rel="noopener">www.lampbrother.net&quot;&gt;&gt;/etc/issue</a></p>
+</li>
+<li><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">[root@izueb165nx71hgz ~]# cat /tmp/issue.hard  //先查看硬链接和源文件有没有不一样的地方</span><br><span class="line">\S</span><br><span class="line">Kernel \r on an \m</span><br><span class="line">www.lampbrother.net</span><br><span class="line">[root@izueb165nx71hgz ~]# cat /tmp/issue.soft</span><br><span class="line">\S</span><br><span class="line">Kernel \r on an \m</span><br><span class="line">www.lampbrother.net</span><br><span class="line">[root@izueb165nx71hgz ~]# cp /etc/issue /tmp/issue.bak //拷贝源文件</span><br><span class="line">[root@izueb165nx71hgz ~]# rm /etc/issue  //删除源文件 </span><br><span class="line">rm: remove regular file ‘/etc/issue’? y</span><br><span class="line">[root@izueb165nx71hgz ~]# cat /tmp/issue //查看源文件 </span><br><span class="line">cat: /tmp/issue: No such file or directory</span><br><span class="line">[root@izueb165nx71hgz ~]# cat /tmp/issue.soft//查看软链接</span><br><span class="line">cat: /tmp/issue.soft: No such file or directory<span class="comment">//显示找不到</span></span><br><span class="line">[root@izueb165nx71hgz ~]# cat /tmp/issue.hard//查看硬链接</span><br><span class="line">\S</span><br><span class="line">Kernel \r on an \m</span><br><span class="line"></span><br><span class="line">www.lampbrother.net<span class="comment">//一样可以找的到，在源文件删除的情况下，东西都没有改变</span></span><br><span class="line">[root@izueb165nx71hgz ~]#</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>通过i节点识别</p>
+<ul>
+<li><img src="https://i.loli.net/2019/09/18/IPf7w1QKpo5cmvM.png" alt="2.png"></li>
+</ul>
+</li>
+<li><p>不能跨分区  类似不能在windows上将C盘的东西copy到D盘   <strong>软链接可以的</strong></p>
+</li>
+<li><p>不能针对目录使用  <strong>软链接是可以的</strong></p>
+</li>
+</ol>
+<h3 id="权限管理命令chmod"><a href="#权限管理命令chmod" class="headerlink" title="权限管理命令chmod"></a>权限管理命令chmod</h3><p>命令英文原意:change the permissions mode of a file</p>
+<p>命令所在路径 :  /bin/chmod</p>
+<p>执行权限: 所有用户</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">语法： chmod [&#123;ugoa&#125;&#123;+-=&#125;&#123;rwx&#125;[文件或目录]]</span><br><span class="line"></span><br><span class="line"><span class="comment">//u表示所有者，g表示所属组，o表示其它人  a表示所有人    用+-=来进行授权 +代表增加权限  —代表减少权限  =代表就要是现在的权限，不管以前是什么权限 </span></span><br><span class="line"></span><br><span class="line">   	[mode=<span class="number">421</span> ] [文件或目录]</span><br><span class="line"><span class="comment">/*[root@izueb165nx71hgz tmp]# chmod 640 issue.bak.hard</span></span><br><span class="line"><span class="comment">[root@izueb165nx71hgz tmp]# ls -l issue.bak.hard</span></span><br><span class="line"><span class="comment">-rw-r----- 2 root root 43 Sep 18 20:27 issue.bak.hard      已经改为640权限*/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   -R递归修改</span><br><span class="line">   <span class="comment">/*  改变了a文件夹下的b文件的权限</span></span><br><span class="line"><span class="comment">   [root@izueb165nx71hgz tmp]# chmod -R 776 /tmp/a</span></span><br><span class="line"><span class="comment">   [root@izueb165nx71hgz tmp]# ls -ld /tmp/a</span></span><br><span class="line"><span class="comment">   drwxrwxrw- 3 root root 4096 Sep 18 21:25 /tmp/a</span></span><br><span class="line"><span class="comment">   [root@izueb165nx71hgz tmp]# ls -ld /tmp/a/b</span></span><br><span class="line"><span class="comment">    drwxrwxrw- 2 root root 4096 Sep 18 21:25 /tmp/a/b</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line">功能描述:改变文件或目录权限</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2019/09/18/JfMBhQD7Hno1TaE.png" alt="2.png"></p>
+<h3 id="权限的数字表示"><a href="#权限的数字表示" class="headerlink" title="权限的数字表示"></a>权限的数字表示</h3><p>r—–4</p>
+<p>w—-2</p>
+<p>x—–1  </p>
+<p>rwxrw-r–</p>
+<p>7   6   4</p>
+<p>范例:</p>
+<p>chmod g + w testfile</p>
+<p>赋予文件testfile所属组写权限</p>
+<p>chmod -R777  testdir</p>
+<p>修改目录testfile及其目录下文件为所有用户具有全部权限</p>
+<h3 id="文件目录权限总结"><a href="#文件目录权限总结" class="headerlink" title="文件目录权限总结"></a>文件目录权限总结</h3><table>
+<thead>
+<tr>
+<th align="center">代表字符</th>
+<th align="center">权限</th>
+<th align="center">对文件的含义</th>
+<th align="center">对目录的含义</th>
+<th>对于文件来说可以用的命令</th>
+<th>对于目录来说可以用的命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">r</td>
+<td align="center">读权限</td>
+<td align="center">可以查看文件内容</td>
+<td align="center">可以列出目录中的内容</td>
+<td>cat/more/head/tail/less</td>
+<td>ls</td>
+</tr>
+<tr>
+<td align="center">w</td>
+<td align="center">写权限</td>
+<td align="center">可以修改文件内容</td>
+<td align="center">可以在目录中创建、删除文件</td>
+<td>vim</td>
+<td>touch/mkdir/rmdir/rm</td>
+</tr>
+<tr>
+<td align="center">x</td>
+<td align="center">执行权限</td>
+<td align="center">可以执行文件</td>
+<td align="center">可以进入目录</td>
+<td>script       command</td>
+<td>cd</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="权限管理命令-chown"><a href="#权限管理命令-chown" class="headerlink" title="权限管理命令:chown"></a>权限管理命令:chown</h3><p>命令名称:chown</p>
+<p>命令英文原意:change file ownership</p>
+<p>命令所在路径： /bin/chown</p>
+<p>执行权限：所有用户</p>
+<p>语法:chown [用户] [文件或目录]</p>
+<p>功能描述:改变文件或目录的所有者，只可以是root操作，别的不可以</p>
+<p>范例 : chown shenchao  fengjie</p>
+<p>改变文件fengjie的所有者为shenchao</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[xixi<span class="meta">@izueb</span>165nx71hgz ~]$ chown root abcd</span><br><span class="line">chown: cannot access ‘abcd’: No such file or directory</span><br><span class="line"><span class="comment">//非管理员，在自己创建的目录想更改，也是不可以更改的</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@izueb165nx71hgz ~]# cd /tmp</span><br><span class="line">[root@izueb165nx71hgz tmp]# touch fengjie</span><br><span class="line">[root@izueb165nx71hgz tmp]# ls -l fengjie</span><br><span class="line">-rw-r--r-- <span class="number">1</span> root root <span class="number">0</span> Sep <span class="number">19</span> <span class="number">21</span>:<span class="number">19</span> fengjie</span><br><span class="line">[root@izueb165nx71hgz tmp]# useradd zhangyi</span><br><span class="line">[root@izueb165nx71hgz tmp]# chown zhangyi fengjie</span><br><span class="line">[root@izueb165nx71hgz tmp]# ls -l fengjie</span><br><span class="line">-rw-r--r-- <span class="number">1</span> zhangyi root <span class="number">0</span> Sep <span class="number">19</span> <span class="number">21</span>:<span class="number">19</span> fengjie<span class="comment">//所有者已经更改了</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="权限管理命令-chgrp"><a href="#权限管理命令-chgrp" class="headerlink" title="权限管理命令:chgrp"></a>权限管理命令:chgrp</h3><p>命令名称;chgrp</p>
+<p>命令英文原意:change file group ownership</p>
+<p>命令所在路径 :   /bin/chgrp</p>
+<p>执行权限: 所有用户</p>
+<p>语法 ： chgrp [用户组] [文件或目录]</p>
+<p>功能描述: 改变文件或目录的所属组</p>
+<p>范例： chgrp lampbrother fengjie</p>
+<p>改变文件fengjie的所属组为lampbroter</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@izueb165nx71hgz tmp]# groupadd lampvbrother</span><br><span class="line">[root@izueb165nx71hgz tmp]# chgrp lampvbrother fengjie</span><br><span class="line">[root@izueb165nx71hgz tmp]# ls -l fengjie</span><br><span class="line">-rw-r--r-- <span class="number">1</span> zhangyi lampvbrother <span class="number">0</span> Sep <span class="number">19</span> <span class="number">21</span>:<span class="number">19</span> fengjie<span class="comment">//已经更改</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="权限管理命令-umask"><a href="#权限管理命令-umask" class="headerlink" title="权限管理命令:umask"></a>权限管理命令:umask</h3><p>命令名称;umask</p>
+<p>命令英文原意：the user file-creation mask</p>
+<p>命令所在路径 ： Shell内置命令</p>
+<p>执行权限: 所有用户</p>
+<p>语法: umask[-S]</p>
+<p>  -S 以rwx形式显示新建文件缺省权限</p>
+<p>功能描述：显示、设置文件的缺省权限</p>
+<p>范例：umask -S</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@izueb165nx71hgz tmp]# umask</span><br><span class="line"><span class="number">0022</span><span class="comment">//0代表特殊权限022代表所有者，所属组，其它人</span></span><br><span class="line"><span class="number">022</span> --- -w- -w-</span><br><span class="line"><span class="number">777</span> rwx rwx rwx</span><br><span class="line"><span class="number">022</span> --- -w- -w-</span><br></pre></td></tr></table></figure>
+
+<p>755 rwx  r-x  r-x 目录</p>
+<p>​        rw-  r–  r– 文件</p>
+<p>700 rwx — — 目录</p>
+<p>​        rw- — —文件</p>
+<p>777 rwx rwx rwx  </p>
+<p>700 rwx — — 目录 </p>
+<pre><code>rw- --- ---  文件 </code></pre><hr>
+<h3 id="文件搜索命令：find"><a href="#文件搜索命令：find" class="headerlink" title="文件搜索命令：find"></a>文件搜索命令：find</h3><p>命令名称: find</p>
+<p>命令所在路径： /bin/find</p>
+<p>执行权限：所有用户</p>
+<p>语法： find [搜索范围] [匹配条件]</p>
+<p>功能描述：文件搜索</p>
+<p>例：</p>
+<p>find /etc -name init</p>
+<ul>
+<li><p>在目录/etc中查找文件init，注意:在init的两边加上”*”,就像通配符一样，查找，不然就只是找init，而不是包含init</p>
+</li>
+<li><p>init* 表示查找以init开头的文件</p>
+</li>
+<li><p>init???代表以init开头的，后面带3个字母的</p>
+</li>
+<li><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@izueb165nx71hgz tmp]# find /etc -iname init???</span><br><span class="line">/etc/Inittab</span><br><span class="line">/etc/inittab<span class="comment">//Iname可以查找到带有大写的词</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><ul>
+<li>-name不区分大小写</li>
+</ul>
+</li>
+</ul>
+<p>find / -size +204800</p>
+<ul>
+<li>在根目录下查找大于100MB的文件<ul>
+<li>+n 大于   -n小于  n等于 </li>
+</ul>
+</li>
+<li>1个数据块       512字节      0.5k   所以1k等于2个数据块<ul>
+<li>100MB =102400KB=204800</li>
+</ul>
+</li>
+</ul>
+<p>find/ home -user shenchao</p>
+<ul>
+<li>在根目录下查找所有者为shenchao的文件<ul>
+<li>-group 根据所属组查找 </li>
+</ul>
+</li>
+</ul>
+<h3 id="根据时间属性来查找"><a href="#根据时间属性来查找" class="headerlink" title="根据时间属性来查找"></a>根据时间属性来查找</h3><p>find /etc -cmin -5</p>
+<ul>
+<li><p>在/etc下查找5分钟内被修改过属性的文件和目录</p>
+<ul>
+<li><p>-amin  访问时间  access</p>
+</li>
+<li><p>-cmin  文件属性  change</p>
+</li>
+<li><p>-mmin  文件内容   modify</p>
+<ul>
+<li><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@izueb165nx71hgz tmp]# find /etc -mmin -100</span><br><span class="line">/etc</span><br><span class="line">/etc/group</span><br><span class="line">/etc/passwd</span><br><span class="line">/etc/group-</span><br><span class="line">/etc/gshadow-</span><br><span class="line">/etc/Inittab</span><br><span class="line">/etc/gshadow</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>find /etc-size +163840 -a -size -204800</p>
+<p>在/etc下查找大于80MB小于100MB的文件 </p>
+<p>-a两个条件同时满足</p>
+<p>-o两个条件满足任意一个即可</p>
+<ul>
+<li><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@izueb165nx71hgz tmp]# find /etc -name init* -a -type f</span><br><span class="line">/etc/sysconfig/network-scripts/init.ipv6-global</span><br><span class="line">/etc/sysconfig/init</span><br><span class="line">/etc/inittab</span><br><span class="line">/etc/selinux/targeted/contexts/initrc_context</span><br><span class="line">[root@izueb165nx71hgz tmp]# find /etc -name init* -a -type d</span><br><span class="line">/etc/rc.d/init.d</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>find /etc -name inittab -exec ls -l｛};</p>
+</li>
+</ul>
+<p>在/etc下查找inittab文件并显示其详细信息</p>
+<p>-exec/-ok 命令{} ; 对搜索结果执行操作</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@izueb165nx71hgz tmp]# find /etc -name inittab -exec ls -l &#123;&#125; \;</span><br><span class="line">-rw-r--r-- <span class="number">1</span> root root <span class="number">511</span> Apr <span class="number">13</span>  <span class="number">2017</span> /etc/inittab</span><br></pre></td></tr></table></figure>
+
+<h3 id="type-根据文件类型查找"><a href="#type-根据文件类型查找" class="headerlink" title="-type 根据文件类型查找"></a>-type 根据文件类型查找</h3><p><strong>f 文件              d目录             l软链接文件</strong></p>
+<p><strong>-inum    根据i节点查找</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> find . -inum <span class="number">396061</span> -exec  rm &#123;&#125; \;</span><br><span class="line"><span class="comment">//就是这么个格式，396061是通过 ls -i 查找到的i节点号，这样就可以删除了</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="文件搜索命令：locate"><a href="#文件搜索命令：locate" class="headerlink" title="文件搜索命令：locate"></a>文件搜索命令：locate</h3><p>命令名称：locate </p>
+<p>命令所在路径 ：/usr/bin/locate</p>
+<p>执行权限:  所有用户</p>
+<p>语法： locate文件名</p>
+<p>功能描述： 在文件资料库中查找文件 </p>
+<p>范例:locate   inittab</p>
+<hr>
+<h3 id="文件搜索命令：which"><a href="#文件搜索命令：which" class="headerlink" title="文件搜索命令：which"></a>文件搜索命令：which</h3><p>命令名称:  which</p>
+<p>命令所在路径 ：  /usr/bin/which</p>
+<p>执行权限 ： 所有用户</p>
+<p>语法 ： which命令</p>
+<p>功能描述： 搜索命令所在绝对路径及别名信息</p>
+<p>范例; which ls</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@izueb165nx71hgz ~]# which rm//通过which快速找目录</span><br><span class="line">alias rm=<span class="string">'rm -i'</span></span><br><span class="line">	/usr/bin/rm</span><br><span class="line"><span class="comment">//rm就是'rm -i'的别名</span></span><br></pre></td></tr></table></figure>
+
+<p>别名的作用：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@izueb165nx71hgz ~]# rm /tmp/liuyab</span><br><span class="line">rm: remove regular empty file ‘/tmp/liuyab’? n</span><br><span class="line">[root@izueb165nx71hgz ~]# /bin/rm /tmp/liuyab</span><br><span class="line"><span class="comment">//可以看到正常删除是需要询问的，但加了/bin/rm就直接删除了，这是因为是个别名，which就是可以查询这个文件有没有别名的</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="文件搜索命令：-whereis"><a href="#文件搜索命令：-whereis" class="headerlink" title="文件搜索命令： whereis"></a>文件搜索命令： whereis</h3><p>命令名称:whereis</p>
+<p>命令所在路径： /usr/bin/whereis</p>
+<p>执行权限：  所有用户</p>
+<p>语法： whereis [命令名称]</p>
+<p>功能描述： 搜索命令所在目录及帮助文档路径</p>
+<p>范例：whereis ls</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@izueb165nx71hgz ~]# whereis rm</span><br><span class="line">rm: /usr/bin/rm /usr/share/man/man1/rm.1.gz</span><br><span class="line"><span class="comment">//后面是有帮助文档的位置，大多是这个位置，share</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="文件搜索命令：grep"><a href="#文件搜索命令：grep" class="headerlink" title="文件搜索命令：grep"></a>文件搜索命令：grep</h3><p>命令名称： grep</p>
+<p>命令所在路径 ：  /bin/grep</p>
+<p>执行权限 ：  所有用户</p>
+<p>语法： grep -iv [指定字串] [文件]</p>
+<p>功能描述 ： 在文件中搜寻字串匹配的行并输出</p>
+<h6 id="i-不区分大小写"><a href="#i-不区分大小写" class="headerlink" title="-i  不区分大小写"></a>-i  不区分大小写</h6><p>​                -v 排除指定字串</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@izueb165nx71hgz ~]# grep -v ^# /etc/rsyslog.conf</span><br><span class="line"><span class="comment">//表示查找排除以#开头的注释，只要有效的代码部分</span></span><br></pre></td></tr></table></figure>
+
+<p>范例: grep  mysql   /root/install.log</p>
+<p><img src="https://i.loli.net/2019/09/20/h1tNeS8F9spRTz7.png" alt="2.png"></p>
+<hr>
+<h3 id="帮助命令-man"><a href="#帮助命令-man" class="headerlink" title="帮助命令  man"></a>帮助命令  man</h3><p>命令名称 ：man</p>
+<p>命令英文原意： manual</p>
+<p>命令所在路径 ： /usr/bin/man</p>
+<p>执行权限 ：  所有用户</p>
+<p>语法： man [命令或配置文件]</p>
+<p>功能描述： 获得帮助信息</p>
+<p>范例： man ls</p>
+<p>​        查看ls命令的帮助信息</p>
+<p>​        man  services </p>
+<p>​        查看配置文件services的帮助信息</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@izueb165nx71hgz ~]# man ls</span><br><span class="line"><span class="comment">//在帮助文档下，按空格翻页，回车下一行，按q退出与more的按键方式一样</span></span><br></pre></td></tr></table></figure>
+
+<p>这时再按”/“,输入自己想找的，”比如/-l;”，再通过”n”来查找，就可以了</p>
+<p><img src="https://i.loli.net/2019/09/20/lsNCXuJ1BpAPfVx.png" alt="2.png"></p>
+<h3 id="当用man查到了两个两样的词时："><a href="#当用man查到了两个两样的词时：" class="headerlink" title="当用man查到了两个两样的词时："></a>当用man查到了两个两样的词时：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">passwd: /usr/bin/passwd /etc/passwd /usr/share/man/man1/passwd.1.gz</span><br><span class="line"><span class="comment">//注意，这里的1代表命令的帮助 ，  如果是5则代表配置文件的帮助</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="whatis-命令-比man短一点的，只知道帮助文件头的命令"><a href="#whatis-命令-比man短一点的，只知道帮助文件头的命令" class="headerlink" title="whatis+命令    比man短一点的，只知道帮助文件头的命令"></a>whatis+命令    比man短一点的，只知道帮助文件头的命令</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@izueb165nx71hgz ~]# whatis ls</span><br><span class="line">ls (<span class="number">1</span>)               - list directory contents</span><br></pre></td></tr></table></figure>
+
+<h3 id="apropos-配置文件"><a href="#apropos-配置文件" class="headerlink" title="apropos +配置文件"></a>apropos +配置文件</h3><p>可以查看配置文件的简短信息</p>
+<h3 id="–help-看到主要的选项有哪些"><a href="#–help-看到主要的选项有哪些" class="headerlink" title="–help  看到主要的选项有哪些"></a>–help  看到主要的选项有哪些</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@izueb165nx71hgz ~]# touch --help</span><br><span class="line"><span class="comment">//通过--help可以看到主要的选项有哪些</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="info-与man相同，都是帮助命令"><a href="#info-与man相同，都是帮助命令" class="headerlink" title="info 与man相同，都是帮助命令"></a>info 与man相同，都是帮助命令</h3><hr>
+<h3 id="帮助命令：help"><a href="#帮助命令：help" class="headerlink" title="帮助命令：help"></a>帮助命令：help</h3><p><strong>内置命令通过help，内置的话man是不行的</strong></p>
+<p>命令名称： help</p>
+<p>命令所在路径：Shell内置命令</p>
+<p>执行权限：所有用户</p>
+<p>语法：help 命令</p>
+<p>功能描述 ： 获得Shell内置命令的帮助信息</p>
+<p>范例：help umask</p>
+<p>​            查看umask命令的帮助信息</p>
+<hr>
+<h3 id="用户管理命令：useradd"><a href="#用户管理命令：useradd" class="headerlink" title="用户管理命令：useradd"></a>用户管理命令：useradd</h3><p>命令名称： useradd</p>
+<p>命令所在路径： /usr/sbin/useradd</p>
+<p>执行权限： root</p>
+<p>语法 ： useradd用户名</p>
+<p>功能描述 ：添加新用户</p>
+<p>范例： useradd yangmi</p>
+<h3 id="用户管理命令：passwd"><a href="#用户管理命令：passwd" class="headerlink" title="用户管理命令：passwd"></a>用户管理命令：passwd</h3><p>命令名称： passwd</p>
+<p>命令所在路径 ：/usr/bin/passwd</p>
+<p>执行权限 ：所有用户</p>
+<p>语法： passwd  用户名</p>
+<p>功能描述： 设置用户密码</p>
+<p>范例： passwd yangmi</p>
+<hr>
+<h3 id="用户管理命令：-who"><a href="#用户管理命令：-who" class="headerlink" title="用户管理命令： who"></a>用户管理命令： who</h3><p>命令名称： who</p>
+<p>命令所在路径 ：/usr/bin/who</p>
+<p>执行权限 ：所有用户</p>
+<p>语法 : who</p>
+<p>功能:描述 ： 查看登录用户信息</p>
+<p>范例： who</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@izueb165nx71hgz ~]# who</span><br><span class="line">root     pts/<span class="number">0</span>        <span class="number">2019</span>-<span class="number">09</span>-<span class="number">20</span> <span class="number">19</span>:<span class="number">53</span> (<span class="number">221.207</span>.139.191)</span><br><span class="line"><span class="comment">/*意为：</span></span><br><span class="line"><span class="comment"> 登录用户名   登录的终端   tty代表本地终端 pst是远程终端   登录时间    登录的IP地址</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="用户管理命令：-w"><a href="#用户管理命令：-w" class="headerlink" title="用户管理命令： w"></a>用户管理命令： w</h3><p>命令名称： w</p>
+<p>命令所在路径 ： /usr/bin/w</p>
+<p>执行权限 ： 所有用户</p>
+<p>语法 ： w</p>
+<p>功能描述 ： 查看登录用户详细信息</p>
+<p>范例; w</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@izueb165nx71hgz ~]# w</span><br><span class="line"> <span class="number">21</span>:<span class="number">57</span>:<span class="number">01</span> up <span class="number">46</span> days, <span class="number">10</span>:<span class="number">21</span>,  <span class="number">1</span> user,  load average: <span class="number">0.31</span>, <span class="number">0.12</span>, <span class="number">0.08</span></span><br><span class="line">USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT</span><br><span class="line">root     pts/<span class="number">0</span>    <span class="number">221.207</span>.139.191  <span class="number">19</span>:<span class="number">53</span>    <span class="number">5.00</span>s  <span class="number">0.13</span>s  <span class="number">0.00</span>s w</span><br><span class="line"><span class="comment">/*up 代表服务器运行时间    1user表示当前总共有几个用户登入  loadaverage是负载均衡的值，记录过去1分钟，5分钟，15分钟系统负载情况(CPU,内存之类的)   IDLEG表示服务器空闲多久了 PCPU指的是当前用户登入执行的操作，占用CPU的时间  WHAT代表的是当前执行了什么操作</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="压缩解压命令-gzip（只能压缩文件，不可以是目录而且压缩完后，也不像windows一样还有源文件）"><a href="#压缩解压命令-gzip（只能压缩文件，不可以是目录而且压缩完后，也不像windows一样还有源文件）" class="headerlink" title="压缩解压命令: gzip（只能压缩文件，不可以是目录而且压缩完后，也不像windows一样还有源文件）"></a>压缩解压命令: gzip（只能压缩文件，不可以是目录而且压缩完后，也不像windows一样还有源文件）</h3><p>命令名称： gzip</p>
+<p>命令英文原意： GNU zip</p>
+<p>命令所在路径 ： /bin/gzip</p>
+<p>执行权限 ：  所有用户</p>
+<p>语法 ： gzip [文件]</p>
+<p>功能描述：  压缩文件</p>
+<p>压缩后文件格式 : gz</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@izueb165nx71hgz tmp]# gzip boduo</span><br><span class="line">[root@izueb165nx71hgz tmp]# ls</span><br><span class="line">boduo.gz</span><br></pre></td></tr></table></figure>
+
+<h3 id="压缩解压命令：gunzip"><a href="#压缩解压命令：gunzip" class="headerlink" title="压缩解压命令：gunzip"></a>压缩解压命令：gunzip</h3><p>命令名称：gunzip</p>
+<p>命令英文原意： GNU unzip</p>
+<p>命令所在路径 ： /bin/gunzip</p>
+<p>执行权限 ： 所有用户</p>
+<p>语法： gunzip [压缩文件]</p>
+<p>功能描述 ：解压缩.gz的压缩文件</p>
+<p>范例： gunzip boduo.gz  或者 gzip -d</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@izueb165nx71hgz tmp]# ls -l</span><br><span class="line">total <span class="number">136</span></span><br><span class="line">-rw-r--r-- <span class="number">1</span> root root <span class="number">136085</span> Sep <span class="number">20</span> <span class="number">22</span>:<span class="number">12</span> boduo.gz</span><br><span class="line">[root@izueb165nx71hgz tmp]# gunzip boduo.gz</span><br><span class="line">[root@izueb165nx71hgz tmp]# ls -l</span><br><span class="line">total <span class="number">656</span></span><br><span class="line">-rw-r--r-- <span class="number">1</span> root root <span class="number">670293</span> Sep <span class="number">20</span> <span class="number">22</span>:<span class="number">12</span> boduo</span><br><span class="line"><span class="comment">//可以看出，大概会有压缩5倍左右</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="压缩解压命令：tar"><a href="#压缩解压命令：tar" class="headerlink" title="压缩解压命令：tar"></a>压缩解压命令：tar</h3><p>命令名称： tar</p>
+<p>命令所在路径： /bin/tar</p>
+<p>执行权限： 所有用户</p>
+<p>语法 ： tar 选项[-zef] [压缩后文件名] [目录]</p>
+<p>​                    -c 打包</p>
+<p>​                    -v 显示详细信息</p>
+<p>​                    -f 指定文件名</p>
+<p>​                    -z 打包同时压缩</p>
+<p>​                    tar -cvf Japan.tar Japan</p>
+<p>​                    tar -zcf Japan.tar.gz  Japan</p>
+<p>功能描述 ： 打包目录</p>
+<p>压缩后文件格式 ：  .tar.gz</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[root@izueb165nx71hgz tmp]# tar -cvf Japan.tar Japan</span><br><span class="line">Japan/</span><br><span class="line">Japan/longze/</span><br><span class="line">Japan/boduo/</span><br><span class="line">Japan/cangjing/</span><br><span class="line">[root@izueb165nx71hgz tmp]# ls</span><br><span class="line">boduo  Japan  Japan.tar</span><br><span class="line">[root@izueb165nx71hgz tmp]# gzip Japan.tar</span><br><span class="line">[root@izueb165nx71hgz tmp]# ls</span><br><span class="line">boduo  Japan  Japan.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>tar -zcf</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@izueb165nx71hgz tmp]# tar -zcf Japan.tar.gz Japan</span><br><span class="line">[root@izueb165nx71hgz tmp]# ls</span><br><span class="line">boduo  Japan  Japan.tar.gz</span><br></pre></td></tr></table></figure>
+
+<h3 id="压缩解压命令：tar-1"><a href="#压缩解压命令：tar-1" class="headerlink" title="压缩解压命令：tar"></a>压缩解压命令：tar</h3><p>tar命令解压语法 ：</p>
+<p>​            -x 解包</p>
+<p>​            -v 显示详细信息</p>
+<p>​            -f 指定解压文件</p>
+<p>​            -z  解压缩</p>
+<p>范例： tar =zxvf Japan.tar.gz</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@izueb165nx71hgz tmp]# tar -zxvf Japan.tar.gz </span><br><span class="line">Japan/</span><br><span class="line">Japan/longze/</span><br><span class="line">Japan/boduo/</span><br><span class="line">Japan/cangjing<span class="comment">///解压成功</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="压缩解压命令：-zip-压缩完可以保留源文件"><a href="#压缩解压命令：-zip-压缩完可以保留源文件" class="headerlink" title="压缩解压命令： zip(压缩完可以保留源文件)"></a>压缩解压命令： zip(压缩完可以保留源文件)</h3><p>命令名称： zip</p>
+<p>命令所在路径 ： /usr/bin/zip</p>
+<p>执行权限 ： 所有用户</p>
+<p>语法 ： </p>
+<p>​    zip 选项 [-r]  [压缩后文件名] [文件或目录] </p>
+<p>​            -r 压缩目录</p>
+<p>功能描述： 压缩文件或目录</p>
+<p>压缩后文件格式 ： .zip</p>
+<h3 id="压缩解压命令：unzip"><a href="#压缩解压命令：unzip" class="headerlink" title="压缩解压命令：unzip"></a>压缩解压命令：unzip</h3><p>命令名称： unzip</p>
+<p>命令所在路径 ：/usr/bin/unzip</p>
+<p>执行权限 ：所有用户</p>
+<p>语法： unzip[压缩文件]</p>
+<p>功能描述 ：解压.zip的压缩文件</p>
+<p>范例：unzip test.zip</p>
+<h3 id="压缩解压命令：bzip2"><a href="#压缩解压命令：bzip2" class="headerlink" title="压缩解压命令：bzip2"></a>压缩解压命令：bzip2</h3><p>命令名称：bzip2</p>
+<p>命令所在路径：/usr/bin/bzip2</p>
+<p>执行权限：所有用户</p>
+<p>语法：bzip2 选项 [-k] [文件]</p>
+<p>​            -k 产生压缩文件后保留原文件</p>
+<p>功能描述：压缩文件</p>
+<p>压缩后文件格式 ： bz2</p>
+<p>范例： bzip2 -k boduo</p>
+<p>​          tar -cjf Japan.tar.bz2.Japan</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@izueb165nx71hgz tmp]# tar -cjf Japan.tar.bz2 Japan</span><br><span class="line">tar (child): bzip2: Cannot exec: No such file or directory</span><br><span class="line">tar (child): Error is not recoverable: exiting now</span><br><span class="line">tar: Child returned status <span class="number">2</span></span><br><span class="line">tar: Error is not recoverable: exiting now</span><br><span class="line">[root@izueb165nx71hgz tmp]# ls</span><br><span class="line">boduo  Japan  Japan.tar.bz2  Japan.tar.gz</span><br></pre></td></tr></table></figure>
+
+<h3 id="压缩解压命令：bunzip2"><a href="#压缩解压命令：bunzip2" class="headerlink" title="压缩解压命令：bunzip2"></a>压缩解压命令：bunzip2</h3><p>命令名称： bunzip2</p>
+<p>命令所在路径： /usr/bin/bunzip2</p>
+<p>执行权限 ： 所有用户</p>
+<p>语法： bunzip2  选项 [-k] [压缩文件] </p>
+<p>​                                    -k   解压缩后保留原文件</p>
+<p>功能描述： 解压缩</p>
+<p>范例： bunzip2 -k boduo.bz2</p>
+<p>​        tar -xjf  Japan.tar.bz2</p>
+<hr>
+<h3 id="网络命令：-write"><a href="#网络命令：-write" class="headerlink" title="网络命令： write"></a>网络命令： write</h3><p>指令名称： write</p>
+<p>指令所在路径：  /usr/bin/write</p>
+<p>执行权限： 所有用户</p>
+<p>语法： write &lt;用户名&gt;</p>
+<p>功能描述： 给用户发信息，以Ctrl+D保存结束</p>
+<p>范例; write linzhiling</p>
+<p><strong>root写给其它帐号 ，写的时候ctrl+”删除”才能真的删东西，ctrl+d保存发送       其它帐号看完写的东西要ctrl+c退出</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@izueb165nx71hgz ~]# write xixi</span><br><span class="line">chengyujiao</span><br><span class="line"><span class="comment">//其它帐号收到的：</span></span><br><span class="line">[xixi<span class="meta">@izueb</span>165nx71hgz ~]$ </span><br><span class="line">Message from root<span class="meta">@izueb</span>165nx71hgz on pts/<span class="number">0</span> at <span class="number">19</span>:<span class="number">13</span> ...</span><br><span class="line">chengyujiao</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="网络命令：wall"><a href="#网络命令：wall" class="headerlink" title="网络命令：wall"></a>网络命令：wall</h3><p>指令名称 ： wall</p>
+<p>命令英文原意： write   all</p>
+<p>指令所在路径 ：  /usr/bin/wall</p>
+<p>执行权限 ： 所有用户</p>
+<p>语法 ：   wall [message]</p>
+<p>功能描述 ： 发广播信息</p>
+<p>范例： wall gonggao gonggao</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@izueb165nx71hgz ~]# </span><br><span class="line">Broadcast message from root<span class="meta">@izueb</span>165nx71hgz (pts/<span class="number">0</span>) (Sat Sep <span class="number">21</span> <span class="number">19</span>:<span class="number">20</span>:<span class="number">32</span> <span class="number">2019</span>):</span><br><span class="line"></span><br><span class="line">gonggao gonggao</span><br><span class="line"><span class="comment">//可以看出是收到了广播，同时发现所有用户也都收到了</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="网络命令：-ping"><a href="#网络命令：-ping" class="headerlink" title="网络命令： ping"></a>网络命令： ping</h3><p>命令名称; ping</p>
+<p>命令所在路径： /bin/ping</p>
+<p>执行权限： 所有用户</p>
+<p>语法 ： ping 选项   IP地址</p>
+<p>​            -c  指定发送次数</p>
+<p>功能描述 ： 测试网络连通性，会一直打印网络状态</p>
+<p>范例： ping -c +”想ping的次数” + IP地址</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@izueb165nx71hgz ~]# ping -c 3 172.24.33.197</span><br><span class="line">PING <span class="number">172.24</span>.33.197 (<span class="number">172.24</span>.33.197) <span class="number">56</span>(<span class="number">84</span>) bytes of data.</span><br><span class="line"><span class="number">64</span> bytes from <span class="number">172.24</span>.33.197: icmp_seq=<span class="number">1</span> ttl=<span class="number">64</span> time=<span class="number">0.015</span> ms</span><br><span class="line"><span class="number">64</span> bytes from <span class="number">172.24</span>.33.197: icmp_seq=<span class="number">2</span> ttl=<span class="number">64</span> time=<span class="number">0.028</span> ms</span><br><span class="line"><span class="number">64</span> bytes from <span class="number">172.24</span>.33.197: icmp_seq=<span class="number">3</span> ttl=<span class="number">64</span> time=<span class="number">0.030</span> ms</span><br><span class="line"></span><br><span class="line">--- <span class="number">172.24</span>.33.197 ping statistics ---</span><br><span class="line"><span class="number">3</span> packets transmitted, <span class="number">3</span> received, <span class="number">0</span>% packet loss, time <span class="number">1999</span>ms</span><br><span class="line">rtt min/avg/max/mdev = <span class="number">0.015</span>/<span class="number">0.024</span>/<span class="number">0.030</span>/<span class="number">0.007</span> ms</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="网络命令：-ifconfig"><a href="#网络命令：-ifconfig" class="headerlink" title="网络命令： ifconfig"></a>网络命令： ifconfig</h3><p>命令名称： ifconfig</p>
+<p>命令英文原意： interface configure</p>
+<p>命令所在路径 ： /sbin/ifconfig</p>
+<p>执行权限 ： root</p>
+<p>语法： ifconfig  网卡名称   IP地址</p>
+<p>功能描述： 查看和主设置网卡信息</p>
+<p>范例： ifconfig  eth0  172.24.33.197</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[root@izueb165nx71hgz ~]# ifconfig</span><br><span class="line">eth0: <span class="comment">//Ethernet 表示是以太网 ，00:16是mac地址，物理地址</span></span><br><span class="line">flags=<span class="number">4163</span>&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu <span class="number">1500</span></span><br><span class="line">        inet <span class="number">172.24</span>.33.197  netmask <span class="number">255.255</span>.192.0  broadcast <span class="number">172.24</span>.63.255</span><br><span class="line">        ether <span class="number">00</span>:<span class="number">16</span>:<span class="number">3</span>e:<span class="number">12</span>:d6:c9  txqueuelen <span class="number">1000</span>  (Ethernet)</span><br><span class="line">        RX packets <span class="number">6472195</span>  bytes <span class="number">1054726991</span> (<span class="number">1005.8</span> MiB)</span><br><span class="line">        RX errors <span class="number">0</span>  dropped <span class="number">0</span>  overruns <span class="number">0</span>  frame <span class="number">0</span></span><br><span class="line">        TX packets <span class="number">5261225</span>  bytes <span class="number">2615050876</span> (<span class="number">2.4</span> GiB)</span><br><span class="line">        TX errors <span class="number">0</span>  dropped <span class="number">0</span> overruns <span class="number">0</span>  carrier <span class="number">0</span>  collisions <span class="number">0</span></span><br><span class="line"></span><br><span class="line">lo: flags=<span class="number">73</span>&lt;UP,LOOPBACK,RUNNING&gt;  mtu <span class="number">65536</span></span><br><span class="line">        inet <span class="number">127.0</span>.0.1  netmask <span class="number">255.0</span>.0.0</span><br><span class="line">        loop  txqueuelen <span class="number">1</span>  (Local Loopback)</span><br><span class="line">        RX packets <span class="number">2998326</span>  bytes <span class="number">186015149</span> (<span class="number">177.3</span> MiB)</span><br><span class="line">        RX errors <span class="number">0</span>  dropped <span class="number">0</span>  overruns <span class="number">0</span>  frame <span class="number">0</span></span><br><span class="line">        TX packets <span class="number">2998326</span>  bytes <span class="number">186015149</span> (<span class="number">177.3</span> MiB)</span><br><span class="line">        TX errors <span class="number">0</span>  dropped <span class="number">0</span> overruns <span class="number">0</span>  carrier <span class="number">0</span>  collisions <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="网络命令-mail"><a href="#网络命令-mail" class="headerlink" title="网络命令: mail"></a>网络命令: mail</h3><p>命令名称： mail</p>
+<p>命令所在路径 ： /bin/mail</p>
+<p>执行权限 ： 所有用户</p>
+<p>语法 ： mail [用户名]</p>
+<p>功能描述 ： 查看发送电子邮件</p>
+<p>范例： mail root</p>
+<hr>
+<h3 id="网络命令：-last"><a href="#网络命令：-last" class="headerlink" title="网络命令： last"></a>网络命令： last</h3><p>命令名称： last</p>
+<p>命令所在路径： /usr/bin/last</p>
+<p>执行权限： 所有用户</p>
+<p>语法 ：last</p>
+<p>功能描述：列出目前与过去登入系统的用户信息</p>
+<p>范例： last</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@izueb165nx71hgz ~]# last</span><br><span class="line">root     pts/<span class="number">0</span>        <span class="number">221.207</span>.139.191  Sat Sep <span class="number">21</span> <span class="number">19</span>:<span class="number">48</span>   still logged in   </span><br><span class="line">root     pts/<span class="number">0</span>        <span class="number">221.207</span>.139.191  Sat Sep <span class="number">21</span> <span class="number">19</span>:<span class="number">44</span> - <span class="number">19</span>:<span class="number">48</span>  (<span class="number">00</span>:<span class="number">03</span>)    </span><br><span class="line">root     pts/<span class="number">0</span>        <span class="number">221.207</span>.139.191  Sat Sep <span class="number">21</span> <span class="number">19</span>:<span class="number">43</span> - <span class="number">19</span>:<span class="number">44</span>  (<span class="number">00</span>:<span class="number">01</span>)    </span><br><span class="line">root     pts/<span class="number">0</span>        <span class="number">221.207</span>.139.191  Sat Sep <span class="number">21</span> <span class="number">19</span>:<span class="number">25</span> - <span class="number">19</span>:<span class="number">43</span>  (<span class="number">00</span>:<span class="number">18</span>)</span><br></pre></td></tr></table></figure>
+
+<p>网络命令：lastlog</p>
+<p>命令名称： lastlog</p>
+<p>命令所在路径 ：/usr/bin/lastlog</p>
+<p>执行权限：所有用户</p>
+<p>语法：lastlog</p>
+<p>功能描述： 检查某特定用户上次登录的时间</p>
+<p>范例： lastlog </p>
+<p>​            lastlog  -u +  客户的ID</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@izueb165nx71hgz ~]# lastlog -u xixi</span><br><span class="line">Username         Port     From             Latest</span><br><span class="line">xixi             pts/<span class="number">1</span>    <span class="number">221.207</span>.139.191  Sat Sep <span class="number">21</span> <span class="number">19</span>:<span class="number">12</span>:<span class="number">40</span> +<span class="number">0800</span> <span class="number">2019</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="网络命令：-traceroute"><a href="#网络命令：-traceroute" class="headerlink" title="网络命令： traceroute"></a>网络命令： traceroute</h3><p>命令名称： traceroute</p>
+<p>命令所在路径： /bin/traceroute</p>
+<p>执行权限：所有用户</p>
+<p>语法：traceroute</p>
+<p>功能描述：显示数据包到主机间的路径 </p>
+<p>范例： traceroute <a href="http://www.mczhangyi.top" target="_blank" rel="noopener">www.mczhangyi.top</a></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@izueb165nx71hgz ~]# traceroute www.sina.com.cn</span><br><span class="line">-bash: traceroute: command not found<span class="comment">//提示找不到，写下面代码就好了</span></span><br><span class="line">[root@izueb165nx71hgz ~]# yum install -y traceroute</span><br></pre></td></tr></table></figure>
+
+<p>然后再试下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">[root@izueb165nx71hgz ~]# traceroute www.baidu.com</span><br><span class="line">traceroute to www.baidu.com (<span class="number">220.181</span>.38.150), <span class="number">30</span> hops max, <span class="number">60</span> <span class="keyword">byte</span> packets</span><br><span class="line"> <span class="number">1</span>  * * *</span><br><span class="line"> <span class="number">2</span>  * * *</span><br><span class="line"> <span class="number">3</span>  <span class="number">11.220</span>.136.118 (<span class="number">11.220</span>.136.118)  <span class="number">2.099</span> ms <span class="number">11.220</span>.136.54 (<span class="number">11.220</span>.136.54)  <span class="number">2.703</span> ms  <span class="number">2.636</span> ms</span><br><span class="line"> <span class="number">4</span>  <span class="number">116.251</span>.104.169 (<span class="number">116.251</span>.104.169)  <span class="number">2.342</span> ms <span class="number">123.56</span>.34.90 (<span class="number">123.56</span>.34.90)  <span class="number">3.128</span> ms *</span><br><span class="line"> <span class="number">5</span>  <span class="number">116.251</span>.112.209 (<span class="number">116.251</span>.112.209)  <span class="number">2.192</span> ms <span class="number">123.56</span>.34.5 (<span class="number">123.56</span>.34.5)  <span class="number">3.036</span> ms <span class="number">116.251</span>.112.201 (<span class="number">116.251</span>.112.201)  <span class="number">2.717</span> ms</span><br><span class="line"> <span class="number">6</span>  <span class="number">106.38</span>.196.233 (<span class="number">106.38</span>.196.233)  <span class="number">2.889</span> ms <span class="number">106.38</span>.196.237 (<span class="number">106.38</span>.196.237)  <span class="number">2.896</span> ms <span class="number">106.38</span>.196.209 (<span class="number">106.38</span>.196.209)  <span class="number">2.764</span> ms</span><br><span class="line"> <span class="number">7</span>  <span class="number">36.110</span>.244.193 (<span class="number">36.110</span>.244.193)  <span class="number">4.760</span> ms <span class="number">36.110</span>.244.61 (<span class="number">36.110</span>.244.61)  <span class="number">5.756</span> ms <span class="number">36.110</span>.244.197 (<span class="number">36.110</span>.244.197)  <span class="number">4.912</span> ms</span><br><span class="line"> <span class="number">8</span>  * * <span class="number">36.110</span>.244.98 (<span class="number">36.110</span>.244.98)  <span class="number">8.679</span> ms</span><br><span class="line"> <span class="number">9</span>  <span class="number">220.181</span>.182.30 (<span class="number">220.181</span>.182.30)  <span class="number">5.156</span> ms <span class="number">220.181</span>.182.178 (<span class="number">220.181</span>.182.178)  <span class="number">8.293</span> ms <span class="number">220.181</span>.17.90 (<span class="number">220.181</span>.17.90)  <span class="number">8.403</span> ms</span><br><span class="line"><span class="number">10</span>  * * *</span><br><span class="line"><span class="number">11</span>  * * *</span><br><span class="line"><span class="number">12</span>  * * *</span><br><span class="line"><span class="number">13</span>  * * *</span><br><span class="line"><span class="number">14</span>  * * *</span><br><span class="line"><span class="number">15</span>  * * *</span><br><span class="line"><span class="number">16</span>  * * *</span><br><span class="line"><span class="number">17</span>  * * *</span><br><span class="line"><span class="number">18</span>  * * *</span><br><span class="line"><span class="number">19</span>  * * *</span><br><span class="line"><span class="number">20</span>  * * *</span><br><span class="line"><span class="number">21</span>  * * *</span><br><span class="line"><span class="number">22</span>  * * *</span><br><span class="line"><span class="number">23</span>  * * *</span><br><span class="line"><span class="number">24</span>  * * *</span><br><span class="line"><span class="number">25</span>  * * *</span><br><span class="line"><span class="number">26</span>  * * *</span><br><span class="line"><span class="number">27</span>  * * *</span><br><span class="line"><span class="number">28</span>  * * *</span><br><span class="line"><span class="number">29</span>  * * *</span><br><span class="line"><span class="number">30</span>  * * *</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="网络命令：netstat"><a href="#网络命令：netstat" class="headerlink" title="网络命令：netstat"></a>网络命令：netstat</h3><p>命令名称：netstat</p>
+<p>命令所在路径 ：/bin/netstat</p>
+<p>执行权限; 所有用户</p>
+<p>语法： netstat <strong>[选项]</strong></p>
+<p>功能描述： 显示风格相关信息</p>
+<p> <strong>选项：</strong></p>
+<p>-t:  TCP协议</p>
+<p>-u :  UDP协议</p>
+<p>-l  :  监听</p>
+<p>-r  : 路由</p>
+<p>-n :  显示IP地址和端口号</p>
+<p>范例：</p>
+<p>netstat  -tlun   查看本机监听的端口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[root@izueb165nx71hgz ~]# netstat -tlun</span><br><span class="line"><span class="function">Active Internet <span class="title">connections</span> <span class="params">(only servers)</span></span></span><br><span class="line"><span class="function">Proto Recv-Q Send-Q Local Address           Foreign Address         State      </span></span><br><span class="line"><span class="function">tcp        0      0 0.0.0.0:6379            0.0.0.0:*               LISTEN     </span></span><br><span class="line"><span class="function">tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN     </span></span><br><span class="line"><span class="function">tcp        0      0 127.0.0.1:32000         0.0.0.0:*               LISTEN     </span></span><br><span class="line"><span class="function">tcp6       0      0 :::3306                 :::*                    LISTEN     </span></span><br><span class="line"><span class="function">tcp6       0      0 :::6379                 :::*                    LISTEN     </span></span><br><span class="line"><span class="function">udp        0      0 0.0.0.0:68              0.0.0.0:*                          </span></span><br><span class="line"><span class="function">udp        0      0 172.24.33.197:123       0.0.0.0:*                          </span></span><br><span class="line"><span class="function">udp        0      0 127.0.0.1:123           0.0.0.0:*                          </span></span><br><span class="line"><span class="function">udp        0      0 0.0.0.0:123             0.0.0.0:*                          </span></span><br><span class="line"><span class="function">udp        0      0 0.0.0.0:49427           0.0.0.0:*                          </span></span><br><span class="line"><span class="function">udp6       0      0 :::123                  :::*                               </span></span><br><span class="line"><span class="function">udp6       0      0 :::49917                :::*</span></span><br></pre></td></tr></table></figure>
+
+<p>netstat  -an     查看本机所有的网络连接</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line">[root@izueb165nx71hgz ~]# netstat -tlun</span><br><span class="line"><span class="function">Active Internet <span class="title">connections</span> <span class="params">(only servers)</span></span></span><br><span class="line"><span class="function">Proto Recv-Q Send-Q Local Address           Foreign Address         State      </span></span><br><span class="line"><span class="function">tcp        0      0 0.0.0.0:6379            0.0.0.0:*               LISTEN     </span></span><br><span class="line"><span class="function">tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN     </span></span><br><span class="line"><span class="function">tcp        0      0 127.0.0.1:32000         0.0.0.0:*               LISTEN     </span></span><br><span class="line"><span class="function">tcp6       0      0 :::3306                 :::*                    LISTEN     </span></span><br><span class="line"><span class="function">tcp6       0      0 :::6379                 :::*                    LISTEN     </span></span><br><span class="line"><span class="function">udp        0      0 0.0.0.0:68              0.0.0.0:*                          </span></span><br><span class="line"><span class="function">udp        0      0 172.24.33.197:123       0.0.0.0:*                          </span></span><br><span class="line"><span class="function">udp        0      0 127.0.0.1:123           0.0.0.0:*                          </span></span><br><span class="line"><span class="function">udp        0      0 0.0.0.0:123             0.0.0.0:*                          </span></span><br><span class="line"><span class="function">udp        0      0 0.0.0.0:49427           0.0.0.0:*                          </span></span><br><span class="line"><span class="function">udp6       0      0 :::123                  :::*                               </span></span><br><span class="line"><span class="function">udp6       0      0 :::49917                :::*                               </span></span><br><span class="line"><span class="function">[root@izueb165nx71hgz ~]# ntstat -an</span></span><br><span class="line"><span class="function">-bash: ntstat: command not found</span></span><br><span class="line"><span class="function">[root@izueb165nx71hgz ~]# netstat -an</span></span><br><span class="line"><span class="function">Active Internet <span class="title">connections</span> <span class="params">(servers and established)</span></span></span><br><span class="line"><span class="function">Proto Recv-Q Send-Q Local Address           Foreign Address         State      </span></span><br><span class="line"><span class="function">tcp        0      0 0.0.0.0:6379            0.0.0.0:*               LISTEN     </span></span><br><span class="line"><span class="function">tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN     </span></span><br><span class="line"><span class="function">tcp        0      0 127.0.0.1:32000         0.0.0.0:*               LISTEN     </span></span><br><span class="line"><span class="function">tcp        0      0 172.24.33.197:41020     100.100.30.26:80        ESTABLISHED</span></span><br><span class="line"><span class="function">tcp        0      0 127.0.0.1:32000         127.0.0.1:31000         ESTABLISHED</span></span><br><span class="line"><span class="function">tcp        0     52 172.24.33.197:22        221.207.139.191:41225   ESTABLISHED</span></span><br><span class="line"><span class="function">tcp        0      0 172.24.33.197:22        221.207.139.191:40170   ESTABLISHED</span></span><br><span class="line"><span class="function">tcp        0      0 127.0.0.1:31000         127.0.0.1:32000         ESTABLISHED</span></span><br><span class="line"><span class="function">tcp6       0      0 :::3306                 :::*                    LISTEN     </span></span><br><span class="line"><span class="function">tcp6       0      0 :::6379                 :::*                    LISTEN     </span></span><br><span class="line"><span class="function">udp        0      0 0.0.0.0:68              0.0.0.0:*                          </span></span><br><span class="line"><span class="function">udp        0      0 172.24.33.197:123       0.0.0.0:*                          </span></span><br><span class="line"><span class="function">udp        0      0 127.0.0.1:123           0.0.0.0:*                          </span></span><br><span class="line"><span class="function">udp        0      0 0.0.0.0:123             0.0.0.0:*                          </span></span><br><span class="line"><span class="function">udp        0      0 0.0.0.0:49427           0.0.0.0:*                          </span></span><br><span class="line"><span class="function">udp6       0      0 :::123                  :::*                               </span></span><br><span class="line"><span class="function">udp6       0      0 :::49917                :::*                               </span></span><br><span class="line"><span class="function">Active UNIX domain <span class="title">sockets</span> <span class="params">(servers and established)</span></span></span><br><span class="line"><span class="function">Proto RefCnt Flags       Type       State         I-Node   Path</span></span><br><span class="line"><span class="function">unix  2      [ ACC ]     STREAM     LISTENING     8609026  /tmp/Aegis-&lt;<span class="title">Guid</span><span class="params">(<span class="number">5</span>A2C30A2-A87D<span class="number">-490</span>A<span class="number">-9281</span><span class="number">-6765</span>EDAD7CBA)</span>&gt;</span></span><br><span class="line"><span class="function">unix  2      [ ACC ]     STREAM     LISTENING     6919     /run/systemd/journal/stdout</span></span><br><span class="line"><span class="function">unix  2      [ ACC ]     SEQPACKET  LISTENING     9738     /run/udev/control</span></span><br><span class="line"><span class="function">unix  5      [ ]         DGRAM                    6922     /run/systemd/journal/socket</span></span><br><span class="line"><span class="function">unix  7      [ ]         DGRAM                    6924     /dev/log</span></span><br><span class="line"><span class="function">unix  2      [ ACC ]     STREAM     LISTENING     15930    /<span class="keyword">var</span>/lib/mysql/mysql.sock</span></span><br><span class="line"><span class="function">unix  2      [ ACC ]     STREAM     LISTENING     11136    /<span class="keyword">var</span>/run/dbus/system_bus_socket</span></span><br><span class="line"><span class="function">unix  2      [ ACC ]     STREAM     LISTENING     9632     /run/systemd/<span class="keyword">private</span></span></span><br><span class="line"><span class="function">unix  2      [ ]         DGRAM                    9648     /run/systemd/shutdownd</span></span><br><span class="line"><span class="function">unix  2      [ ACC ]     STREAM     LISTENING     8609027  /usr/local/aegis/Aegis-&lt;<span class="title">Guid</span><span class="params">(<span class="number">5</span>A2C30A2-A87D<span class="number">-490</span>A<span class="number">-9281</span><span class="number">-6765</span>EDAD7CBA)</span>&gt;</span></span><br><span class="line"><span class="function">unix  2      [ ]         DGRAM                    6899     /run/systemd/notify</span></span><br><span class="line"><span class="function">unix  2      [ ]         DGRAM                    6901     /run/systemd/cgroups-agent</span></span><br><span class="line"><span class="function">unix  3      [ ]         STREAM     CONNECTED     10372    /run/systemd/journal/stdout</span></span><br><span class="line"><span class="function">unix  2      [ ]         DGRAM                    10420    </span></span><br><span class="line"><span class="function">unix  2      [ ]         DGRAM                    13110    </span></span><br><span class="line"><span class="function">unix  2      [ ]         STREAM     CONNECTED     17420    </span></span><br><span class="line"><span class="function">unix  3      [ ]         STREAM     CONNECTED     12529    </span></span><br><span class="line"><span class="function">unix  2      [ ]         DGRAM                    11814    </span></span><br><span class="line"><span class="function">unix  3      [ ]         STREAM     CONNECTED     12684    </span></span><br><span class="line"><span class="function">unix  3      [ ]         STREAM     CONNECTED     11406    </span></span><br><span class="line"><span class="function">unix  3      [ ]         DGRAM                    10573    </span></span><br><span class="line"><span class="function">unix  3      [ ]         STREAM     CONNECTED     8609022  </span></span><br><span class="line"><span class="function">unix  3      [ ]         STREAM     CONNECTED     11259    /run/systemd/journal/stdout</span></span><br><span class="line"><span class="function">unix  3      [ ]         STREAM     CONNECTED     8609023  </span></span><br><span class="line"><span class="function">unix  3      [ ]         STREAM     CONNECTED     12530    /run/systemd/journal/stdout</span></span><br><span class="line"><span class="function">unix  3      [ ]         STREAM     CONNECTED     8609024  </span></span><br><span class="line"><span class="function">unix  3      [ ]         STREAM     CONNECTED     8609025  </span></span><br><span class="line"><span class="function">unix  3      [ ]         STREAM     CONNECTED     10371    </span></span><br><span class="line"><span class="function">unix  3      [ ]         STREAM     CONNECTED     13509    /run/systemd/journal/stdout</span></span><br><span class="line"><span class="function">unix  2      [ ]         DGRAM                    829228   </span></span><br><span class="line"><span class="function">unix  3      [ ]         STREAM     CONNECTED     14115    </span></span><br><span class="line"><span class="function">unix  2      [ ]         STREAM     CONNECTED     19391    </span></span><br><span class="line"><span class="function">unix  3      [ ]         STREAM     CONNECTED     14116    /<span class="keyword">var</span>/run/dbus/system_bus_socket</span></span><br><span class="line"><span class="function">unix  3      [ ]         DGRAM                    10572    </span></span><br><span class="line"><span class="function">unix  2      [ ]         DGRAM                    18544353 </span></span><br><span class="line"><span class="function">unix  3      [ ]         STREAM     CONNECTED     12685    /run/systemd/journal/stdout</span></span><br><span class="line"><span class="function">unix  3      [ ]         STREAM     CONNECTED     11258    </span></span><br><span class="line"><span class="function">unix  2      [ ]         DGRAM                    18533605 </span></span><br><span class="line"><span class="function">unix  3      [ ]         STREAM     CONNECTED     11379    /run/systemd/journal/stdout</span></span><br><span class="line"><span class="function">unix  3      [ ]         STREAM     CONNECTED     11401    </span></span><br><span class="line"><span class="function">unix  3      [ ]         STREAM     CONNECTED     11179    </span></span><br><span class="line"><span class="function">unix  3      [ ]         STREAM     CONNECTED     11408    /<span class="keyword">var</span>/run/dbus/system_bus_socket</span></span><br><span class="line"><span class="function">unix  3      [ ]         STREAM     CONNECTED     11407    /<span class="keyword">var</span>/run/dbus/system_bus_socket</span></span><br><span class="line"><span class="function">unix  2      [ ]         DGRAM                    11395    </span></span><br><span class="line"><span class="function">unix  3      [ ]         STREAM     CONNECTED     11378    </span></span><br><span class="line"><span class="function">unix  3      [ ]         STREAM     CONNECTED     18533608 </span></span><br><span class="line"><span class="function">unix  3      [ ]         STREAM     CONNECTED     18533609 </span></span><br><span class="line"><span class="function">unix  3      [ ]         STREAM     CONNECTED     11405    </span></span><br><span class="line"><span class="function">unix  3      [ ]         STREAM     CONNECTED     11699    </span></span><br><span class="line"><span class="function">unix  3      [ ]         STREAM     CONNECTED     18882    </span></span><br><span class="line"><span class="function">unix  2      [ ]         DGRAM                    12136    </span></span><br><span class="line"><span class="function">unix  3      [ ]         STREAM     CONNECTED     13508    </span></span><br><span class="line"><span class="function">unix  3      [ ]         STREAM     CONNECTED     11700    /run/systemd/journal/stdout</span></span><br><span class="line"><span class="function">unix  3      [ ]         STREAM     CONNECTED     18883    /run/systemd/journal/stdout</span></span><br></pre></td></tr></table></figure>
+
+<p>netstat -rn    查看本机路由表(网关)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@izueb165nx71hgz ~]# clear</span><br><span class="line">[root@izueb165nx71hgz ~]# netstat -rn</span><br><span class="line">Kernel IP routing table</span><br><span class="line">Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface</span><br><span class="line"><span class="number">0.0</span>.0.0         <span class="number">172.24</span>.63.253   <span class="number">0.0</span>.0.0         UG        <span class="number">0</span> <span class="number">0</span>          <span class="number">0</span> eth0</span><br><span class="line"><span class="number">169.254</span>.0.0     <span class="number">0.0</span>.0.0         <span class="number">255.255</span>.0.0     U         <span class="number">0</span> <span class="number">0</span>          <span class="number">0</span> eth0</span><br><span class="line"><span class="number">172.24</span>.0.0      <span class="number">0.0</span>.0.0         <span class="number">255.255</span>.192.0   U         <span class="number">0</span> <span class="number">0</span>          <span class="number">0</span> eth0</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="网络命令：setup"><a href="#网络命令：setup" class="headerlink" title="网络命令：setup"></a>网络命令：setup</h3><p>命令名称：setup</p>
+<p>命令所在路径 ： /usr/bin/setup</p>
+<p>执行权限 ：root</p>
+<p>语法： setup</p>
+<p>功能描述 ：配置网络 </p>
+<p>范例;        setup</p>
+<hr>
+<h3 id="挂载命令-相当于windows的盘符"><a href="#挂载命令-相当于windows的盘符" class="headerlink" title="挂载命令(相当于windows的盘符)"></a>挂载命令(相当于windows的盘符)</h3><p>命令名称：mount</p>
+<p>命令位置： /bin/mount</p>
+<p>执行权限：所有用户</p>
+<p>命令语法：mount [-t 文件系统]设备文件名 挂载点<br>范例：mount -t iso9660 /dev/sr0/mnt/cdrom</p>
+<hr>
+<h3 id="关机重启命令"><a href="#关机重启命令" class="headerlink" title="关机重启命令"></a>关机重启命令</h3><p>shutdown命令</p>
+<p>  shutdown [选项] 时间</p>
+<p>选项：</p>
+<p>​        -c  取消前一个关机命令</p>
+<p>​        -h 关机  + 20:21(具体时间)/now</p>
+<p>​         -r重启</p>
+<p>其它关机命令：</p>
+<p>halt</p>
+<p>poweroff//直接断电 </p>
+<p>init ()</p>
+<p>其它重启命令</p>
+<p>reboot</p>
+<p>init 6</p>
+<h3 id="系统运行级别："><a href="#系统运行级别：" class="headerlink" title="系统运行级别："></a>系统运行级别：</h3><p>   0 .关机</p>
+<ol>
+<li>单用户</li>
+<li>不完全多用户，不含NFS服务 (NFS是linux和uinx之间共享的一个服务//不安全)</li>
+<li>完全多用户</li>
+<li>未分配 </li>
+<li>图形界面</li>
+<li>重启</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@izueb165nx71hgz ~]# runlevel</span><br><span class="line">N <span class="number">3</span></span><br><span class="line"><span class="comment">//查看当前的运行级别是什么</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="退出登录命令"><a href="#退出登录命令" class="headerlink" title="退出登录命令"></a>退出登录命令</h3><p>logout</p>
 
       
     </div>
@@ -524,7 +1064,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-count">41</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -566,7 +1106,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件处理命令-touch"><span class="nav-number">1.</span> <span class="nav-text">文件处理命令:touch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件处理命令-cat"><span class="nav-number">2.</span> <span class="nav-text">文件处理命令:cat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件处理命令-more"><span class="nav-number">3.</span> <span class="nav-text">文件处理命令:more</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#less也是翻页的命令"><span class="nav-number">4.</span> <span class="nav-text">less也是翻页的命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#linux的任务管理器："><span class="nav-number">4.1.</span> <span class="nav-text">linux的任务管理器：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#文件处理命令-touch"><span class="nav-number">1.</span> <span class="nav-text">文件处理命令:touch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件处理命令-cat"><span class="nav-number">2.</span> <span class="nav-text">文件处理命令:cat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件处理命令-more"><span class="nav-number">3.</span> <span class="nav-text">文件处理命令:more</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#less也是翻页的命令"><span class="nav-number">4.</span> <span class="nav-text">less也是翻页的命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件处理命令：head-显示文件前面几行"><span class="nav-number">5.</span> <span class="nav-text">文件处理命令：head 显示文件前面几行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件处理命令-tail-显示文件后面几行"><span class="nav-number">6.</span> <span class="nav-text">文件处理命令:tail 显示文件后面几行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件处理命令：ln-创建软链接（类似window快捷方式）"><span class="nav-number">7.</span> <span class="nav-text">文件处理命令：ln 创建软链接（类似window快捷方式）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#软链接特征-类似windows快捷方式"><span class="nav-number">7.1.</span> <span class="nav-text">软链接特征:类似windows快捷方式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#硬链接特征："><span class="nav-number">7.1.1.</span> <span class="nav-text">硬链接特征：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#权限管理命令chmod"><span class="nav-number">8.</span> <span class="nav-text">权限管理命令chmod</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#权限的数字表示"><span class="nav-number">9.</span> <span class="nav-text">权限的数字表示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件目录权限总结"><span class="nav-number">10.</span> <span class="nav-text">文件目录权限总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#权限管理命令-chown"><span class="nav-number">11.</span> <span class="nav-text">权限管理命令:chown</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#权限管理命令-chgrp"><span class="nav-number">12.</span> <span class="nav-text">权限管理命令:chgrp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#权限管理命令-umask"><span class="nav-number">13.</span> <span class="nav-text">权限管理命令:umask</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件搜索命令：find"><span class="nav-number">14.</span> <span class="nav-text">文件搜索命令：find</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#根据时间属性来查找"><span class="nav-number">15.</span> <span class="nav-text">根据时间属性来查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#type-根据文件类型查找"><span class="nav-number">16.</span> <span class="nav-text">-type 根据文件类型查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件搜索命令：locate"><span class="nav-number">17.</span> <span class="nav-text">文件搜索命令：locate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件搜索命令：which"><span class="nav-number">18.</span> <span class="nav-text">文件搜索命令：which</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件搜索命令：-whereis"><span class="nav-number">19.</span> <span class="nav-text">文件搜索命令： whereis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件搜索命令：grep"><span class="nav-number">20.</span> <span class="nav-text">文件搜索命令：grep</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#i-不区分大小写"><span class="nav-number">20.0.0.1.</span> <span class="nav-text">-i  不区分大小写</span></a></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#帮助命令-man"><span class="nav-number">21.</span> <span class="nav-text">帮助命令  man</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#当用man查到了两个两样的词时："><span class="nav-number">22.</span> <span class="nav-text">当用man查到了两个两样的词时：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#whatis-命令-比man短一点的，只知道帮助文件头的命令"><span class="nav-number">23.</span> <span class="nav-text">whatis+命令    比man短一点的，只知道帮助文件头的命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#apropos-配置文件"><span class="nav-number">24.</span> <span class="nav-text">apropos +配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#–help-看到主要的选项有哪些"><span class="nav-number">25.</span> <span class="nav-text">–help  看到主要的选项有哪些</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#info-与man相同，都是帮助命令"><span class="nav-number">26.</span> <span class="nav-text">info 与man相同，都是帮助命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#帮助命令：help"><span class="nav-number">27.</span> <span class="nav-text">帮助命令：help</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户管理命令：useradd"><span class="nav-number">28.</span> <span class="nav-text">用户管理命令：useradd</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户管理命令：passwd"><span class="nav-number">29.</span> <span class="nav-text">用户管理命令：passwd</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户管理命令：-who"><span class="nav-number">30.</span> <span class="nav-text">用户管理命令： who</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户管理命令：-w"><span class="nav-number">31.</span> <span class="nav-text">用户管理命令： w</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#压缩解压命令-gzip（只能压缩文件，不可以是目录而且压缩完后，也不像windows一样还有源文件）"><span class="nav-number">32.</span> <span class="nav-text">压缩解压命令: gzip（只能压缩文件，不可以是目录而且压缩完后，也不像windows一样还有源文件）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#压缩解压命令：gunzip"><span class="nav-number">33.</span> <span class="nav-text">压缩解压命令：gunzip</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#压缩解压命令：tar"><span class="nav-number">34.</span> <span class="nav-text">压缩解压命令：tar</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#压缩解压命令：tar-1"><span class="nav-number">35.</span> <span class="nav-text">压缩解压命令：tar</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#压缩解压命令：-zip-压缩完可以保留源文件"><span class="nav-number">36.</span> <span class="nav-text">压缩解压命令： zip(压缩完可以保留源文件)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#压缩解压命令：unzip"><span class="nav-number">37.</span> <span class="nav-text">压缩解压命令：unzip</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#压缩解压命令：bzip2"><span class="nav-number">38.</span> <span class="nav-text">压缩解压命令：bzip2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#压缩解压命令：bunzip2"><span class="nav-number">39.</span> <span class="nav-text">压缩解压命令：bunzip2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络命令：-write"><span class="nav-number">40.</span> <span class="nav-text">网络命令： write</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络命令：wall"><span class="nav-number">41.</span> <span class="nav-text">网络命令：wall</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络命令：-ping"><span class="nav-number">42.</span> <span class="nav-text">网络命令： ping</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络命令：-ifconfig"><span class="nav-number">43.</span> <span class="nav-text">网络命令： ifconfig</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络命令-mail"><span class="nav-number">44.</span> <span class="nav-text">网络命令: mail</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络命令：-last"><span class="nav-number">45.</span> <span class="nav-text">网络命令： last</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络命令：-traceroute"><span class="nav-number">46.</span> <span class="nav-text">网络命令： traceroute</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络命令：netstat"><span class="nav-number">47.</span> <span class="nav-text">网络命令：netstat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网络命令：setup"><span class="nav-number">48.</span> <span class="nav-text">网络命令：setup</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#挂载命令-相当于windows的盘符"><span class="nav-number">49.</span> <span class="nav-text">挂载命令(相当于windows的盘符)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关机重启命令"><span class="nav-number">50.</span> <span class="nav-text">关机重启命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#系统运行级别："><span class="nav-number">51.</span> <span class="nav-text">系统运行级别：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#退出登录命令"><span class="nav-number">52.</span> <span class="nav-text">退出登录命令</span></a></li></div>
             
 
           </div>
