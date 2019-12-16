@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/sousuo1.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/juxiezuo32.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/juxiezuo16.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/juxiezuo.png?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="关于安装Wampserver64后无法用127.0.0.1访问或80来访问的原因： 占用了端口，比如apache占用了  查找80后修改为8088：   2.找到wampmanager.tpl文件也修改下80端口    成功了  1.1.1 post请求02get.php 12345&amp;lt;?phpprint_r($_POST);echo $_POST[&quot;usrName&quot;];echo $_POS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Wampserver64&amp;&amp;ajax">
+<meta property="og:url" content="http://yoursite.com/2019/11/02/ajax&Wampserver64/Wampserver64/index.html">
+<meta property="og:site_name" content="张易的博客">
+<meta property="og:description" content="关于安装Wampserver64后无法用127.0.0.1访问或80来访问的原因： 占用了端口，比如apache占用了  查找80后修改为8088：   2.找到wampmanager.tpl文件也修改下80端口    成功了  1.1.1 post请求02get.php 12345&amp;lt;?phpprint_r($_POST);echo $_POST[&quot;usrName&quot;];echo $_POS">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://i.loli.net/2019/11/02/47me5sCUFRkbvx9.png">
+<meta property="og:image" content="https://i.loli.net/2019/11/02/tEdMZCWJH1qn9gk.png">
+<meta property="og:image" content="https://i.loli.net/2019/11/02/xwlLpGeDuWg8tcO.png">
+<meta property="og:image" content="https://i.loli.net/2019/11/02/sG8DdRxfXCAzIYB.png">
+<meta property="og:image" content="https://i.loli.net/2019/11/02/7EXbVqTe9FadGnp.png">
+<meta property="og:image" content="https://i.loli.net/2019/11/02/X8Fj1q9ibPNCZSk.png">
+<meta property="og:updated_time" content="2019-11-03T06:37:08.137Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Wampserver64&amp;&amp;ajax">
+<meta name="twitter:description" content="关于安装Wampserver64后无法用127.0.0.1访问或80来访问的原因： 占用了端口，比如apache占用了  查找80后修改为8088：   2.找到wampmanager.tpl文件也修改下80端口    成功了  1.1.1 post请求02get.php 12345&amp;lt;?phpprint_r($_POST);echo $_POST[&quot;usrName&quot;];echo $_POS">
+<meta name="twitter:image" content="https://i.loli.net/2019/11/02/47me5sCUFRkbvx9.png">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/11/02/ajax&Wampserver64/Wampserver64/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Wampserver64&&ajax | 张易的博客</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/zhangyi-6" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">张易的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/02/ajax&Wampserver64/Wampserver64/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张易">
+      <meta itemprop="description" content="张易 来自东北省">
+      <meta itemprop="image" content="/images/guwang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张易的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Wampserver64&&ajax
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-02 14:46:19" itemprop="dateCreated datePublished" datetime="2019-11-02T14:46:19+08:00">2019-11-02</time>
+            </span>
+          
+
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-11-03 14:37:08" itemprop="dateModified" datetime="2019-11-03T14:37:08+08:00">2019-11-03</time>
+              </span>
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p> 关于安装Wampserver64后无法用127.0.0.1访问或80来访问的原因：</p>
+<p>占用了端口，比如apache占用了</p>
+<p><img src="https://i.loli.net/2019/11/02/47me5sCUFRkbvx9.png" alt="2.png"></p>
+<p>查找80后修改为8088：</p>
+<p><img src="https://i.loli.net/2019/11/02/tEdMZCWJH1qn9gk.png" alt="2.png"></p>
+<p><img src="https://i.loli.net/2019/11/02/xwlLpGeDuWg8tcO.png" alt="3.png"></p>
+<p>2.找到wampmanager.tpl文件也修改下80端口</p>
+<p><img src="https://i.loli.net/2019/11/02/sG8DdRxfXCAzIYB.png" alt="2.png"></p>
+<p><img src="https://i.loli.net/2019/11/02/7EXbVqTe9FadGnp.png" alt="3.png"></p>
+<p><img src="https://i.loli.net/2019/11/02/X8Fj1q9ibPNCZSk.png" alt="4.png"></p>
+<p>成功了</p>
+<hr>
+<h2 id="1-1-1-post请求"><a href="#1-1-1-post请求" class="headerlink" title="1.1.1 post请求"></a>1.1.1 post请求</h2><p>02get.php</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">print_r($_POST);</span><br><span class="line"><span class="keyword">echo</span> $_POST[<span class="string">"usrName"</span>];</span><br><span class="line"><span class="keyword">echo</span> $_POST[<span class="string">"usrPwd"</span>];</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>getpost.html:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">1.可以通过form标签的mehod属性指定发送请求的类型</span></span><br><span class="line"><span class="comment">2.如果是get请求会将提交的数据拼接到URM后面</span></span><br><span class="line"><span class="comment">3.如果是post请求会将提交的数据放到请求头中</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"02get.php"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"usrName"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"usrPwd"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"提交"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="1-1-2-get和post的不同"><a href="#1-1-2-get和post的不同" class="headerlink" title="1.1.2 get和post的不同"></a>1.1.2 get和post的不同</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">get请求与post请求的异同</span><br><span class="line">相同点：</span><br><span class="line">都是将数据提交到远程服务器</span><br><span class="line">不同点：</span><br><span class="line">提交数据存储的位置不同</span><br><span class="line">get请求会将数据放到url后面</span><br><span class="line">post请求会将数据放到请求头中</span><br><span class="line"></span><br><span class="line">提交数据大小限制不同</span><br><span class="line">get请求对数据有大小限制</span><br><span class="line">post请求对数据没有大小限制</span><br><span class="line"></span><br><span class="line">get/post 请求应用场景</span><br><span class="line">get请求用于提交非敏感数据和小数据</span><br><span class="line">post请求用于提交敏感数据和大数据</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="1-1-3-文件上传"><a href="#1-1-3-文件上传" class="headerlink" title="1.1.3 文件上传"></a>1.1.3 文件上传</h2><p>上传文件与保存到指定文件夹下：</p>
+<p>post-file.html:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"03-post-file.php"</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"upFile"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"上传"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>03-post-file.php:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//print_r($_POST);</span></span><br><span class="line"><span class="comment">//1.获取上传文件对应的字典</span></span><br><span class="line">$fileInfo  = $_FILES[<span class="string">"upFile"</span>];</span><br><span class="line"><span class="comment">//print_r($fileInfo);</span></span><br><span class="line"><span class="comment">//2.获取上传文件的名称</span></span><br><span class="line">$fileName = $fileInfo[<span class="string">"name"</span>];</span><br><span class="line"><span class="comment">//3.获取上传文件保存的临时路径</span></span><br><span class="line">$filePath = $fileInfo[<span class="string">"tmp_name"</span>];</span><br><span class="line"><span class="comment">//echo $fileName;</span></span><br><span class="line"><span class="comment">//echo "&lt;br&gt;";</span></span><br><span class="line"><span class="comment">//echo $filePath;</span></span><br><span class="line"><span class="comment">//4.移动文件</span></span><br><span class="line">move_uploaded_file($filePath,<span class="string">"./source/"</span>.$fileName);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="如何传大文件"><a href="#如何传大文件" class="headerlink" title="如何传大文件"></a>如何传大文件</h4><p>找到C:\wampserver\bin\apache\apache2.4.39\bin下的php.ini ，用idea等打开，不要用notepad++</p>
+<p>修改：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">upload_max_filesize = <span class="number">2048</span>M<span class="comment">//上传最大限制</span></span><br><span class="line">    post_max_size = <span class="number">2048</span>M<span class="comment">//post提交的最多数据 </span></span><br><span class="line">    max_execution_time = <span class="number">30000</span><span class="comment">//默认脚本执行时间</span></span><br><span class="line">    max_input_time =<span class="number">30000</span><span class="comment">//接收  提交的数据的时间限制  单位为秒</span></span><br><span class="line">    memory_limit=<span class="number">2045</span><span class="comment">//最大内存消耗</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="1-1-4-ajax-get基本使用"><a href="#1-1-4-ajax-get基本使用" class="headerlink" title="1.1.4 ajax   get基本使用"></a>1.1.4 ajax   get基本使用</h2><p>ajax.html:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">    1.什么是ajax?</span></span><br><span class="line"><span class="comment">    ajax是与服务器交换数据并更新部分网页的艺术，在不重新</span></span><br><span class="line"><span class="comment">    加载整个页面的情况下</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params">ev</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> oBtn =<span class="built_in">document</span>.querySelector(<span class="string">"button"</span>);</span></span><br><span class="line"><span class="javascript">            oBtn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params">ev1</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">                <span class="comment">//1.创建一个异步对象</span></span></span><br><span class="line"><span class="javascript">                <span class="keyword">var</span> xmlhttp=<span class="keyword">new</span> XMLHttpRequest();</span></span><br><span class="line"><span class="javascript">                <span class="comment">//2.设置请求方式和请求地址</span></span></span><br><span class="line">                /*</span><br><span class="line">                * method:请求的类型：GET或POST</span><br><span class="line">                * url:文件在服务器上的位置</span><br><span class="line"><span class="javascript">                * <span class="keyword">async</span>:<span class="literal">true</span>异步或<span class="literal">false</span>同步</span></span><br><span class="line">                *</span><br><span class="line">                * */</span><br><span class="line"><span class="javascript">                xmlhttp.open(<span class="string">"GET"</span>,<span class="string">"04-ajax-get.php"</span>,<span class="literal">true</span>);</span></span><br><span class="line"><span class="javascript">                <span class="comment">//3.发送请求</span></span></span><br><span class="line">                xmlhttp.send();</span><br><span class="line"><span class="javascript">                <span class="comment">//4.监听状态的变化</span></span></span><br><span class="line"><span class="javascript">                xmlhttp.onreadystatechange=<span class="function"><span class="keyword">function</span>(<span class="params">ev2</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">                    <span class="comment">//5.处理返回的结果</span></span></span><br><span class="line">                    /*</span><br><span class="line">                    * XMLHttpRequest的四种状态:</span><br><span class="line">                    * 0. 请求未初始化</span><br><span class="line">                    * 1.服务器连接已建立</span><br><span class="line">                    * 2.请求已接收</span><br><span class="line">                    * 3.请求处理中</span><br><span class="line">                    * 4.请求已完成，且响应已就绪</span><br><span class="line">                    * */</span><br><span class="line"><span class="javascript">                    <span class="keyword">if</span>(xmlhttp.readyState===<span class="number">4</span>)&#123;</span></span><br><span class="line"><span class="javascript">                        <span class="comment">//判断是否请求成功</span></span></span><br><span class="line"><span class="javascript">                        <span class="keyword">if</span>(xmlhttp.status&gt;=<span class="number">200</span>&amp;&amp;xmlhttp.status&lt;<span class="number">300</span>||</span></span><br><span class="line">                            xmlhttp.status ===304)&#123;</span><br><span class="line"><span class="javascript">                        <span class="built_in">console</span>.log(<span class="string">"接收到服务器返回的数据"</span>);</span></span><br><span class="line"><span class="javascript">                        &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="javascript">                            <span class="built_in">console</span>.log(<span class="string">"接收到服务器返回的数据"</span>);</span></span><br><span class="line">                        &#125;</span><br><span class="line">                        </span><br><span class="line"></span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span>&gt;</span>发送请求<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>04-ajax-get.php:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"ajax get page"</span>:</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="1-1-5-get封装ajax上"><a href="#1-1-5-get封装ajax上" class="headerlink" title="1.1.5 get封装ajax上"></a>1.1.5 get封装ajax上</h2><p>myAjax.js:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ajax</span>(<span class="params">url,success,error</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> xmlhttp=<span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    <span class="comment">//2.设置请求方式和请求地址</span></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    * method:请求的类型：GET或POST</span></span><br><span class="line"><span class="comment">    * url:文件在服务器上的位置</span></span><br><span class="line"><span class="comment">    * async:true异步或false同步</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    * */</span></span><br><span class="line">    xmlhttp.open(<span class="string">"GET"</span>,url,<span class="literal">true</span>);</span><br><span class="line">    <span class="comment">//3.发送请求</span></span><br><span class="line">    xmlhttp.send();</span><br><span class="line">    <span class="comment">//4.监听状态的变化</span></span><br><span class="line">    xmlhttp.onreadystatechange=<span class="function"><span class="keyword">function</span>(<span class="params">ev2</span>)</span>&#123;</span><br><span class="line">        <span class="comment">//5.处理返回的结果</span></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        * XMLHttpRequest的四种状态:</span></span><br><span class="line"><span class="comment">        * 0. 请求未初始化</span></span><br><span class="line"><span class="comment">        * 1.服务器连接已建立</span></span><br><span class="line"><span class="comment">        * 2.请求已接收</span></span><br><span class="line"><span class="comment">        * 3.请求处理中</span></span><br><span class="line"><span class="comment">        * 4.请求已完成，且响应已就绪</span></span><br><span class="line"><span class="comment">        * */</span></span><br><span class="line">        <span class="keyword">if</span>(xmlhttp.readyState===<span class="number">4</span>) &#123;</span><br><span class="line">            <span class="comment">//判断是否请求成功</span></span><br><span class="line">            <span class="keyword">if</span> (xmlhttp.status &gt;= <span class="number">200</span> &amp;&amp; xmlhttp.status &lt; <span class="number">300</span> ||</span><br><span class="line">                xmlhttp.status === <span class="number">304</span>) &#123;</span><br><span class="line">                <span class="comment">// console.log("接收到服务器返回的数据");</span></span><br><span class="line">                success(xmlhttp);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">// console.log("接收到服务器返回的数据");</span></span><br><span class="line">                error(xmlhttp);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &#125;&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>ajax.html:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"myAjax.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">        1.什么是ajax?</span></span><br><span class="line"><span class="comment">        ajax是与服务器交换数据并更新部分网页的艺术，在不重新</span></span><br><span class="line"><span class="comment">        加载整个页面的情况下</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params">ev</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> oBtn =<span class="built_in">document</span>.querySelector(<span class="string">"button"</span>);</span></span><br><span class="line"><span class="javascript">            oBtn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params">ev1</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">            ajax(<span class="string">"04-ajax-get.php"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">xhr</span>)</span>&#123;</span></span><br><span class="line">                alert(xhr.responseText);</span><br><span class="line"><span class="javascript">            &#125;,<span class="function"><span class="keyword">function</span>(<span class="params">xhr</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">                alert(<span class="string">"失败"</span>);</span></span><br><span class="line">            &#125;)</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span>&gt;</span>发送请求<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>04-ajax-get.php:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">  <span class="keyword">echo</span> <span class="string">"ajax get page"</span></span><br><span class="line">  <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="1-1-6-Cookie"><a href="#1-1-6-Cookie" class="headerlink" title="1.1.6 Cookie"></a>1.1.6 Cookie</h2><p>cookie:会话跟踪技术，客户端</p>
+<p>scssion:会话跟踪技术，服务端</p>
+<p>cookie作用：</p>
+<p>将网页的数据保存到浏览器中</p>
+<p>cookie生命周期：</p>
+<p>默认情况下生命周期是一次会话(浏览器关闭)</p>
+<p>cookie注意点：</p>
+<p>cookie默认不会保存任何的数据</p>
+<p>cookie不参一次性设置多条数据，要想保存多条数据，只能一条一条的设置cookie有大小和个数的限制</p>
+<p>个数限制：20到50</p>
+<p>大小限制：4kb左右 </p>
+<p>cookie作用范围：</p>
+<p>同一个浏览器的同一个路径下访问 </p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/27/Jquery/jquery1/" rel="next" title="jquery1">
+                <i class="fa fa-chevron-left"></i> jquery1
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/11/03/Tomcat/tomcat/" rel="prev" title>
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/guwang.jpg" alt="张易">
+            
+              <p class="site-author-name" itemprop="name">张易</p>
+              <div class="site-description motion-element" itemprop="description">张易 来自东北省</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">56</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-1-post请求"><span class="nav-number">1.</span> <span class="nav-text">1.1.1 post请求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-2-get和post的不同"><span class="nav-number">2.</span> <span class="nav-text">1.1.2 get和post的不同</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-3-文件上传"><span class="nav-number">3.</span> <span class="nav-text">1.1.3 文件上传</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如何传大文件"><span class="nav-number">3.0.1.</span> <span class="nav-text">如何传大文件</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-4-ajax-get基本使用"><span class="nav-number">4.</span> <span class="nav-text">1.1.4 ajax   get基本使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-5-get封装ajax上"><span class="nav-number">5.</span> <span class="nav-text">1.1.5 get封装ajax上</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-6-Cookie"><span class="nav-number">6.</span> <span class="nav-text">1.1.6 Cookie</span></a></li></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+    <div id="msic163player">
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=482207546&auto=0&height=66"></iframe>
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">张易</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
