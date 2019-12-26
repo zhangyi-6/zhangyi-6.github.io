@@ -301,7 +301,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/16/java基础2019.12/java基础/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/26/Servlet/JDBC/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="张易">
@@ -321,7 +321,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/12/16/java基础2019.12/java基础/" class="post-title-link" itemprop="url">未命名</a>
+                <a href="/2019/12/26/Servlet/JDBC/" class="post-title-link" itemprop="url">JDBC</a>
               
             
           </h1>
@@ -346,7 +346,252 @@
                 
               
 
-              <time title="创建时间：2019-12-16 16:12:53 / 修改时间：16:13:27" itemprop="dateCreated datePublished" datetime="2019-12-16T16:12:53+08:00">2019-12-16</time>
+              <time title="创建时间：2019-12-26 11:02:32 / 修改时间：16:46:14" itemprop="dateCreated datePublished" datetime="2019-12-26T11:02:32+08:00">2019-12-26</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>JDBC:  Java DataBase Connectivity</p>
+<p>可以为多种关系型数据库DBMS提供统一的访问方式,用java来操作数据库</p>
+<p><img src="https://i.loli.net/2019/12/26/m4GJhNoDP95LnAX.png" alt="jdbc.png"></p>
+<h2 id="1-1-1-JDBC-API-主要功能"><a href="#1-1-1-JDBC-API-主要功能" class="headerlink" title="1.1.1 JDBC  API 主要功能:"></a>1.1.1 JDBC  API 主要功能:<img src="https://i.loli.net/2019/12/26/EtUW5FdPOomjH4p.png" alt="jdbc_api.png"></h2><p>具体通过以下类/接口实现:</p>
+<p>DriverManager:管理jdbc驱动<br>Connection:连接(通过DriverManager生产的)</p>
+<p><strong>Statement(PreparedStatement):增删改查</strong>(statement通过Connection产生)</p>
+<p>CallableStatement:调用数据库中的存储过程/存储函数(通过Connection产生)</p>
+<p>Result:返回的结果集（通过上面的Statement等产生）</p>
+<p>Connection产生操作数据库的对象:</p>
+<p>Connection产生Statement对象:createStatement()</p>
+<p>Connection产生prepareStatement()对象:prepareStatement()</p>
+<p>Connection产生CallableStatement对象:prepareCall();</p>
+<p>Statement操作数据库:</p>
+<p>增删改:executeUpdate();</p>
+<p>查询:executeQuery();</p>
+<p>ResultSet:保存结果集select * from xxx</p>
+<p>next():光标下移,判断是否有下一条数据:true/false</p>
+<p>previous():true/false</p>
+<p>getXXX(字段名｜位置);获取具体的字段值</p>
+<p>PreparedStatement操作数据库:</p>
+<p>public interface PreparedStatement extends Statement</p>
+<p>因此 增删改:executeUpdate(); 查询:executeQuery();都有</p>
+<p>赋值操作:setXxx();</p>
+<h2 id="1-1-2-PreparedStatement与Statement在使用区别"><a href="#1-1-2-PreparedStatement与Statement在使用区别" class="headerlink" title="1.1.2 PreparedStatement与Statement在使用区别:"></a>1.1.2 PreparedStatement与Statement在使用区别:</h2><p>1.<strong>Statement</strong>父类:</p>
+<p>sql </p>
+<p>executeUpdate(sql)</p>
+<p>2.<strong>PreparedStatement</strong>子类:</p>
+<p>sql(可能存在占位符:”?”)</p>
+<p>在创建PreparedStatement对象时，将sql预编译 prepareStatement(sql)</p>
+<p>executeUpdate()</p>
+<p>setXxx()替换占位符(?)</p>
+<p>推荐使用PreparedStatement：原因如下:</p>
+<p>1.编码更加简便（避免了字符串的拼接）</p>
+<p>String name = “zs”;</p>
+<p>int age=23;</p>
+<p>stmt:</p>
+<p>String sql = “insert into student(stuno,stuname) values(‘“+name+”‘,”+age+”)”;</p>
+<p>stmt.executeUpdate(sql);</p>
+<p>pstmt:</p>
+<p>String sql=”insert into student(stuno,stuname) vlaues(?,?)”;</p>
+<p>pstmt=connection.prepareStatement(sql);//预编译SQL</p>
+<p>pstmt.setString(1,name);//1对应上面的第一个”?”的参数</p>
+<p>pstmt.stInt(2,age);</p>
+<p>2.提高性能(因为可以预编译)</p>
+<p>3.安全(可以有效防止sql注入)</p>
+<hr>
+<h2 id="1-1-3-sql注入"><a href="#1-1-3-sql注入" class="headerlink" title="1.1.3 sql注入:"></a>1.1.3 sql注入:</h2><p>sql注入;将客户端输入的内容,和开发人员的sql语句混为一体</p>
+<p>stmt:存在被sql注入的风险 </p>
+<p>（例如输入 用户名:任意值 ‘  or 1=1 –    密码:任意值 ）</p>
+<p>分析:</p>
+<p>select count(*) from login where uname=’任意值’ or 1=1 –’  and upwd =’任意值’;</p>
+<p>select count(*) from login where uname=’任意值’ or 1=1;</p>
+<p>select  count(*) from login;</p>
+<p>select count (*) from login where uname=’ “+name+”‘ and upwd =’ “+pwd+” ‘</p>
+<p>pstmt:有效防止sql注入</p>
+<hr>
+<h2 id="1-1-4-jdbc访问数据库的具体步骤"><a href="#1-1-4-jdbc访问数据库的具体步骤" class="headerlink" title="1.1.4 jdbc访问数据库的具体步骤:"></a>1.1.4 jdbc访问数据库的具体步骤:</h2><p>a.导入驱动程序,加载具体的驱动类</p>
+<p>b.与数据库建立连接</p>
+<p>c.发送sql,执行</p>
+<p>d.处理结果集(查询)</p>
+<p>4.数据加驱动 :</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>驱动jar包</th>
+<th>具体驱动类</th>
+<th>连接字符串</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Oracle</td>
+<td>ojdbc-x.jar</td>
+<td>oracle.jdbc.OracleDriver</td>
+<td>jdbc:oracle:thin:@localhost:1521:ORCL</td>
+<td></td>
+</tr>
+<tr>
+<td>MySql</td>
+<td>mysql-connector-java-x.jar</td>
+<td>com.mysql.jdbc.Driver</td>
+<td>jdbc:mysql://localhost:3306/数据库实例名</td>
+<td></td>
+</tr>
+<tr>
+<td>SqlServer</td>
+<td>sql jdbc-x.jar</td>
+<td>com.microsoft.sqlserver.jdbc.SQLServerDriver</td>
+<td>jdbc:micrsoft:sqlserver:localhost:1433;databasename=数据库实例名</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>​    使用jdbc操作数据库时，如果对数据库进行了更换,只需要替换：驱动,具体驱动类,连接字符串,用户名,密码就可以了                                                </p>
+<p>查询返回的结果集:</p>
+<p><img src="https://i.loli.net/2019/12/26/ObhulNRKFvCqMZo.png" alt="resultSet.png"></p>
+<hr>
+<ol>
+<li>1.5 </li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/25/火狐/火狐/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张易">
+      <meta itemprop="description" content="张易 来自东北省">
+      <meta itemprop="image" content="/images/guwang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张易的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/12/25/火狐/火狐/" class="post-title-link" itemprop="url">未命名</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-12-25 21:49:02 / 修改时间：21:50:09" itemprop="dateCreated datePublished" datetime="2019-12-25T21:49:02+08:00">2019-12-25</time>
             </span>
           
 
@@ -391,161 +636,8 @@
         
           
             <hr>
-<h2 id="title-java基础"><a href="#title-java基础" class="headerlink" title="title:java基础"></a>title:java基础</h2>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/14/MongoDB/MongoDB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="张易">
-      <meta itemprop="description" content="张易 来自东北省">
-      <meta itemprop="image" content="/images/guwang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="张易的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/12/14/MongoDB/MongoDB/" class="post-title-link" itemprop="url">MongoDB</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-12-14 22:17:31 / 修改时间：22:34:39" itemprop="dateCreated datePublished" datetime="2019-12-14T22:17:31+08:00">2019-12-14</time>
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>官网下载:</p>
-<p><a href="https://www.mongodb.com/download-center/community" target="_blank" rel="noopener">https://www.mongodb.com/download-center/community</a></p>
-<p>环境变量path添加:mongodb 下的bin 路径</p>
-<p>C:\MongoDB\bin</p>
-<p>之后在cmd管理员模式下输入:</p>
-<p>mongod  </p>
-<p>在c盘根目录创建data</p>
-<p>在data中创建一个文件夹db</p>
-<p>打开cmd</p>
-<p>输入mongod </p>
+<h2 id="title-火狐"><a href="#title-火狐" class="headerlink" title="title:火狐"></a>title:火狐</h2><p>1.1.0 火狐快捷键</p>
+<p>清除缓存                     ctrl+shift+delete</p>
 
           
         
@@ -602,7 +694,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/10/spring与源码/AspectJ/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/25/Servlet/jsp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="张易">
@@ -622,7 +714,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/12/10/spring与源码/AspectJ/" class="post-title-link" itemprop="url">AspectJ下载安装</a>
+                <a href="/2019/12/25/Servlet/jsp/" class="post-title-link" itemprop="url">jsp</a>
               
             
           </h1>
@@ -647,171 +739,7 @@
                 
               
 
-              <time title="创建时间：2019-12-10 10:31:57 / 修改时间：21:07:43" itemprop="dateCreated datePublished" datetime="2019-12-10T10:31:57+08:00">2019-12-10</time>
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>AspectJ下载官网:</p>
-<p><a href="https://www.eclipse.org/aspectj/downloads.php#stable_release" target="_blank" rel="noopener">https://www.eclipse.org/aspectj/downloads.php#stable_release</a></p>
-<p><img src="https://i.loli.net/2019/12/10/xJVsWkQmqLMD8Bd.png" alt="Aspectj1.png"></p>
-<p>解压之后进入cmd:</p>
-<p>cd到aspectj目录:</p>
-<p>cd C:\aspectj </p>
-<p>执行:<br>java -jar aspectj-1.9.0.jar</p>
-<p>会看到下图:</p>
-<p><img src="https://i.loli.net/2019/12/10/ACGjEtk2DTzVyeN.png" alt="Aspectj2.png"></p>
-<p>一路Next即可</p>
-<p>添加aspectj到IDEA</p>
-<p><img src="https://i.loli.net/2019/12/10/2tzagSKAv5FTI7r.png" alt="Aspectj3.png"></p>
-<p>在IDEA中spring-aspect添加Facets属性</p>
-<p><img src="https://i.loli.net/2019/12/10/QfcsXCp7qikNeGw.png" alt="Aspectj4.png"></p>
-<p><img src="https://i.loli.net/2019/12/10/915MqjwRlPcsuE7.png" alt="Aspectj5.png"></p>
-<p>更新一下</p>
-<p><img src="https://i.loli.net/2019/12/10/GFeoBAmzO2DshaW.png" alt="Aspectj6.png"></p>
-<p>设置一下:</p>
-<p><img src="https://i.loli.net/2019/12/10/j8r1UgYpckhEluy.png" alt="Aspectj7.png"></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/09/spring与源码/gradle/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="张易">
-      <meta itemprop="description" content="张易 来自东北省">
-      <meta itemprop="image" content="/images/guwang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="张易的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/12/09/spring与源码/gradle/" class="post-title-link" itemprop="url">gradle下载安装</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-12-09 22:26:07" itemprop="dateCreated datePublished" datetime="2019-12-09T22:26:07+08:00">2019-12-09</time>
+              <time title="创建时间：2019-12-25 10:06:38" itemprop="dateCreated datePublished" datetime="2019-12-25T10:06:38+08:00">2019-12-25</time>
             </span>
           
 
@@ -826,7 +754,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-12-10 09:30:16" itemprop="dateModified" datetime="2019-12-10T09:30:16+08:00">2019-12-10</time>
+                <time title="修改时间：2019-12-26 11:02:12" itemprop="dateModified" datetime="2019-12-26T11:02:12+08:00">2019-12-26</time>
               </span>
             
           
@@ -865,374 +793,208 @@
       
         
           
-            <h2 id="1-0下载安装gradle"><a href="#1-0下载安装gradle" class="headerlink" title="1.0下载安装gradle"></a>1.0下载安装gradle</h2><p>下载网址:</p>
-<p><a href="https://services.gradle.org/distributions/" target="_blank" rel="noopener">https://services.gradle.org/distributions/</a></p>
-<p><img src="https://i.loli.net/2019/12/10/shdz5Aur3kT4VMW.png" alt="2.png"></p>
-<p>解压后设置环境变量:</p>
-<p>添加GRADLE_HOME:</p>
-<p><img src="https://i.loli.net/2019/12/10/oLkzqmESARDQpPT.png" alt="2.png"></p>
-<p>在path中添加GRADLE_HOME:</p>
-<p><img src="https://i.loli.net/2019/12/10/XaBDtTih8MACZo2.png" alt="2.png"></p>
-<p>用gradle -v  在cmd里面测试 :</p>
-<p><img src="https://i.loli.net/2019/12/10/ikdzFROStVBK2DQ.png" alt="2.png"></p>
-<p>成功!</p>
+            <p>第一次访问:jsp -&gt; java(Servlet文件)-&gt; class </p>
+<p>所在路径:</p>
+<p>C:\tomcat8\work\Catalina\localhost\JspProject\org\apache\jsp</p>
+<p>第二次访问:直接访问class文件,因为已经编译好了</p>
+<p>Jsp和Servlet可以相互转换</p>
 <hr>
-<h2 id="1-1-在IDEA版本添加gradle"><a href="#1-1-在IDEA版本添加gradle" class="headerlink" title="1.1 在IDEA版本添加gradle"></a>1.1 在IDEA版本添加gradle</h2><p>IntelliJ IDEA 2019.2.2:</p>
-<p>Settings -&gt;  Build,Exceution,Deployment -&gt; Build Tools -&gt; Gradle</p>
-<p><img src="https://i.loli.net/2019/12/10/QkTBaoeIDiZ9bLX.png" alt="2.png"></p>
-<p>之后刷新一下就好了</p>
-<p><img src="https://i.loli.net/2019/12/10/zALgp9e2lSNMkJF.png" alt="2.png"></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/09/spring与源码/spring/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="张易">
-      <meta itemprop="description" content="张易 来自东北省">
-      <meta itemprop="image" content="/images/guwang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="张易的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/12/09/spring与源码/spring/" class="post-title-link" itemprop="url">spring源码</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-12-09 22:25:26" itemprop="dateCreated datePublished" datetime="2019-12-09T22:25:26+08:00">2019-12-09</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-12-10 22:13:21" itemprop="dateModified" datetime="2019-12-10T22:13:21+08:00">2019-12-10</time>
-              </span>
-            
-          
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1-0获取spring源码"><a href="#1-0获取spring源码" class="headerlink" title="1.0获取spring源码"></a>1.0获取spring源码</h2><p>先在github上查找spring</p>
-<p><a href="https://github.com/search?q=spring" target="_blank" rel="noopener">https://github.com/search?q=spring</a></p>
-<p>或者直接搜索:</p>
-<p><a href="https://github.com/spring-projects/spring-framework/" target="_blank" rel="noopener">https://github.com/spring-projects/spring-framework/</a></p>
-<p><img src="https://i.loli.net/2019/12/10/RIXETZzFVmrQ2la.png" alt="2.png"></p>
-<p>这里选择5.0版本</p>
-<p><img src="https://i.loli.net/2019/12/10/M2FDx4tlp3ju7m9.png" alt="2.png"></p>
-<p>复制Git分支链接:</p>
-<p><img src="https://i.loli.net/2019/12/10/1ZL9z7Pq5Gc4vTp.png" alt="2.png"></p>
+<h2 id="Eclipse开发Web项目-Jsp"><a href="#Eclipse开发Web项目-Jsp" class="headerlink" title="Eclipse开发Web项目(Jsp):"></a>Eclipse开发Web项目(Jsp):</h2><p>浏览器可以直接访问WebContent中的文件,</p>
+<p>例如:<a href="http://localhost:8888/MyJspProject/index1.jsp" target="_blank" rel="noopener">http://localhost:8888/MyJspProject/index1.jsp</a></p>
+<p>其中的index1.jsp就在WebContent目录中</p>
+<p>但是WEB-INF中的文件 无法通过客户端(浏览器)直接访问,只能通过请求转发访问</p>
+<p>跳转有2种方法:</p>
+<p>1.请求转发</p>
+<p>2.重定向 </p>
+<p>配置tomcat运行时环境:</p>
+<p>a.将tomcat/lib中的servlet-api,jar加入项目的构建路径(一般不用)</p>
+<p>b.右键项目-&gt;Builde Path -&gt; Add library -&gt; Server Runtime</p>
 <hr>
-<h2 id="1-1源码下载及IDEA导入"><a href="#1-1源码下载及IDEA导入" class="headerlink" title="1.1源码下载及IDEA导入:"></a>1.1源码下载及IDEA导入:</h2><hr>
-<p>关于spring源码编译报找不到cglib和objenesis的错误解决方法，</p>
-<p>三思言的博客:<a href="https://www.cnblogs.com/kevinlights/p/11748159.html" target="_blank" rel="noopener">https://www.cnblogs.com/kevinlights/p/11748159.html</a></p>
+<h2 id="1-1-1-统一编码"><a href="#1-1-1-统一编码" class="headerlink" title="1.1.1 统一编码"></a>1.1.1 统一编码</h2><p>a.编码分类:</p>
+<p>设置jsp文件的编码(设置jsp文件中pageEncoding): jsp-&gt;java</p>
+<p>设置浏览器读取jsp的编码 (isp文件中content属性)</p>
+<p>文本编码:</p>
+<p>1.将整个eclispe中的文件 统一设置 </p>
+<p><img src="https://i.loli.net/2019/12/25/9pluz6XNKsqVQAM.png" alt="utf-8的jsp文件修改.png"></p>
 <hr>
-<h2 id="1-2DefaultListableBeanFactory"><a href="#1-2DefaultListableBeanFactory" class="headerlink" title="1.2DefaultListableBeanFactory"></a>1.2DefaultListableBeanFactory</h2><p>关系图</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/12/Linux/linux常用快捷 /">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="张易">
-      <meta itemprop="description" content="张易 来自东北省">
-      <meta itemprop="image" content="/images/guwang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="张易的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/11/12/Linux/linux常用快捷 /" class="post-title-link" itemprop="url">linux常用快捷</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-11-12 21:15:15 / 修改时间：21:19:16" itemprop="dateCreated datePublished" datetime="2019-11-12T21:15:15+08:00">2019-11-12</time>
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <table>
+<h2 id="1-1-2-jsp的页面元素"><a href="#1-1-2-jsp的页面元素" class="headerlink" title="1.1.2.jsp的页面元素:"></a>1.1.2.jsp的页面元素:</h2><p>a.脚本Scriptlet</p>
+<p>i.  &lt;%  局部变量,java语句 %&gt;</p>
+<p>2.&lt;%!   全局变量、定义方法  %&gt;  </p>
+<p>3.&lt;%=输出表达式%&gt;</p>
+<p>注意:out.println()不能回车,想要回车加个:”&lt;br./&gt;”</p>
+<hr>
+<h2 id="1-1-3-JSP-9大内置对象"><a href="#1-1-3-JSP-9大内置对象" class="headerlink" title="1.1.3 JSP 9大内置对象"></a>1.1.3 JSP 9大内置对象</h2><p>1.pageContext    jsp页面容器</p>
+<p>2.request  请求对象</p>
+<p>3.response  响应对象</p>
+<p>4.session 会话对象</p>
+<p>5.application 全局对象</p>
+<p>6.config  配置对象(服务器配置信息)</p>
+<p>7.out 输出对象</p>
+<p>8.page 当前jsp页面对象(相当于java中的this)</p>
+<p>9.exception 异常对象</p>
+<hr>
+<p>out:输出对象,向客户端输出内容 </p>
+<p>request对象的常见方法:</p>
+<p>String getParameter(String name):根据请求的字段名key,返回字段值value</p>
+<p>String[] getParamertValues(Stirng name):根据请求的字段名key,返回多个字段值value(checkbox)</p>
+<p>void setCharacterEncoding(“编码格式utf-8”):设置请求编码()</p>
+<p>getRequestDispatcher(“b.jsp”).forward(request,response):请求转发的方式跳转页面  A-&gt;B </p>
+<p>ServletContext  getServerContext():获取项目的ServletContext对象</p>
+<hr>
+<h2 id="1-1-4-get-和-post"><a href="#1-1-4-get-和-post" class="headerlink" title="1,1,4 get 和 post"></a>1,1,4 get 和 post</h2><p><code>(http://localhost:8888/MyJspProject/show.jsp?uname=+硒鼓&amp;upwd=&amp;uage=1&amp;uhobbies=足球&amp;uhobbies=篮球)</code></p>
+<p>​           连接/文件?   参数名1=参数值1   &amp; 参数名2&amp;参数值2  &amp;  参数名3&amp;参数值3</p>
+<p>get提交方式: method=”get” 和地址栏 ,超链接(<a href="xx">)请求方式  默认都属于get提交方式</a></p>
+<p>get与post请求方式的区别 :<br>1.get方式在地址栏上显示请求信息  (一般是4到5kb,如果传大文件会报错)</p>
+<p>  post不会显示</p>
+<p>2.文件上传操作,必须是post</p>
+<p>推荐使用post</p>
+<hr>
+<h2 id="1-1-5-统一请求的编码-request"><a href="#1-1-5-统一请求的编码-request" class="headerlink" title="1.1.5 统一请求的编码  request"></a>1.1.5 统一请求的编码  request</h2><p>get方式请求 如果出现乱码,解决:</p>
+<p>修改server.xml的端口号那一行,最后加上:<code>URIEncoding=&quot;UTF-8&quot;</code></p>
+<p>post的话:</p>
+<p>在jsp里增加:</p>
+<p>&lt;%</p>
+<p>request.setCharacterEncoding(“utf-8”);</p>
+<p>%&gt;</p>
+<hr>
+<h2 id="1-1-6-客户端与服务端的请求与响应"><a href="#1-1-6-客户端与服务端的请求与响应" class="headerlink" title="1.1.6 客户端与服务端的请求与响应"></a>1.1.6 客户端与服务端的请求与响应</h2><p>客户端-&gt;服务端  request  请求</p>
+<p>服务端-&gt;客户端 response   响应</p>
+<p>reposon:响应对象</p>
+<p>提供的方法:<br>void addCookie(Cookie cookie) 服务端向客户端增加cookie对象</p>
+<p>void sendRedirect(Stirng location)throws IOException :页面跳转到的一种方法</p>
+<p>void setContetType(String type):设置服务端响应的编码(设置服务端的contennt)</p>
+<p><strong>reguest</strong>:</p>
+<p>getRequestDispatcher(“b.jsp”).forward(request,response):请求转发的方式跳转页面  A-&gt;B </p>
+<p>示例:登陆</p>
+<p>login.jsp-&gt; check.jsp-success.jsp</p>
+<p>请求转发和重定向的区别:</p>
+<table>
 <thead>
 <tr>
-<th>快捷键·</th>
-<th>作用</th>
+<th align="center"></th>
+<th align="center">请求转发</th>
+<th align="center">重定向</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>ctrl+E</td>
-<td>把光标移动到命令结尾</td>
+<td align="center">地址栏是否改变</td>
+<td align="center">不变(check.jsp)</td>
+<td align="center">改变(success.jsp)</td>
 </tr>
 <tr>
-<td>ctrl+C</td>
-<td>强制终止当前的命令</td>
+<td align="center">是否保留第一次请求时的数据</td>
+<td align="center">保留</td>
+<td align="center">不保留</td>
 </tr>
 <tr>
-<td>ctrl+L</td>
-<td>清屏，相当于clear命令</td>
+<td align="center">请求的次数</td>
+<td align="center">1</td>
+<td align="center">2</td>
 </tr>
 <tr>
-<td>ctrl+U</td>
-<td>删除或剪切</td>
-</tr>
-<tr>
-<td>ctrl+Y</td>
-<td>粘贴</td>
-</tr>
-<tr>
-<td>ctrl+R</td>
-<td>在历史命令中搜索</td>
-</tr>
-<tr>
-<td>ctrl+D</td>
-<td>退出当前终端</td>
+<td align="center">跳转发生的位置</td>
+<td align="center">服务端</td>
+<td align="center">客户端发出的第二次跳转</td>
 </tr>
 </tbody></table>
+<hr>
+<h2 id="1-1-7-session"><a href="#1-1-7-session" class="headerlink" title="1.1.7 session"></a>1.1.7 session</h2><p>session(服务端)</p>
+<p>cookie(客户端,不是内置对象):Cookie是由服务端生成的,再发送给客户端保存</p>
+<p>相当于本地缓存的作用:客户端-&gt;服务端</p>
+<p>提高访问服务端的效率,但是安全性较差</p>
+<p>Cookie:key=value</p>
+<p>javax.servlet.http.Cookie</p>
+<p>public  Cookie(String name,String value)</p>
+<p>String getName():获取name</p>
+<p>String getValue():获取value</p>
+<p>void setMaxAge(int expiry):最大有效期(秒)</p>
+<hr>
+<p><strong>服务端发送给客户端:(服务端Cookie)</strong></p>
+<p>response.addCookie(Cookie cookie)</p>
+<p>页面跳转(转发,重定向)</p>
+<p><strong>客户端获取cookie:</strong></p>
+<p>request.getCookies();</p>
+<p>a.服务端增加cookie:response对象;客户端获取对象:request对象</p>
+<p>b.不能直接获取某一个单独对象,只能一次性将全部的cookie拿到</p>
+<p>通过F12可以发现，除了自己设置的Cookie对象外,还有一个name为JSESSIONID的cookie</p>
+<hr>
+<h2 id="1-1-8-使用cookie自动记住用户名"><a href="#1-1-8-使用cookie自动记住用户名" class="headerlink" title="1.1.8 使用cookie自动记住用户名"></a>1.1.8 使用cookie自动记住用户名</h2><p>建议cookie中只保存英文，数字,否则要进行编码.解码 </p>
+<p>session：会话</p>
+<p>浏览网站:开始-关闭</p>
+<p>机制:<br><img src="https://i.loli.net/2019/12/25/9eEPVUIMiWNaFwX.png" alt="session与cookie.png"></p>
+<p><strong>session机制:</strong></p>
+<p><strong>客户端第一次请求服务端时</strong>，服务端会产生一个session对象(用于保存该客户的信息);</p>
+<p>并且每个session对象,都会有一个唯一的sessionId(用于保存该客户的信息);</p>
+<p>服务端又会产生一个cookie，并且该cookie的name=JSESSIONID,value=服务端sessionId的值,然后服务端会在响应客户端的同时，将该cookie发送给客户端，至此客户端就有了一个cookie(JSESSIONID)</p>
+<p>因此,客户端的cookie就可以和服务端的session一一对应(JSESSINOID-sessionID)</p>
+<p>客户端第n次请求时:服务端会先用客户端cookie中的JSESSIONID，去服务端的session中匹配sessionid,如果匹配成功(cookie jessionid和session sessionid),说明此用户，不是第一次登录</p>
+<hr>
+<h2 id="1-1-9-session共享"><a href="#1-1-9-session共享" class="headerlink" title="1.1.9 session共享"></a>1.1.9 session共享</h2><p>session:</p>
+<p>a.session存储在服务端</p>
+<p>b.session是在同一个用户请求时，共享</p>
+<p>c.实现机制:第一次客户请求时，产生一个sessionid并复制给cookie的jessionid,然后发给客户端,最终,通过session的sessionid一一对应</p>
+<p><strong>session方法:</strong></p>
+<p>String getId():获取sessionId</p>
+<p>boolean isNew():判断是否是新用户(第一次访问)</p>
+<p>void invalidate():使session失效(退出登录,注销)</p>
+<p>void   setAttribute();</p>
+<p>Object getAttribute();</p>
+<p>void setMaxInactiveInterval(秒):设置最大有效非活动时间</p>
+<p>int getMaxInactiveInterval(秒):获取最大非活动时间</p>
+<p>问题:</p>
+<p>request数据同一次请求才有效</p>
+<p><img src="https://i.loli.net/2019/12/25/zcipTNGO3UYlE2H.png" alt="request数据同一请求有效.png"></p>
+<hr>
+<h2 id="1-2-0-cookie和session的区别"><a href="#1-2-0-cookie和session的区别" class="headerlink" title="1.2.0 cookie和session的区别:"></a>1.2.0 cookie和session的区别:</h2><table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">session</th>
+<th align="center">cookie</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">保存的位置</td>
+<td align="center">服务端</td>
+<td align="center">客户端</td>
+</tr>
+<tr>
+<td align="center">安全性</td>
+<td align="center">较安全</td>
+<td align="center">较不安全</td>
+</tr>
+<tr>
+<td align="center">保存的内容</td>
+<td align="center">Object</td>
+<td align="center">String</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="1-2-1-application-全局对象"><a href="#1-2-1-application-全局对象" class="headerlink" title="1.2.1 application 全局对象"></a>1.2.1 application 全局对象</h2><p>String getContextPath():虚拟路径 </p>
+<p>String getRealPath(String name):绝对 路径 (虚拟路径,相对 的绝对路径)</p>
+<hr>
+<p><strong>客户端在第一次请求服务端时，如果服务端发现此请求没有JSESSIONID，则会创建一个拥有JSESSIONID的cookie，并返回给客户端</strong></p>
+<p>Cookie:</p>
+<p>a.不是内置对象,要使用必须new </p>
+<p>b.但是服务端会自动生成一个(服务端自动new一个cookie) name=JSESSIONID的cookie并返回给客户端</p>
+<hr>
+<h2 id="1-2-2-四种范围对象-小-gt-大"><a href="#1-2-2-四种范围对象-小-gt-大" class="headerlink" title="1.2.2 四种范围对象(小-&gt;大)"></a>1.2.2 四种范围对象(小-&gt;大)</h2><p>​    名称                                                                                范围</p>
+<p>pageContext  jsp页面容器   (page对象)                            当前页面有效</p>
+<p>request 请求对象                                                                同一次请求有效</p>
+<p>session  会话对象                                                                同一次会话有效</p>
+<p>application 全局对象                                                            全局有效(整个项目有效)</p>
+<p>以上4个对象的共有方法:</p>
+<p>Object getAttribute(String name):根据属性名，或者属性值</p>
+<p>void setAttribute(String name,Object obj):设置属性值(新增,修改);</p>
+<p>例:<code>setAttribute(&quot;a&quot;,&quot;b&quot;);//如果a对象之前不存在,则新建一个a对象,如果a已经存在,则将a的值改为b</code></p>
+<p>void removeAttribute(String name):根据属性名,删除对象</p>
+<p>a.pageContext      当前页面有效,(页面跳转后无效)</p>
+<p>b.request                  同一次请求有效,其他请求无效(请求转发后有效,重定向后无效)</p>
+<p>c.session              同一次会话有效(无论怎么跳转,都有效;关闭/切换浏览器后无效;登陆-&gt;退出之前全部有效)</p>
+<p>d.application       全局变量,整个项目运行期间都有效(切换浏览器,仍然有效)</p>
+<p>多个项目共享,重启后仍然有效的是JNDI</p>
+<p>1.以上的4个范围对象,通过setAttribute()复制,通过getAttribute()取值</p>
+<p>2.以上范围对象,尽量使用最小的范围,因为对象的范围越大,造成的性能损耗越大</p>
 
           
         
@@ -1289,7 +1051,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/12/Linux/linux报错/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/24/Servlet/Servlet/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="张易">
@@ -1309,7 +1071,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/11/12/Linux/linux报错/" class="post-title-link" itemprop="url">linux报错</a>
+                <a href="/2019/12/24/Servlet/Servlet/" class="post-title-link" itemprop="url">Servlet</a>
               
             
           </h1>
@@ -1334,7 +1096,7 @@
                 
               
 
-              <time title="创建时间：2019-11-12 11:40:30 / 修改时间：11:41:23" itemprop="dateCreated datePublished" datetime="2019-11-12T11:40:30+08:00">2019-11-12</time>
+              <time title="创建时间：2019-12-24 20:25:18 / 修改时间：22:34:16" itemprop="dateCreated datePublished" datetime="2019-12-24T20:25:18+08:00">2019-12-24</time>
             </span>
           
 
@@ -1378,7 +1140,36 @@
       
         
           
-            <h2 id="1-1man-5-报错"><a href="#1-1man-5-报错" class="headerlink" title="1.1man 5 报错"></a>1.1man 5 报错</h2><p>输入 yum install man-pages 再执行即可 </p>
+            <h4 id="1-1-0设置虚拟路径"><a href="#1-1-0设置虚拟路径" class="headerlink" title="1.1.0设置虚拟路径:"></a>1.1.0设置虚拟路径:</h4><p>方式一:</p>
+<p>将web项目配置到webapps以外的目录</p>
+<p>conf/server.xml中配置</p>
+<p>host标签中:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Context docBase=&quot;C:\tgp\JspProject&quot;        path=&quot;/JspProject&quot;  /&gt;</span><br></pre></td></tr></table></figure>
+
+<p>docBase:实际路径</p>
+<p>path:虚拟路径(相对于webapps)</p>
+<p>重启</p>
+<hr>
+<p>方式二:</p>
+<p>C:\tomcat9\conf\Catalina\localhost</p>
+<p>中新建”项目名.xml”中新增一行:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Context docBase=&quot;C:\tgp\JspProject&quot;        path=&quot;/JspProject&quot;  /&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-1-1虚拟主机"><a href="#1-1-1虚拟主机" class="headerlink" title="1.1.1虚拟主机"></a>1.1.1虚拟主机</h4><p><a href="http://www.test.com" target="_blank" rel="noopener">www.test.com</a></p>
+<p>通过<a href="http://www.test.com访问本机" target="_blank" rel="noopener">www.test.com访问本机</a></p>
+<p>a. conf/server.xml</p>
+<p>1.这里还是不要改，小心tomcat报错，这里是把原来的Engine 替换成<a href="http://www.test.com" target="_blank" rel="noopener">www.test.com</a></p>
+<pre><code>&lt;!--本来defaultHost是localhost,现改为www.test.com--&gt;
+&lt;Engine defaultHost=&quot;www.test.com&quot; name=&quot;Catalina&quot;&gt;</code></pre><p>2.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--新增的引擎 --&gt;</span><br><span class="line">&lt;Host appBase=&quot;C:\tgp\JspProject&quot; name=&quot;www.test.com&quot;&gt;</span><br><span class="line">&lt;Context docBase=&quot;C:\tgp\JspProject&quot;  path=&quot;/&quot;/&gt;</span><br><span class="line">&lt;/Host&gt;</span><br></pre></td></tr></table></figure>
+
+<p>3.进入目录</p>
+<p>C:\Windows\System32\drivers\etc,</p>
+<p>修改hosts文件:(底部的最后的是新加的)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># localhost name resolution is handled within DNS itself.</span><br><span class="line">	127.0.0.1 localhost</span><br><span class="line">	::1 localhost</span><br><span class="line">	127.0.0.1 www.test.com</span><br></pre></td></tr></table></figure>
+
+<p>流程:</p>
+<p><a href="http://www.test.com" target="_blank" rel="noopener">www.test.com</a> -&gt;  host找映射关系 -&gt;server.xml找Engine的defaultHost -&gt;通过”/“映射到项目目录</p>
 
           
         
@@ -1435,7 +1226,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/10/Mysql/Mysql高级/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/24/Windows10系统/Windows10系统相关/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="张易">
@@ -1455,7 +1246,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/11/10/Mysql/Mysql高级/" class="post-title-link" itemprop="url">mysql高级</a>
+                <a href="/2019/12/24/Windows10系统/Windows10系统相关/" class="post-title-link" itemprop="url">Windows10系统相关</a>
               
             
           </h1>
@@ -1480,7 +1271,302 @@
                 
               
 
-              <time title="创建时间：2019-11-10 15:30:25" itemprop="dateCreated datePublished" datetime="2019-11-10T15:30:25+08:00">2019-11-10</time>
+              <time title="创建时间：2019-12-24 19:45:38 / 修改时间：19:47:08" itemprop="dateCreated datePublished" datetime="2019-12-24T19:45:38+08:00">2019-12-24</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="关于localhost映射关系"><a href="#关于localhost映射关系" class="headerlink" title="关于localhost映射关系:"></a>关于localhost映射关系:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Windows\System32\drivers\etc</span><br></pre></td></tr></table></figure>
+
+<p>下的hosts文件里修改</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/21/eclipse/eclipse设置/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张易">
+      <meta itemprop="description" content="张易 来自东北省">
+      <meta itemprop="image" content="/images/guwang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张易的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/12/21/eclipse/eclipse设置/" class="post-title-link" itemprop="url">Eclipse设置</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-12-21 11:09:54 / 修改时间：11:10:33" itemprop="dateCreated datePublished" datetime="2019-12-21T11:09:54+08:00">2019-12-21</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>项目编码改成utf-8:</p>
+<p><img src="https://i.loli.net/2019/12/21/t4ESKJn3qiHjfOW.png" alt="改为utf-8.png"></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/19/eclipse/Eclipse报错/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张易">
+      <meta itemprop="description" content="张易 来自东北省">
+      <meta itemprop="image" content="/images/guwang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张易的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/12/19/eclipse/Eclipse报错/" class="post-title-link" itemprop="url">未命名</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-12-19 21:26:47" itemprop="dateCreated datePublished" datetime="2019-12-19T21:26:47+08:00">2019-12-19</time>
             </span>
           
 
@@ -1495,204 +1581,8 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-11-11 12:51:06" itemprop="dateModified" datetime="2019-11-11T12:51:06+08:00">2019-11-11</time>
+                <time title="修改时间：2019-12-20 21:45:50" itemprop="dateModified" datetime="2019-12-20T21:45:50+08:00">2019-12-20</time>
               </span>
-            
-          
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <table>
-<thead>
-<tr>
-<th align="center">路径</th>
-<th align="center">解释</th>
-<th align="center">备注</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">var/lib/mysql/</td>
-<td align="center">mysql数据库文件的存放路径</td>
-<td align="center">/var/lib/mysql/afguigu.cloud.pid</td>
-</tr>
-<tr>
-<td align="center">/usr/share/mysql</td>
-<td align="center">配置文件目录</td>
-<td align="center">mysql.server命令及配置文件</td>
-</tr>
-<tr>
-<td align="center">/usr/bin</td>
-<td align="center">相关命令目录</td>
-<td align="center">mysqladmin mysqldump等命令</td>
-</tr>
-<tr>
-<td align="center">/etc/init.d/mysql</td>
-<td align="center">启停相关脚本</td>
-<td align="center"></td>
-</tr>
-</tbody></table>
-<hr>
-<h2 id="1-0-1-修改字符集"><a href="#1-0-1-修改字符集" class="headerlink" title="1.0.1 修改字符集"></a>1.0.1 修改字符集</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@izueb165nx71hgz mysql]# cd /usr/share/mysql</span><br><span class="line">[root@izueb165nx71hgz mysql]# ls -l</span><br><span class="line">[root@izueb165nx71hgz mysql]# cp my-default.cnf /etc/my.cnf</span><br></pre></td></tr></table></figure>
-
-<p>mysql&gt; show variables like ‘%char%’;</p>
-<p>会看到server的默认字符集是latin1(拉丁语)</p>
-<p>cd /etc</p>
-<p>ls -l my.cnf </p>
-<p>vim my.cnf，加入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> port = 3306</span><br><span class="line">character_set_server =utf8</span><br><span class="line">character_set_client =utf8</span><br><span class="line">collation-server =utf8_general_ci</span><br><span class="line"> socket = /var/lib/mysql/mysql.sock</span><br><span class="line"> </span><br><span class="line">[mysql]</span><br><span class="line">no-auto-rehash</span><br><span class="line">default-character-set=utf8</span><br></pre></td></tr></table></figure>
-
-<p>service mysql stop ;</p>
-<p>service mysql start;</p>
-<p>只有搞完了这个后，新的数据库的字符集都是utf-8,老的数据库插入中文还是不行</p>
-<hr>
-<h2 id="1-0-2-索引"><a href="#1-0-2-索引" class="headerlink" title="1.0.2 索引"></a>1.0.2 索引</h2><p>索引是一种数据结构 ，排好序的快速查找数据结构</p>
-<p>数据本身之外，数据库还维护着一个满足特定查找算法的数据结构，这些数据结构眉高眼以某种方式指向数据，这样就可以在这些数据结构的基础上实现高级查找算法，这种数据结构就是索引 </p>
-<p>一般来说索引本身也很大，不可能全部存储在内存中，因此索引以文件的形式存储在磁盘上</p>
-<p>优势：类似大学图书馆建书目索引，提高数据检索的效率，降低数据库的io成本 </p>
-<p>​            通过索引列对数据进行排序，降低数据排序的成本，降低了cpu的消耗</p>
-<p><strong>什么时候创建索引</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1.主键自动建立唯一索引</span><br><span class="line">2.频繁作为查询条件的字段应该创建索引</span><br><span class="line">3.查询中与其它表关联的字段，外键关系建立索引</span><br><span class="line">4.频繁更新的字段不适合创建索引，因为每次更新不单单是更新了记录还会更新索引 </span><br><span class="line">5.where条件里用不到的字段不创建索引</span><br><span class="line">6.单键/组合索引的选择问题,在高并发下倾向创建组合索引</span><br><span class="line">7.查询中排序的字段，排序字段若通过索引去访问将大大提高排序速度 </span><br><span class="line">8.查询中系统或分组字段</span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/03/Tomcat/tomcat/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="张易">
-      <meta itemprop="description" content="张易 来自东北省">
-      <meta itemprop="image" content="/images/guwang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="张易的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/11/03/Tomcat/tomcat/" class="post-title-link" itemprop="url">未命名</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-11-03 14:40:55 / 修改时间：14:44:07" itemprop="dateCreated datePublished" datetime="2019-11-03T14:40:55+08:00">2019-11-03</time>
-            </span>
-          
-
-          
-            
-
             
           
 
@@ -1731,7 +1621,27 @@
         
           
             <hr>
-<h2 id="title-tomcat"><a href="#title-tomcat" class="headerlink" title="title:tomcat"></a>title:tomcat</h2>
+<h2 id="title-Eclipse报错"><a href="#title-Eclipse报错" class="headerlink" title="title:Eclipse报错"></a>title:Eclipse报错</h2><h3 id="1-JDBC"><a href="#1-JDBC" class="headerlink" title="1.JDBC"></a>1.JDBC</h3><p><strong>Exception getting JDBC Driver</strong></p>
+<p><img src="https://i.loli.net/2019/12/19/jxLgnqIQFfvBZ1K.png" alt="Exceptin gettingJDBC Driver .png"></p>
+<p>输入下面代码:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;build&gt;</span><br><span class="line">    &lt;plugins&gt;</span><br><span class="line">      &lt;plugin&gt;</span><br><span class="line">        &lt;dependencies&gt;</span><br><span class="line">      &lt;!--此处添加一个mysql-connector-java依赖可以防止找不到jdbc Driver--&gt;</span><br><span class="line">          &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;mysql&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;5.1.28&lt;/version&gt;</span><br><span class="line">            &lt;scope&gt;runtime&lt;/scope&gt;</span><br><span class="line">          &lt;/dependency&gt;</span><br><span class="line">          &lt;!--------------------------------------------&gt;</span><br><span class="line">        &lt;/dependencies&gt;</span><br><span class="line">      &lt;/plugin&gt;</span><br><span class="line">    &lt;/plugins&gt;</span><br><span class="line">  &lt;/build&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-mybatis"><a href="#2-mybatis" class="headerlink" title="2.mybatis"></a>2.mybatis</h3><p><strong>插入汉字后在mysql中显示问号</strong></p>
+<p><img src="https://i.loli.net/2019/12/20/4FQkaTyiwbDfzpG.png" alt="mybatis插入汉字后在mysql中显示问号.png"></p>
+<p>在jdbc.properties文件中的url改成:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?useUnicode=<span class="keyword">true</span>&amp;characterEncoding=UTF-<span class="number">8</span></span><br></pre></td></tr></table></figure>
+
+<p>在.xml文件中改成：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?useUnicode=<span class="keyword">true</span>&amp;amp;characterEncoding=UTF-<span class="number">8</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2019/12/20/IKRbzZsUru6x48a.png" alt="mybatis插入汉字后在mysql成功.png"></p>
+<p><img src="https://i.loli.net/2019/12/20/TlGzEA8coJOxqBh.png" alt="mybatis插入汉字后在mysql成功2.png"></p>
+<p><img src="https://i.loli.net/2019/12/20/9OU5ATH4oWMuaYb.png" alt="mybatis插入汉字后在mysql成功3.png"></p>
+<h3 id="3-IllegalStateException"><a href="#3-IllegalStateException" class="headerlink" title="3.IllegalStateException"></a>3.IllegalStateException</h3><p><strong>java.lang.IllegalStateException: Failed to load ApplicationContext</strong></p>
+<p>这个问题一般是case By的最后一行的错误 </p>
+<h3 id="4-PageInterceptor"><a href="#4-PageInterceptor" class="headerlink" title="4.PageInterceptor"></a>4.PageInterceptor</h3><p><strong>java.lang.ClassNotFoundException: Cannot find class: com.github.pagehelper.PageInterceptor</strong></p>
+<p>升级一下pom.xml中的版本为5.0.0即可</p>
+
           
         
       
@@ -1787,7 +1697,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/02/ajax&Wampserver64/Wampserver64/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/19/eclipse/eclipse/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="张易">
@@ -1807,7 +1717,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/11/02/ajax&Wampserver64/Wampserver64/" class="post-title-link" itemprop="url">Wampserver64&&ajax</a>
+                <a href="/2019/12/19/eclipse/eclipse/" class="post-title-link" itemprop="url">eclispe</a>
               
             
           </h1>
@@ -1832,7 +1742,7 @@
                 
               
 
-              <time title="创建时间：2019-11-02 14:46:19" itemprop="dateCreated datePublished" datetime="2019-11-02T14:46:19+08:00">2019-11-02</time>
+              <time title="创建时间：2019-12-19 13:17:22" itemprop="dateCreated datePublished" datetime="2019-12-19T13:17:22+08:00">2019-12-19</time>
             </span>
           
 
@@ -1847,7 +1757,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-11-03 14:37:08" itemprop="dateModified" datetime="2019-11-03T14:37:08+08:00">2019-11-03</time>
+                <time title="修改时间：2019-12-20 11:43:31" itemprop="dateModified" datetime="2019-12-20T11:43:31+08:00">2019-12-20</time>
               </span>
             
           
@@ -1886,70 +1796,306 @@
       
         
           
-            <p> 关于安装Wampserver64后无法用127.0.0.1访问或80来访问的原因：</p>
-<p>占用了端口，比如apache占用了</p>
-<p><img src="https://i.loli.net/2019/11/02/47me5sCUFRkbvx9.png" alt="2.png"></p>
-<p>查找80后修改为8088：</p>
-<p><img src="https://i.loli.net/2019/11/02/tEdMZCWJH1qn9gk.png" alt="2.png"></p>
-<p><img src="https://i.loli.net/2019/11/02/xwlLpGeDuWg8tcO.png" alt="3.png"></p>
-<p>2.找到wampmanager.tpl文件也修改下80端口</p>
-<p><img src="https://i.loli.net/2019/11/02/sG8DdRxfXCAzIYB.png" alt="2.png"></p>
-<p><img src="https://i.loli.net/2019/11/02/7EXbVqTe9FadGnp.png" alt="3.png"></p>
-<p><img src="https://i.loli.net/2019/11/02/X8Fj1q9ibPNCZSk.png" alt="4.png"></p>
-<p>成功了</p>
-<hr>
-<h2 id="1-1-1-post请求"><a href="#1-1-1-post请求" class="headerlink" title="1.1.1 post请求"></a>1.1.1 post请求</h2><p>02get.php</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">print_r($_POST);</span><br><span class="line"><span class="keyword">echo</span> $_POST[<span class="string">"usrName"</span>];</span><br><span class="line"><span class="keyword">echo</span> $_POST[<span class="string">"usrPwd"</span>];</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+            <h3 id="eclispe快捷"><a href="#eclispe快捷" class="headerlink" title="eclispe快捷"></a>eclispe快捷</h3><p>Ctrl + Shift + T: 打开Open Type查找类文件</p>
+<p>Ctrl + Shift + O:快带导入所有包</p>
+<p>Ctrl+Shift+F 格式化当前代码</p>
+<p>快捷键Alt + Shift + S+  R</p>
+<p>常用快捷键<br>Eclipse最全快捷键，熟悉快捷键可以帮助开发事半功倍，节省更多的时间来用于做有意义的事情。<br>Ctrl+1 快速修复(最经典的快捷键,就不用多说了)<br>Ctrl+D: 删除当前行<br>Ctrl+Alt+↓ 复制当前行到下一行(复制增加)<br>Ctrl+Alt+↑ 复制当前行到上一行(复制增加)<br>Alt+↓ 当前行和下面一行交互位置(特别实用,可以省去先剪切,再粘贴了)<br>Alt+↑ 当前行和上面一行交互位置(同上)<br>Alt+← 前一个编辑的页面<br>Alt+→ 下一个编辑的页面(当然是针对上面那条来说了)<br>Alt+Enter 显示当前选择资源(工程,or 文件 or文件)的属性<br>Shift+Enter 在当前行的下一行插入空行(这时鼠标可以在当前行的任一位置,不一定是最后)<br>Shift+Ctrl+Enter 在当前行插入空行(原理同上条)<br>Ctrl+Q 定位到最后编辑的地方<br>Ctrl+L 定位在某行 (对于程序超过100的人就有福音了)<br>Ctrl+M 最大化当前的Edit或View (再按则反之)<br>Ctrl+/ 注释当前行,再按则取消注释<br>Ctrl+O 快速显示 OutLine<br>Ctrl+T 快速显示当前类的继承结构<br>Ctrl+W 关闭当前Editer<br>Ctrl+K 参照选中的Word快速定位到下一个<br>Ctrl+E 快速显示当前Editer的下拉列表(如果当前页面没有显示的用黑体表示)<br>Ctrl+/(小键盘) 折叠当前类中的所有代码<br>Ctrl+×(小键盘) 展开当前类中的所有代码<br>Ctrl+Space 代码助手完成一些代码的插入(但一般和输入法有冲突,可以修改输入法的热键,也可以暂用Alt+/来代替)<br>Ctrl+Shift+E 显示管理当前打开的所有的View的管理器(可以选择关闭,激活等操作)<br>Ctrl+J 正向增量查找(按下Ctrl+J后,你所输入的每个字母编辑器都提供快速匹配定位到某个单词,如果没<br>有,则在stutes line中显示没有找到了,查一个单词时,特别实用,这个功能Idea两年前就有了)<br>Ctrl+Shift+J 反向增量查找(和上条相同,只不过是从后往前查)<br>Ctrl+Shift+<a href="https://www.baidu.com/s?wd=F4&tn=SE_PcZhidaonwhc_ngpagmjz&rsv_dl=gh_pc_zhidao" target="_blank" rel="noopener">F4</a> 关闭所有打开的Editer<br>Ctrl+Shift+X 把当前选中的文本全部变为大写<br>Ctrl+Shift+Y 把当前选中的文本全部变为小写<br>Ctrl+Shift+P 定位到对于的匹配符(譬如{}) (从前面定位后面时,光标要在匹配符里面,后面到前面,则反之)<br>下面的快捷键是重构里面常用的,本人就自己喜欢且常用的整理一下(注:一般重构的快捷键都是Alt+Shift开头的了)<br>Alt+Shift+R 重命名 (是我自己最爱用的一个了,尤其是变量和类的Rename,比手工方法能节省很多劳动力)<br>Alt+Shift+M 抽取方法 (这是重构里面最常用的方法之一了,尤其是对一大堆泥团代码有用)<br>Alt+Shift+C 修改函数结构(比较实用,有N个函数调用了这个方法,修改一次搞定)<br>Alt+Shift+L 抽取本地变量( 可以直接把一些魔法数字和字符串抽取成一个变量,尤其是多处调用的时候)<br>Alt+Shift+F 把Class中的local变量变为field变量 (比较实用的功能)<br>Alt+Shift+I 合并变量(可能这样说有点不妥Inline)<br>Alt+Shift+V 移动函数和变量(不怎么常用)<br>Alt+Shift+Z 重构的后悔药(Undo)</p>
 
-<p>getpost.html:</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">1.可以通过form标签的mehod属性指定发送请求的类型</span></span><br><span class="line"><span class="comment">2.如果是get请求会将提交的数据拼接到URM后面</span></span><br><span class="line"><span class="comment">3.如果是post请求会将提交的数据放到请求头中</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"02get.php"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"usrName"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"usrPwd"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"提交"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
 
-<hr>
-<h2 id="1-1-2-get和post的不同"><a href="#1-1-2-get和post的不同" class="headerlink" title="1.1.2 get和post的不同"></a>1.1.2 get和post的不同</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">get请求与post请求的异同</span><br><span class="line">相同点：</span><br><span class="line">都是将数据提交到远程服务器</span><br><span class="line">不同点：</span><br><span class="line">提交数据存储的位置不同</span><br><span class="line">get请求会将数据放到url后面</span><br><span class="line">post请求会将数据放到请求头中</span><br><span class="line"></span><br><span class="line">提交数据大小限制不同</span><br><span class="line">get请求对数据有大小限制</span><br><span class="line">post请求对数据没有大小限制</span><br><span class="line"></span><br><span class="line">get/post 请求应用场景</span><br><span class="line">get请求用于提交非敏感数据和小数据</span><br><span class="line">post请求用于提交敏感数据和大数据</span><br></pre></td></tr></table></figure>
+    
 
-<hr>
-<h2 id="1-1-3-文件上传"><a href="#1-1-3-文件上传" class="headerlink" title="1.1.3 文件上传"></a>1.1.3 文件上传</h2><p>上传文件与保存到指定文件夹下：</p>
-<p>post-file.html:</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"03-post-file.php"</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"upFile"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"上传"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+    
+    
+    
 
-<p>03-post-file.php:</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//print_r($_POST);</span></span><br><span class="line"><span class="comment">//1.获取上传文件对应的字典</span></span><br><span class="line">$fileInfo  = $_FILES[<span class="string">"upFile"</span>];</span><br><span class="line"><span class="comment">//print_r($fileInfo);</span></span><br><span class="line"><span class="comment">//2.获取上传文件的名称</span></span><br><span class="line">$fileName = $fileInfo[<span class="string">"name"</span>];</span><br><span class="line"><span class="comment">//3.获取上传文件保存的临时路径</span></span><br><span class="line">$filePath = $fileInfo[<span class="string">"tmp_name"</span>];</span><br><span class="line"><span class="comment">//echo $fileName;</span></span><br><span class="line"><span class="comment">//echo "&lt;br&gt;";</span></span><br><span class="line"><span class="comment">//echo $filePath;</span></span><br><span class="line"><span class="comment">//4.移动文件</span></span><br><span class="line">move_uploaded_file($filePath,<span class="string">"./source/"</span>.$fileName);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+    
 
-<h4 id="如何传大文件"><a href="#如何传大文件" class="headerlink" title="如何传大文件"></a>如何传大文件</h4><p>找到C:\wampserver\bin\apache\apache2.4.39\bin下的php.ini ，用idea等打开，不要用notepad++</p>
-<p>修改：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">upload_max_filesize = <span class="number">2048</span>M<span class="comment">//上传最大限制</span></span><br><span class="line">    post_max_size = <span class="number">2048</span>M<span class="comment">//post提交的最多数据 </span></span><br><span class="line">    max_execution_time = <span class="number">30000</span><span class="comment">//默认脚本执行时间</span></span><br><span class="line">    max_input_time =<span class="number">30000</span><span class="comment">//接收  提交的数据的时间限制  单位为秒</span></span><br><span class="line">    memory_limit=<span class="number">2045</span><span class="comment">//最大内存消耗</span></span><br></pre></td></tr></table></figure>
+    
+      
+    
+    
 
-<hr>
-<h2 id="1-1-4-ajax-get基本使用"><a href="#1-1-4-ajax-get基本使用" class="headerlink" title="1.1.4 ajax   get基本使用"></a>1.1.4 ajax   get基本使用</h2><p>ajax.html:</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">    1.什么是ajax?</span></span><br><span class="line"><span class="comment">    ajax是与服务器交换数据并更新部分网页的艺术，在不重新</span></span><br><span class="line"><span class="comment">    加载整个页面的情况下</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params">ev</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> oBtn =<span class="built_in">document</span>.querySelector(<span class="string">"button"</span>);</span></span><br><span class="line"><span class="javascript">            oBtn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params">ev1</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">                <span class="comment">//1.创建一个异步对象</span></span></span><br><span class="line"><span class="javascript">                <span class="keyword">var</span> xmlhttp=<span class="keyword">new</span> XMLHttpRequest();</span></span><br><span class="line"><span class="javascript">                <span class="comment">//2.设置请求方式和请求地址</span></span></span><br><span class="line">                /*</span><br><span class="line">                * method:请求的类型：GET或POST</span><br><span class="line">                * url:文件在服务器上的位置</span><br><span class="line"><span class="javascript">                * <span class="keyword">async</span>:<span class="literal">true</span>异步或<span class="literal">false</span>同步</span></span><br><span class="line">                *</span><br><span class="line">                * */</span><br><span class="line"><span class="javascript">                xmlhttp.open(<span class="string">"GET"</span>,<span class="string">"04-ajax-get.php"</span>,<span class="literal">true</span>);</span></span><br><span class="line"><span class="javascript">                <span class="comment">//3.发送请求</span></span></span><br><span class="line">                xmlhttp.send();</span><br><span class="line"><span class="javascript">                <span class="comment">//4.监听状态的变化</span></span></span><br><span class="line"><span class="javascript">                xmlhttp.onreadystatechange=<span class="function"><span class="keyword">function</span>(<span class="params">ev2</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">                    <span class="comment">//5.处理返回的结果</span></span></span><br><span class="line">                    /*</span><br><span class="line">                    * XMLHttpRequest的四种状态:</span><br><span class="line">                    * 0. 请求未初始化</span><br><span class="line">                    * 1.服务器连接已建立</span><br><span class="line">                    * 2.请求已接收</span><br><span class="line">                    * 3.请求处理中</span><br><span class="line">                    * 4.请求已完成，且响应已就绪</span><br><span class="line">                    * */</span><br><span class="line"><span class="javascript">                    <span class="keyword">if</span>(xmlhttp.readyState===<span class="number">4</span>)&#123;</span></span><br><span class="line"><span class="javascript">                        <span class="comment">//判断是否请求成功</span></span></span><br><span class="line"><span class="javascript">                        <span class="keyword">if</span>(xmlhttp.status&gt;=<span class="number">200</span>&amp;&amp;xmlhttp.status&lt;<span class="number">300</span>||</span></span><br><span class="line">                            xmlhttp.status ===304)&#123;</span><br><span class="line"><span class="javascript">                        <span class="built_in">console</span>.log(<span class="string">"接收到服务器返回的数据"</span>);</span></span><br><span class="line"><span class="javascript">                        &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="javascript">                            <span class="built_in">console</span>.log(<span class="string">"接收到服务器返回的数据"</span>);</span></span><br><span class="line">                        &#125;</span><br><span class="line">                        </span><br><span class="line"></span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span>&gt;</span>发送请求<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+    
 
-<p>04-ajax-get.php:</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"ajax get page"</span>:</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+    <footer class="post-footer">
+      
 
-<hr>
-<h2 id="1-1-5-get封装ajax上"><a href="#1-1-5-get封装ajax上" class="headerlink" title="1.1.5 get封装ajax上"></a>1.1.5 get封装ajax上</h2><p>myAjax.js:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ajax</span>(<span class="params">url,success,error</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> xmlhttp=<span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    <span class="comment">//2.设置请求方式和请求地址</span></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    * method:请求的类型：GET或POST</span></span><br><span class="line"><span class="comment">    * url:文件在服务器上的位置</span></span><br><span class="line"><span class="comment">    * async:true异步或false同步</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    * */</span></span><br><span class="line">    xmlhttp.open(<span class="string">"GET"</span>,url,<span class="literal">true</span>);</span><br><span class="line">    <span class="comment">//3.发送请求</span></span><br><span class="line">    xmlhttp.send();</span><br><span class="line">    <span class="comment">//4.监听状态的变化</span></span><br><span class="line">    xmlhttp.onreadystatechange=<span class="function"><span class="keyword">function</span>(<span class="params">ev2</span>)</span>&#123;</span><br><span class="line">        <span class="comment">//5.处理返回的结果</span></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        * XMLHttpRequest的四种状态:</span></span><br><span class="line"><span class="comment">        * 0. 请求未初始化</span></span><br><span class="line"><span class="comment">        * 1.服务器连接已建立</span></span><br><span class="line"><span class="comment">        * 2.请求已接收</span></span><br><span class="line"><span class="comment">        * 3.请求处理中</span></span><br><span class="line"><span class="comment">        * 4.请求已完成，且响应已就绪</span></span><br><span class="line"><span class="comment">        * */</span></span><br><span class="line">        <span class="keyword">if</span>(xmlhttp.readyState===<span class="number">4</span>) &#123;</span><br><span class="line">            <span class="comment">//判断是否请求成功</span></span><br><span class="line">            <span class="keyword">if</span> (xmlhttp.status &gt;= <span class="number">200</span> &amp;&amp; xmlhttp.status &lt; <span class="number">300</span> ||</span><br><span class="line">                xmlhttp.status === <span class="number">304</span>) &#123;</span><br><span class="line">                <span class="comment">// console.log("接收到服务器返回的数据");</span></span><br><span class="line">                success(xmlhttp);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">// console.log("接收到服务器返回的数据");</span></span><br><span class="line">                error(xmlhttp);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &#125;&#125;&#125;</span><br></pre></td></tr></table></figure>
+      
 
-<p>ajax.html:</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"myAjax.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">        1.什么是ajax?</span></span><br><span class="line"><span class="comment">        ajax是与服务器交换数据并更新部分网页的艺术，在不重新</span></span><br><span class="line"><span class="comment">        加载整个页面的情况下</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params">ev</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> oBtn =<span class="built_in">document</span>.querySelector(<span class="string">"button"</span>);</span></span><br><span class="line"><span class="javascript">            oBtn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params">ev1</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">            ajax(<span class="string">"04-ajax-get.php"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">xhr</span>)</span>&#123;</span></span><br><span class="line">                alert(xhr.responseText);</span><br><span class="line"><span class="javascript">            &#125;,<span class="function"><span class="keyword">function</span>(<span class="params">xhr</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">                alert(<span class="string">"失败"</span>);</span></span><br><span class="line">            &#125;)</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span>&gt;</span>发送请求<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+      
 
-<p>04-ajax-get.php:</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">  <span class="keyword">echo</span> <span class="string">"ajax get page"</span></span><br><span class="line">  <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
 
-<hr>
-<h2 id="1-1-6-Cookie"><a href="#1-1-6-Cookie" class="headerlink" title="1.1.6 Cookie"></a>1.1.6 Cookie</h2><p>cookie:会话跟踪技术，客户端</p>
-<p>scssion:会话跟踪技术，服务端</p>
-<p>cookie作用：</p>
-<p>将网页的数据保存到浏览器中</p>
-<p>cookie生命周期：</p>
-<p>默认情况下生命周期是一次会话(浏览器关闭)</p>
-<p>cookie注意点：</p>
-<p>cookie默认不会保存任何的数据</p>
-<p>cookie不参一次性设置多条数据，要想保存多条数据，只能一条一条的设置cookie有大小和个数的限制</p>
-<p>个数限制：20到50</p>
-<p>大小限制：4kb左右 </p>
-<p>cookie作用范围：</p>
-<p>同一个浏览器的同一个路径下访问 </p>
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/18/SVN/Svn/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张易">
+      <meta itemprop="description" content="张易 来自东北省">
+      <meta itemprop="image" content="/images/guwang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张易的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/12/18/SVN/Svn/" class="post-title-link" itemprop="url">Svn</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-12-18 11:17:45 / 修改时间：11:50:29" itemprop="dateCreated datePublished" datetime="2019-12-18T11:17:45+08:00">2019-12-18</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>服务器端下载:</p>
+<p><a href="https://www.visualsvn.com/" target="_blank" rel="noopener">https://www.visualsvn.com/</a></p>
+<p>客户端下载:</p>
+<p><a href="https://tortoisesvn.net/downloads.html" target="_blank" rel="noopener">https://tortoisesvn.net/downloads.html</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/17/Nginx/Nginx/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张易">
+      <meta itemprop="description" content="张易 来自东北省">
+      <meta itemprop="image" content="/images/guwang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张易的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/12/17/Nginx/Nginx/" class="post-title-link" itemprop="url">Nginx</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-12-17 11:39:58 / 修改时间：11:43:18" itemprop="dateCreated datePublished" datetime="2019-12-17T11:39:58+08:00">2019-12-17</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Nginx是一个高性能的HTTP和反向代理web服务器</p>
 
           
         
@@ -1995,7 +2141,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2039,7 +2185,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">56</span>
+                    <span class="site-state-item-count">66</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
